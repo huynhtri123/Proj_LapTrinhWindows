@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="35887482805542b5bb2e55460f3e6276" Name="Diagram1">
-        <EntityTypeShape EntityType="project_LTWDModel.CongDan" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="project_LTWDModel.QuanHe" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="project_LTWDModel.SoHoKhau" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="project_LTWDModel.ThanhVienSoHoKhau" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="project_LTWDModel.Thue" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <AssociationConnector Association="project_LTWDModel.FK__QuanHe__CMND1__7849DB76" ManuallyRouted="false" />
-        <AssociationConnector Association="project_LTWDModel.FK__QuanHe__CMND2__793DFFAF" ManuallyRouted="false" />
-        <AssociationConnector Association="project_LTWDModel.pk_soHoKhau_congDan" ManuallyRouted="false" />
-        <AssociationConnector Association="project_LTWDModel.pk_thanhVien_congDan" ManuallyRouted="false" />
-        <AssociationConnector Association="project_LTWDModel.thue_theo_cccd" ManuallyRouted="false" />
-        <AssociationConnector Association="project_LTWDModel.fk_thanhVien_quanHe" ManuallyRouted="false" />
-        <AssociationConnector Association="project_LTWDModel.fk_thanhVienSoHoKhau_soHoKhau" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="project_LTWDModel.TaiKhoan" Width="1.5" PointX="5.375" PointY="0.75" />
+      <Diagram DiagramId="fcfb2ed1c44c4359b6415b84aeaaa3d7" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLiCongDanModel.CongDan" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiCongDanModel.QuanHe" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiCongDanModel.SoHoKhau" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiCongDanModel.TaiKhoan" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiCongDanModel.ThanhVienSoHoKhau" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiCongDanModel.Thue" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="QuanLiCongDanModel.FK__QuanHe__CMND1__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiCongDanModel.FK__QuanHe__CMND2__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiCongDanModel.fk_thanhVien_congDan" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiCongDanModel.pk_soHoKhau_congDan" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiCongDanModel.thue_theo_cccd" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiCongDanModel.fk_thanhVien_quanHe" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiCongDanModel.fk_thanhVienSoHoKhau_soHoKhau" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

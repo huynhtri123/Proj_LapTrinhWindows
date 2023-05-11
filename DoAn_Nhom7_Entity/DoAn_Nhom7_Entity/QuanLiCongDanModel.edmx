@@ -4,28 +4,28 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="project_LTWDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QuanLiCongDanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CongDan">
           <Key>
             <PropertyRef Name="cmnd" />
           </Key>
-          <Property Name="hoTen" Type="varchar" MaxLength="100" />
-          <Property Name="ngayThangNamSinh" Type="varchar" MaxLength="255" />
-          <Property Name="gioiTinh" Type="varchar" MaxLength="100" />
+          <Property Name="hoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="ngayThangNamSinh" Type="nvarchar" MaxLength="255" />
+          <Property Name="gioiTinh" Type="nvarchar" MaxLength="100" />
           <Property Name="cmnd" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="danToc" Type="varchar" MaxLength="255" />
-          <Property Name="tinhTrangHonNhan" Type="varchar" MaxLength="100" />
-          <Property Name="noiDangKiKhaiSinh" Type="varchar" MaxLength="100" />
-          <Property Name="queQuan" Type="varchar" MaxLength="255" />
-          <Property Name="noiThuongTru" Type="varchar" MaxLength="100" />
-          <Property Name="trinhDoHocVan" Type="varchar" MaxLength="255" />
-          <Property Name="ngheNghiep" Type="varchar" MaxLength="100" />
+          <Property Name="danToc" Type="nvarchar" MaxLength="255" />
+          <Property Name="tinhTrangHonNhan" Type="nvarchar" MaxLength="100" />
+          <Property Name="noiDangKiKhaiSinh" Type="nvarchar" MaxLength="100" />
+          <Property Name="queQuan" Type="nvarchar" MaxLength="255" />
+          <Property Name="noiThuongTru" Type="nvarchar" MaxLength="100" />
+          <Property Name="trinhDoHocVan" Type="nvarchar" MaxLength="255" />
+          <Property Name="ngheNghiep" Type="nvarchar" MaxLength="100" />
           <Property Name="luong" Type="nvarchar" MaxLength="20" />
           <Property Name="soLanKetHon" Type="nvarchar" MaxLength="20" />
           <Property Name="tamTru" Type="nvarchar" MaxLength="100" />
           <Property Name="noiCapCMND" Type="nvarchar" MaxLength="100" />
-          <Property Name="ngayCap" Type="varchar" MaxLength="100" />
-          <Property Name="quocTich" Type="varchar" MaxLength="100" />
+          <Property Name="ngayCap" Type="nvarchar" MaxLength="100" />
+          <Property Name="quocTich" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="QuanHe">
           <Key>
@@ -44,12 +44,12 @@
           </Key>
           <Property Name="maSoHoKhau" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="CMNDChuHo" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="maKV" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="xaPhuong" Type="varchar" MaxLength="100" />
-          <Property Name="quanHuyen" Type="varchar" MaxLength="100" />
-          <Property Name="tinhTP" Type="varchar" MaxLength="100" />
-          <Property Name="diaChi" Type="varchar" MaxLength="100" />
-          <Property Name="ngayLap" Type="varchar" MaxLength="100" />
+          <Property Name="maKV" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="xaPhuong" Type="nvarchar" MaxLength="100" />
+          <Property Name="quanHuyen" Type="nvarchar" MaxLength="100" />
+          <Property Name="tinhTP" Type="nvarchar" MaxLength="100" />
+          <Property Name="diaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="ngayLap" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="TaiKhoan">
           <Key>
@@ -67,7 +67,7 @@
           <Property Name="maSoHoKhau" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="CMNDChuHo" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="CMNDThanhVien" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="quanHeVoiChuHo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="quanHeVoiChuHo" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Thue">
           <Key>
@@ -78,7 +78,7 @@
           <Property Name="MucThue" Type="real" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__QuanHe__CMND1__3E723F9C">
+        <Association Name="FK__QuanHe__CMND1__398D8EEE">
           <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
           <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -90,7 +90,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__QuanHe__CMND2__3F6663D5">
+        <Association Name="FK__QuanHe__CMND2__3A81B327">
           <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
           <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,18 +166,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="project_LTWDModelStoreContainer">
+        <EntityContainer Name="QuanLiCongDanModelStoreContainer">
           <EntitySet Name="CongDan" EntityType="Self.CongDan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuanHe" EntityType="Self.QuanHe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SoHoKhau" EntityType="Self.SoHoKhau" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThanhVienSoHoKhau" EntityType="Self.ThanhVienSoHoKhau" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Thue" EntityType="Self.Thue" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__QuanHe__CMND1__3E723F9C" Association="Self.FK__QuanHe__CMND1__3E723F9C">
+          <AssociationSet Name="FK__QuanHe__CMND1__398D8EEE" Association="Self.FK__QuanHe__CMND1__398D8EEE">
             <End Role="CongDan" EntitySet="CongDan" />
             <End Role="QuanHe" EntitySet="QuanHe" />
           </AssociationSet>
-          <AssociationSet Name="FK__QuanHe__CMND2__3F6663D5" Association="Self.FK__QuanHe__CMND2__3F6663D5">
+          <AssociationSet Name="FK__QuanHe__CMND2__3A81B327" Association="Self.FK__QuanHe__CMND2__3A81B327">
             <End Role="CongDan" EntitySet="CongDan" />
             <End Role="QuanHe" EntitySet="QuanHe" />
           </AssociationSet>
@@ -202,35 +202,36 @@
             <End Role="Thue" EntitySet="Thue" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="project_LTWDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="QuanLiCongDanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CongDan">
           <Key>
             <PropertyRef Name="cmnd" />
           </Key>
-          <Property Name="hoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ngayThangNamSinh" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="gioiTinh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="hoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ngayThangNamSinh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="gioiTinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cmnd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="danToc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="tinhTrangHonNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="noiDangKiKhaiSinh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="queQuan" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="noiThuongTru" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="trinhDoHocVan" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="ngheNghiep" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="danToc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tinhTrangHonNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="noiDangKiKhaiSinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="queQuan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="noiThuongTru" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="trinhDoHocVan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ngheNghiep" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="luong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="soLanKetHon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="tamTru" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="noiCapCMND" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ngayCap" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="quocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="QuanHes" Relationship="Self.FK__QuanHe__CMND1__7849DB76" FromRole="CongDan" ToRole="QuanHe" />
-          <NavigationProperty Name="QuanHes1" Relationship="Self.FK__QuanHe__CMND2__793DFFAF" FromRole="CongDan" ToRole="QuanHe" />
+          <Property Name="ngayCap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="quocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QuanHes" Relationship="Self.FK__QuanHe__CMND1__398D8EEE" FromRole="CongDan" ToRole="QuanHe" />
+          <NavigationProperty Name="QuanHes1" Relationship="Self.FK__QuanHe__CMND2__3A81B327" FromRole="CongDan" ToRole="QuanHe" />
+          <NavigationProperty Name="ThanhVienSoHoKhaus" Relationship="Self.fk_thanhVien_congDan" FromRole="CongDan" ToRole="ThanhVienSoHoKhau" />
           <NavigationProperty Name="SoHoKhaus" Relationship="Self.pk_soHoKhau_congDan" FromRole="CongDan" ToRole="SoHoKhau" />
-          <NavigationProperty Name="ThanhVienSoHoKhaus" Relationship="Self.pk_thanhVien_congDan" FromRole="CongDan" ToRole="ThanhVienSoHoKhau" />
           <NavigationProperty Name="Thue" Relationship="Self.thue_theo_cccd" FromRole="CongDan" ToRole="Thue" />
         </EntityType>
         <EntityType Name="QuanHe">
@@ -242,8 +243,8 @@
           <Property Name="CMND2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="quanHeVoiCMND1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="quanHeVoiCMND2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CongDan" Relationship="Self.FK__QuanHe__CMND1__7849DB76" FromRole="QuanHe" ToRole="CongDan" />
-          <NavigationProperty Name="CongDan1" Relationship="Self.FK__QuanHe__CMND2__793DFFAF" FromRole="QuanHe" ToRole="CongDan" />
+          <NavigationProperty Name="CongDan" Relationship="Self.FK__QuanHe__CMND1__398D8EEE" FromRole="QuanHe" ToRole="CongDan" />
+          <NavigationProperty Name="CongDan1" Relationship="Self.FK__QuanHe__CMND2__3A81B327" FromRole="QuanHe" ToRole="CongDan" />
           <NavigationProperty Name="ThanhVienSoHoKhaus" Relationship="Self.fk_thanhVien_quanHe" FromRole="QuanHe" ToRole="ThanhVienSoHoKhau" />
         </EntityType>
         <EntityType Name="SoHoKhau">
@@ -253,14 +254,21 @@
           </Key>
           <Property Name="maSoHoKhau" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CMNDChuHo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="maKV" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="xaPhuong" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="quanHuyen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="tinhTP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="diaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ngayLap" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="maKV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="xaPhuong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="quanHuyen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tinhTP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="diaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ngayLap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CongDan" Relationship="Self.pk_soHoKhau_congDan" FromRole="SoHoKhau" ToRole="CongDan" />
           <NavigationProperty Name="ThanhVienSoHoKhaus" Relationship="Self.fk_thanhVienSoHoKhau_soHoKhau" FromRole="SoHoKhau" ToRole="ThanhVienSoHoKhau" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="TaiKhoan1" />
+          </Key>
+          <Property Name="TaiKhoan1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ThanhVienSoHoKhau">
           <Key>
@@ -271,8 +279,8 @@
           <Property Name="maSoHoKhau" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CMNDChuHo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CMNDThanhVien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="quanHeVoiChuHo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CongDan" Relationship="Self.pk_thanhVien_congDan" FromRole="ThanhVienSoHoKhau" ToRole="CongDan" />
+          <Property Name="quanHeVoiChuHo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CongDan" Relationship="Self.fk_thanhVien_congDan" FromRole="ThanhVienSoHoKhau" ToRole="CongDan" />
           <NavigationProperty Name="QuanHe" Relationship="Self.fk_thanhVien_quanHe" FromRole="ThanhVienSoHoKhau" ToRole="QuanHe" />
           <NavigationProperty Name="SoHoKhau" Relationship="Self.fk_thanhVienSoHoKhau_soHoKhau" FromRole="ThanhVienSoHoKhau" ToRole="SoHoKhau" />
         </EntityType>
@@ -286,7 +294,7 @@
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CongDan" Relationship="Self.thue_theo_cccd" FromRole="Thue" ToRole="CongDan" />
         </EntityType>
-        <Association Name="FK__QuanHe__CMND1__7849DB76">
+        <Association Name="FK__QuanHe__CMND1__398D8EEE">
           <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
           <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -298,7 +306,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__QuanHe__CMND2__793DFFAF">
+        <Association Name="FK__QuanHe__CMND2__3A81B327">
           <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
           <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -307,6 +315,18 @@
             </Principal>
             <Dependent Role="QuanHe">
               <PropertyRef Name="CMND2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_thanhVien_congDan">
+          <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
+          <End Role="ThanhVienSoHoKhau" Type="Self.ThanhVienSoHoKhau" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CongDan">
+              <PropertyRef Name="cmnd" />
+            </Principal>
+            <Dependent Role="ThanhVienSoHoKhau">
+              <PropertyRef Name="CMNDThanhVien" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -319,18 +339,6 @@
             </Principal>
             <Dependent Role="SoHoKhau">
               <PropertyRef Name="CMNDChuHo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pk_thanhVien_congDan">
-          <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
-          <End Role="ThanhVienSoHoKhau" Type="Self.ThanhVienSoHoKhau" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CongDan">
-              <PropertyRef Name="cmnd" />
-            </Principal>
-            <Dependent Role="ThanhVienSoHoKhau">
-              <PropertyRef Name="CMNDThanhVien" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -378,23 +386,24 @@
           <EntitySet Name="CongDans" EntityType="Self.CongDan" />
           <EntitySet Name="QuanHes" EntityType="Self.QuanHe" />
           <EntitySet Name="SoHoKhaus" EntityType="Self.SoHoKhau" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
           <EntitySet Name="ThanhVienSoHoKhaus" EntityType="Self.ThanhVienSoHoKhau" />
           <EntitySet Name="Thues" EntityType="Self.Thue" />
-          <AssociationSet Name="FK__QuanHe__CMND1__7849DB76" Association="Self.FK__QuanHe__CMND1__7849DB76">
+          <AssociationSet Name="FK__QuanHe__CMND1__398D8EEE" Association="Self.FK__QuanHe__CMND1__398D8EEE">
             <End Role="CongDan" EntitySet="CongDans" />
             <End Role="QuanHe" EntitySet="QuanHes" />
           </AssociationSet>
-          <AssociationSet Name="FK__QuanHe__CMND2__793DFFAF" Association="Self.FK__QuanHe__CMND2__793DFFAF">
+          <AssociationSet Name="FK__QuanHe__CMND2__3A81B327" Association="Self.FK__QuanHe__CMND2__3A81B327">
             <End Role="CongDan" EntitySet="CongDans" />
             <End Role="QuanHe" EntitySet="QuanHes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_thanhVien_congDan" Association="Self.fk_thanhVien_congDan">
+            <End Role="CongDan" EntitySet="CongDans" />
+            <End Role="ThanhVienSoHoKhau" EntitySet="ThanhVienSoHoKhaus" />
           </AssociationSet>
           <AssociationSet Name="pk_soHoKhau_congDan" Association="Self.pk_soHoKhau_congDan">
             <End Role="CongDan" EntitySet="CongDans" />
             <End Role="SoHoKhau" EntitySet="SoHoKhaus" />
-          </AssociationSet>
-          <AssociationSet Name="pk_thanhVien_congDan" Association="Self.pk_thanhVien_congDan">
-            <End Role="CongDan" EntitySet="CongDans" />
-            <End Role="ThanhVienSoHoKhau" EntitySet="ThanhVienSoHoKhaus" />
           </AssociationSet>
           <AssociationSet Name="thue_theo_cccd" Association="Self.thue_theo_cccd">
             <End Role="CongDan" EntitySet="CongDans" />
@@ -408,23 +417,15 @@
             <End Role="SoHoKhau" EntitySet="SoHoKhaus" />
             <End Role="ThanhVienSoHoKhau" EntitySet="ThanhVienSoHoKhaus" />
           </AssociationSet>
-          <EntitySet Name="TaiKhoans" EntityType="project_LTWDModel.TaiKhoan" />
         </EntityContainer>
-        <EntityType Name="TaiKhoan">
-          <Key>
-            <PropertyRef Name="TaiKhoan1" />
-          </Key>
-          <Property Name="TaiKhoan1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="MatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="project_LTWDModelStoreContainer" CdmEntityContainer="QuanLiCongDanEntities">
+        <EntityContainerMapping StorageEntityContainer="QuanLiCongDanModelStoreContainer" CdmEntityContainer="QuanLiCongDanEntities">
           <EntitySetMapping Name="CongDans">
-            <EntityTypeMapping TypeName="project_LTWDModel.CongDan">
+            <EntityTypeMapping TypeName="QuanLiCongDanModel.CongDan">
               <MappingFragment StoreEntitySet="CongDan">
                 <ScalarProperty Name="hoTen" ColumnName="hoTen" />
                 <ScalarProperty Name="ngayThangNamSinh" ColumnName="ngayThangNamSinh" />
@@ -447,7 +448,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QuanHes">
-            <EntityTypeMapping TypeName="project_LTWDModel.QuanHe">
+            <EntityTypeMapping TypeName="QuanLiCongDanModel.QuanHe">
               <MappingFragment StoreEntitySet="QuanHe">
                 <ScalarProperty Name="CMND1" ColumnName="CMND1" />
                 <ScalarProperty Name="CMND2" ColumnName="CMND2" />
@@ -457,7 +458,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SoHoKhaus">
-            <EntityTypeMapping TypeName="project_LTWDModel.SoHoKhau">
+            <EntityTypeMapping TypeName="QuanLiCongDanModel.SoHoKhau">
               <MappingFragment StoreEntitySet="SoHoKhau">
                 <ScalarProperty Name="maSoHoKhau" ColumnName="maSoHoKhau" />
                 <ScalarProperty Name="CMNDChuHo" ColumnName="CMNDChuHo" />
@@ -470,8 +471,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="QuanLiCongDanModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="TaiKhoan1" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ThanhVienSoHoKhaus">
-            <EntityTypeMapping TypeName="project_LTWDModel.ThanhVienSoHoKhau">
+            <EntityTypeMapping TypeName="QuanLiCongDanModel.ThanhVienSoHoKhau">
               <MappingFragment StoreEntitySet="ThanhVienSoHoKhau">
                 <ScalarProperty Name="maSoHoKhau" ColumnName="maSoHoKhau" />
                 <ScalarProperty Name="CMNDChuHo" ColumnName="CMNDChuHo" />
@@ -481,20 +490,12 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Thues">
-            <EntityTypeMapping TypeName="project_LTWDModel.Thue">
+            <EntityTypeMapping TypeName="QuanLiCongDanModel.Thue">
               <MappingFragment StoreEntitySet="Thue">
                 <ScalarProperty Name="CCCD" ColumnName="CCCD" />
                 <ScalarProperty Name="LoaiThue" ColumnName="LoaiThue" />
                 <ScalarProperty Name="MucThue" ColumnName="MucThue" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TaiKhoans">
-            <EntityTypeMapping TypeName="project_LTWDModel.TaiKhoan">
-              <MappingFragment StoreEntitySet="TaiKhoan">
-                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
-                <ScalarProperty Name="TaiKhoan1" ColumnName="TaiKhoan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

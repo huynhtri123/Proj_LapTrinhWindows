@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Nam2\HK2\LapTrinhWindow\GITHUB\Do_An\lapTrinhWindow\DoAn_Nhom7_Entity\DoAn_Nhom7_Entity\QuanLiCongDanModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Nam2\HKII\LapTrinhWindows\Proj\Proj_LapTrinhWindows\DoAn_Nhom7_Entity\DoAn_Nhom7_Entity\QuanLiCongDanModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

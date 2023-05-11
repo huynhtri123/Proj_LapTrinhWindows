@@ -28,8 +28,8 @@ namespace DoAn_Nhom7_Entity
         public virtual DbSet<CongDan> CongDans { get; set; }
         public virtual DbSet<QuanHe> QuanHes { get; set; }
         public virtual DbSet<SoHoKhau> SoHoKhaus { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<ThanhVienSoHoKhau> ThanhVienSoHoKhaus { get; set; }
         public virtual DbSet<Thue> Thues { get; set; }
-        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }

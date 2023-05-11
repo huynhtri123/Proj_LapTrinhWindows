@@ -19,8 +19,8 @@ namespace DoAn_Nhom7_Entity
         {
             this.QuanHes = new HashSet<QuanHe>();
             this.QuanHes1 = new HashSet<QuanHe>();
-            this.SoHoKhaus = new HashSet<SoHoKhau>();
             this.ThanhVienSoHoKhaus = new HashSet<ThanhVienSoHoKhau>();
+            this.SoHoKhaus = new HashSet<SoHoKhau>();
         }
     
         public string hoTen { get; set; }
@@ -46,9 +46,9 @@ namespace DoAn_Nhom7_Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuanHe> QuanHes1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SoHoKhau> SoHoKhaus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ThanhVienSoHoKhau> ThanhVienSoHoKhaus { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SoHoKhau> SoHoKhaus { get; set; }
         public virtual Thue Thue { get; set; }
     }
 }
