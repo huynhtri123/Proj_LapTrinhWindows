@@ -80,7 +80,7 @@ namespace DoAn_Nhom7_Entity
                 quanHeVoiCMND1 = "Bố",
                 quanHeVoiCMND2 = "Con"
             };
-            db.QuanHes.Add(quanHe);
+            db.QuanHes.Add(quanHe2);
             db.SaveChanges();
 
             var quanHe3 = new QuanHe
@@ -90,7 +90,7 @@ namespace DoAn_Nhom7_Entity
                 quanHeVoiCMND1 = "Mẹ",
                 quanHeVoiCMND2 = "Con"
             };
-            db.QuanHes.Add(quanHe);
+            db.QuanHes.Add(quanHe3);
             db.SaveChanges();
 
             var quanHe4 = new QuanHe
@@ -100,7 +100,7 @@ namespace DoAn_Nhom7_Entity
                 quanHeVoiCMND1 = "Con",
                 quanHeVoiCMND2 = "Mẹ"
             };
-            db.QuanHes.Add(quanHe);
+            db.QuanHes.Add(quanHe4);
             db.SaveChanges();
         }
         public void ThemThanhVien(ThanhVienSoHoKhau tv)
@@ -257,8 +257,8 @@ namespace DoAn_Nhom7_Entity
                 var query = from qh in db.QuanHes
                             join tvshk in db.ThanhVienSoHoKhaus on qh.CMND1 equals tvshk.CMNDChuHo
                             where (qh.quanHeVoiCMND1 == "Con Trai" || qh.quanHeVoiCMND1 == "Con Gái") &&
-                                  ChuaCoQuanHe(tvshk.CMNDThanhVien, tv.CMNDThanhVien) &&
-                                  ChuaCoQuanHe(tv.CMNDThanhVien, tvshk.CMNDThanhVien)
+                                  !db.QuanHes.Any(q => (q.CMND1 == tvshk.CMNDThanhVien && q.CMND2 == tv.CMNDThanhVien) ||
+                                                      (q.CMND1 == tv.CMNDThanhVien && q.CMND2 == tvshk.CMNDThanhVien))
                             select new { qh.CMND1, qh.quanHeVoiCMND1 };
 
                 foreach (var result in query)
@@ -282,8 +282,8 @@ namespace DoAn_Nhom7_Entity
                 var query = from qh in db.QuanHes
                             join tvshk in db.ThanhVienSoHoKhaus on qh.CMND1 equals tvshk.CMNDChuHo
                             where (qh.quanHeVoiCMND1 == "Con Trai" || qh.quanHeVoiCMND1 == "Con Gái" || qh.quanHeVoiCMND1 == "Vợ" || qh.quanHeVoiCMND1 == "Con Dâu") &&
-                                  ChuaCoQuanHe(tvshk.CMNDThanhVien, tv.CMNDThanhVien) &&
-                                  ChuaCoQuanHe(tv.CMNDThanhVien, tvshk.CMNDThanhVien)
+                                  !db.QuanHes.Any(q => (q.CMND1 == tvshk.CMNDThanhVien && q.CMND2 == tv.CMNDThanhVien) ||
+                                                      (q.CMND1 == tv.CMNDThanhVien && q.CMND2 == tvshk.CMNDThanhVien))
                             select new { qh.CMND1, qh.quanHeVoiCMND1 };
 
                 foreach (var result in query)
@@ -314,8 +314,8 @@ namespace DoAn_Nhom7_Entity
                 var query = from qh in db.QuanHes
                             join tvshk in db.ThanhVienSoHoKhaus on qh.CMND1 equals tvshk.CMNDChuHo
                             where (qh.quanHeVoiCMND1 == "Bố" || qh.quanHeVoiCMND1 == "Mẹ" || qh.quanHeVoiCMND1 == "Anh Trai" || qh.quanHeVoiCMND1 == "Em Gái" || qh.quanHeVoiCMND1 == "Vợ") &&
-                                  ChuaCoQuanHe(tvshk.CMNDThanhVien, tv.CMNDThanhVien) &&
-                                  ChuaCoQuanHe(tv.CMNDThanhVien, tvshk.CMNDThanhVien)
+                                  !db.QuanHes.Any(q => (q.CMND1 == tvshk.CMNDThanhVien && q.CMND2 == tv.CMNDThanhVien) ||
+                                                      (q.CMND1 == tv.CMNDThanhVien && q.CMND2 == tvshk.CMNDThanhVien))
                             select new { qh.CMND1, qh.quanHeVoiCMND1 };
 
                 foreach (var result in query)
@@ -350,8 +350,8 @@ namespace DoAn_Nhom7_Entity
                 var query = from qh in db.QuanHes
                             join tvshk in db.ThanhVienSoHoKhaus on qh.CMND1 equals tvshk.CMNDChuHo
                             where (qh.quanHeVoiCMND1 == "Bố" || qh.quanHeVoiCMND1 == "Mẹ" || qh.quanHeVoiCMND1 == "Anh Trai" || qh.quanHeVoiCMND1 == "Em Gái") &&
-                                  ChuaCoQuanHe(tvshk.CMNDThanhVien, tv.CMNDThanhVien) &&
-                                  ChuaCoQuanHe(tv.CMNDThanhVien, tvshk.CMNDThanhVien)
+                                  !db.QuanHes.Any(q => (q.CMND1 == tvshk.CMNDThanhVien && q.CMND2 == tv.CMNDThanhVien) ||
+                                                      (q.CMND1 == tv.CMNDThanhVien && q.CMND2 == tvshk.CMNDThanhVien))
                             select new { qh.CMND1, qh.quanHeVoiCMND1 };
 
                 foreach (var result in query)
@@ -429,8 +429,8 @@ namespace DoAn_Nhom7_Entity
         {
             if (KiemTraHonNhan(txtCMNDCha.Text))
             {
-                int cc = SoLuongThanhVien(txtCMNDCha.Text);
-                MessageBox.Show(Convert.ToString(cc));
+                //int cc = SoLuongThanhVien(txtCMNDCha.Text);
+                //MessageBox.Show(Convert.ToString(cc));
                 string cmndcon = txtCMNDCha.Text + "-con " + SoLuongThanhVien(txtCMNDCha.Text) + "";
                 string GioiTinh;
                 if (rDNam.Checked)
@@ -467,9 +467,15 @@ namespace DoAn_Nhom7_Entity
                     noiDangKiKhaiSinh = txtNoiSinh.Text,
                     queQuan = txtQueQuan.Text,
                     noiThuongTru = txtQueQuan.Text,
+                    trinhDoHocVan = "",
+                    ngheNghiep = "",
+                    luong = "",
+                    soLanKetHon = "",
+                    tamTru = "",
+                    noiCapCMND = "",
+                    ngayCap = "",
                     quocTich = txtQuocTich.Text
                 };
-
                 db.CongDans.Add(congDan);
                 db.SaveChanges();
 
