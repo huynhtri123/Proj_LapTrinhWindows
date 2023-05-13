@@ -1,4 +1,4 @@
-use ahihi
+use project_LTWD
 --CONG DAN--
 CREATE TABLE CongDan (
  hoTen nvarchar(100),
@@ -20,29 +20,29 @@ CREATE TABLE CongDan (
  quocTich nvarchar (100)
 );
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Trịnh Văn Hải', '1/1/1981', N'Nam','1','Kinh','Da Ket Hon Voi Nguoi Co CMND La 2',N'Nghệ An',N'Nghệ An',N'Nghệ An',N'Đại Học',N'Làm mộc', '1000000','1',N'Hà Nội 01/01/2019',N'Nghệ An','2/2/2021',N'Việt Nam');
+VALUES (N'Trịnh Văn Hải', '01/01/1981', N'Nam','1','Kinh','Da Ket Hon Voi Nguoi Co CMND La 2',N'Nghệ An',N'Nghệ An',N'Nghệ An',N'Đại Học',N'Làm mộc', '1000000','1',N'Hà Nội 01/01/2019',N'Nghệ An','02/02/2021',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Đặng Thị Hoa', '2/2/1980', N'Nữ','2','Kinh','Da Ket Hon Voi Nguoi Co CMND La 1',N'Đà Nẵng',N'Đà Nẵng',N'Đà Nẵng',N'Đại Học',N'Làm nông', '2200000','2',N'Hà Nội 02/02/2020',N'Đà Nẵng','3/3/2021',N'Việt Nam');
+VALUES (N'Đặng Thị Hoa', '02/02/1980', N'Nữ','2','Kinh','Da Ket Hon Voi Nguoi Co CMND La 1',N'Đà Nẵng',N'Đà Nẵng',N'Đà Nẵng',N'Đại Học',N'Làm nông', '2200000','2',N'Hà Nội 02/02/2020',N'Đà Nẵng','03/03/2021',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Trịnh Văn Đạt', '3/6/2003', N'Nam','3',N'Bà Nà','Doc Than',N'Nghệ An',N'Nghệ An',N'Nghệ An',N'Đại Học',N'Sinh viên', '30000000','3',N'Nhà trọ 03/03/2021',N'Nghệ An','4/4/2021',N'Việt Nam');
+VALUES (N'Trịnh Văn Đạt', '03/06/2003', N'Nam','3',N'Bà Nà','Doc Than',N'Nghệ An',N'Nghệ An',N'Nghệ An',N'Đại Học',N'Sinh viên', '30000000','3',N'Nhà trọ 03/03/2021',N'Nghệ An','04/04/2021',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Nguyễn Thị Hòa', '4/3/1988', N'Nữ','5',N'Mông','Da Ket Hon Voi Nguoi Co CMND La 4',N'Vũng Tàu',N'Vũng Tàu',N'Vũng Tàu',N'Phổ Thông',N'Học sinh', '30000000','3',N'Quãng Ngãi 04/06/2018',N'Vũng Tàu','4/4/2021',N'Việt Nam');
+VALUES (N'Nguyễn Thị Hòa', '04/03/1988', N'Nữ','5',N'Mông','Da Ket Hon Voi Nguoi Co CMND La 4',N'Vũng Tàu',N'Vũng Tàu',N'Vũng Tàu',N'Phổ Thông',N'Học sinh', '30000000','3',N'Quãng Ngãi 04/06/2018',N'Vũng Tàu','04/04/2021',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Hồ Văn Cường', '7/4/1984', N'Nam','4',N'Hơ Me','Da Ket Hon Voi Nguoi Co CMND La 5',N'Vũng Tàu',N'Vũng Tàu',N'Vũng Tàu',N'Đại Học',N'Thợ may', '30000000','3',N'Quãng Ngãi 05/02/2023',N'Vũng Tàu','4/4/2021',N'Việt Nam');
+VALUES (N'Hồ Văn Cường', '07/04/1984', N'Nam','4',N'Hơ Me','Da Ket Hon Voi Nguoi Co CMND La 5',N'Vũng Tàu',N'Vũng Tàu',N'Vũng Tàu',N'Đại Học',N'Thợ may', '30000000','3',N'Quãng Ngãi 05/02/2023',N'Vũng Tàu','04/04/2021',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Trịnh Thị Liễu', '8/9/2000', N'Nữ','6','Kinh','Doc Than',N'Nghệ An',N'Nghệ An',N'Nghệ An',N'Trung Học',N'Bán hàng', '40000000','3',N'Kí túc xá 09/02/2021',N'Nghệ An','14/5/2019',N'Việt Nam');
+VALUES (N'Trịnh Thị Liễu', '08/09/2000', N'Nữ','6','Kinh','Doc Than',N'Nghệ An',N'Nghệ An',N'Nghệ An',N'Trung Học',N'Bán hàng', '40000000','3',N'Kí túc xá 09/02/2021',N'Nghệ An','14/05/2019',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Hồ Thị Mến', '3/5/2004', N'Nữ','7','Kinh','Doc Than',N'Vũng Tàu',N'Vũng Tàu',N'Vũng Tàu',N'Đại Học',N'Sinh viên', '40000000','3',N'Kí túc xá 09/02/2021',N'Hồ Chí Minh','4/4/2022',N'Việt Nam');
+VALUES (N'Hồ Thị Mến', '03/05/2004', N'Nữ','7','Kinh','Doc Than',N'Vũng Tàu',N'Vũng Tàu',N'Vũng Tàu',N'Đại Học',N'Sinh viên', '40000000','3',N'Kí túc xá 09/02/2021',N'Hồ Chí Minh','04/04/2022',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Hà Thủ Môn', '6/6/1992', N'Nữ','9','Kinh','Da Ket Hon Voi Nguoi Co CMND La 8',N'Đồng Tháp',N'Đồng Tháp',N'Đồng Tháp',N'Trung Học',N'Sửa xe', '47000000','3',N'Biên Hòa 03/03/2021',N'Đồng Tháp','4/4/2021',N'Việt Nam');
+VALUES (N'Hà Thủ Môn', '06/06/1992', N'Nữ','9','Kinh','Da Ket Hon Voi Nguoi Co CMND La 8',N'Đồng Tháp',N'Đồng Tháp',N'Đồng Tháp',N'Trung Học',N'Sửa xe', '47000000','3',N'Biên Hòa 03/03/2021',N'Đồng Tháp','04/04/2021',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Trịnh Thăng Bình', '1/3/1994', N'Nam','8','Kinh','Da Ket Hon Voi Nguoi Co CMND La 9',N'Đồng Nai',N'Đồng Nai',N'Đồng Nai',N'Đại Học',N'Làm nông', '40000000','3',N'Biên Hòa 07/02/2023',N'Đồng Nai','4/4/2021',N'Việt Nam');
+VALUES (N'Trịnh Thăng Bình', '01/03/1994', N'Nam','8','Kinh','Da Ket Hon Voi Nguoi Co CMND La 9',N'Đồng Nai',N'Đồng Nai',N'Đồng Nai',N'Đại Học',N'Làm nông', '40000000','3',N'Biên Hòa 07/02/2023',N'Đồng Nai','04/04/2021',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Đào Tấn Lộc', '2/4/2004', N'Nữ','10','Kinh','Doc Than',N'Quảng Bình',N'Quảng Bình',N'Quảng Bình',N'Đại Học',N'Sinh viên', '40000000','3',N'Kí túc xá 07/06/2020',N'Quảng Bình','14/4/2023',N'Việt Nam');
+VALUES (N'Đào Tấn Lộc', '02/04/2004', N'Nữ','10','Kinh','Doc Than',N'Quảng Bình',N'Quảng Bình',N'Quảng Bình',N'Đại Học',N'Sinh viên', '40000000','3',N'Kí túc xá 07/06/2020',N'Quảng Bình','14/04/2023',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Hồ Gia Bảo', '3/8/1992', N'Nữ','11','Kinh','Doc Than',N'Quảng Trị',N'Quảng Trị',N'Quảng Trị',N'Trung Học',N'Sửa xe', '47000000','3',N'Biên Hòa 08/02/2022',N'Quảng Trị','24/5/2021',N'Việt Nam');
+VALUES (N'Hồ Gia Bảo', '03/08/1992', N'Nữ','11','Kinh','Doc Than',N'Quảng Trị',N'Quảng Trị',N'Quảng Trị',N'Trung Học',N'Sửa xe', '47000000','3',N'Biên Hòa 08/02/2022',N'Quảng Trị','24/05/2021',N'Việt Nam');
 INSERT INTO CongDan (hoTen, ngayThangNamSinh, gioiTinh,cmnd,danToc,tinhTrangHonNhan,noiDangKiKhaiSinh,queQuan,noiThuongTru,trinhDoHocVan,ngheNghiep, luong,soLanKetHon,tamTru,noiCapCMND,NgayCap,quocTich)
-VALUES (N'Đinh Mạnh Ninh', '9/3/1994', N'Nam','12','Kinh','Doc Than',N'Đồng Nai',N'Đồng Nai',N'Đồng Nai',N'Đại Học',N'Làm nông', '40000000','3',N'Biên Hòa 09/03/2021',N'Đồng Nai','7/4/2021',N'Việt Nam');
+VALUES (N'Đinh Mạnh Ninh', '09/03/1994', N'Nam','12','Kinh','Doc Than',N'Đồng Nai',N'Đồng Nai',N'Đồng Nai',N'Đại Học',N'Làm nông', '40000000','3',N'Biên Hòa 09/03/2021',N'Đồng Nai','7/04/2021',N'Việt Nam');
 
 select * from CongDan
 
@@ -122,11 +122,11 @@ CREATE TABLE SoHoKhau(
 );
 
 INSERT INTO SoHoKhau(maSoHoKhau,CMNDChuHo,maKV,xaPhuong,quanHuyen,tinhTP,diaChi,ngayLap)
-Values('1','1','2NT',N'Long Đình',N'Cần Dược',N'Long An',N'Ấp 3','1993/2/1')
+Values('1','1','2NT',N'Long Đình',N'Cần Dược',N'Long An',N'Ấp 3','13/07/1994')
 INSERT INTO SoHoKhau(maSoHoKhau,CMNDChuHo,maKV,xaPhuong,quanHuyen,tinhTP,diaChi,ngayLap)
-Values('2','4','1',N'Linh Xuân',N'Thủ Đức',N'TPHCM',N'Đường số 5','1990/2/1')
+Values('2','4','1',N'Linh Xuân',N'Thủ Đức',N'TPHCM',N'Đường số 5','22/12/1995')
 INSERT INTO SoHoKhau(maSoHoKhau,CMNDChuHo,maKV,xaPhuong,quanHuyen,tinhTP,diaChi,ngayLap)
-Values('3','8','3MD',N'Phạm Văn Đồng',N'Thủ Đức',N'TPHCM',N'Duong so 5','1998/2/1')
+Values('3','8','3MD',N'Phạm Văn Đồng',N'Thủ Đức',N'TPHCM',N'Duong so 5','05/07/1988')
 select * from SoHoKhau
 
 --THANH VIEN SO HO KHAU--
@@ -196,3 +196,6 @@ select * from TaiKhoan
 --INSERT INTO ThanhVienSoHoKhau(maSoHoKhau, CMNDChuHo, CMNDThanhVien, quanHeVoiChuHo) SELECT '5', '6',CMNDThanhVien, quanHeVoiCMND1 FROM ThanhVienSoHoKhau INNER JOIN QuanHe ON QuanHe.CMND2 = ThanhVienSoHoKhau.CMNDThanhVien WHERE ThanhVienSoHoKhau.maSoHoKhau = '1' AND QuanHe.CMND1 = '6'
 --DELETE FROM ThanhVienSoHoKhau WHERE maSoHoKhau ='1'
 --DELETE FROM SoHoKhau WHERE maSoHoKhau ='1'
+ SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= 3
+SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo=1
+SELECT * FROM CongDan WHERE hoTen LIKE N'%Hải%'
