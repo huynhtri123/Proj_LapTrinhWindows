@@ -58,6 +58,7 @@
             this.btnSoHoKhau = new System.Windows.Forms.Button();
             this.btnThue = new System.Windows.Forms.Button();
             this.btnCCCD = new System.Windows.Forms.Button();
+            this.btnTimKiemTen = new System.Windows.Forms.Button();
             this.tclChucNang.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnTimKiem.SuspendLayout();
@@ -93,7 +94,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1502, 732);
+            this.tabPage1.Size = new System.Drawing.Size(1502, 669);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Trang chu";
             // 
@@ -180,6 +181,7 @@
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
+            this.tabPage2.Controls.Add(this.btnTimKiemTen);
             this.tabPage2.Controls.Add(this.rdbChuaKetHon);
             this.tabPage2.Controls.Add(this.rdbDaKetHon);
             this.tabPage2.Controls.Add(this.lblTinhTrang);
@@ -192,7 +194,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1412, 677);
+            this.tabPage2.Size = new System.Drawing.Size(1502, 669);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tra cuu ho so";
             // 
@@ -252,7 +254,7 @@
             this.btnRefresh.BackColor = System.Drawing.Color.Beige;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnRefresh.Location = new System.Drawing.Point(952, 17);
+            this.btnRefresh.Location = new System.Drawing.Point(1261, 14);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(124, 42);
             this.btnRefresh.TabIndex = 4;
@@ -278,11 +280,11 @@
             this.btnTimKiem.BackColor = System.Drawing.Color.Beige;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTimKiem.Location = new System.Drawing.Point(842, 17);
+            this.btnTimKiem.Location = new System.Drawing.Point(799, 17);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(83, 42);
+            this.btnTimKiem.Size = new System.Drawing.Size(222, 42);
             this.btnTimKiem.TabIndex = 2;
-            this.btnTimKiem.Text = "Tìm";
+            this.btnTimKiem.Text = "Tìm Theo CMND";
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -466,6 +468,19 @@
             this.btnCCCD.UseVisualStyleBackColor = false;
             this.btnCCCD.Click += new System.EventHandler(this.btnCCCD_Click);
             // 
+            // btnTimKiemTen
+            // 
+            this.btnTimKiemTen.BackColor = System.Drawing.Color.Beige;
+            this.btnTimKiemTen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiemTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTimKiemTen.Location = new System.Drawing.Point(1027, 17);
+            this.btnTimKiemTen.Name = "btnTimKiemTen";
+            this.btnTimKiemTen.Size = new System.Drawing.Size(222, 42);
+            this.btnTimKiemTen.TabIndex = 12;
+            this.btnTimKiemTen.Text = "Tìm Theo Tên";
+            this.btnTimKiemTen.UseVisualStyleBackColor = false;
+            this.btnTimKiemTen.Click += new System.EventHandler(this.btnTimKiemTen_Click);
+            // 
             // FTrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -524,6 +539,7 @@
         private System.Windows.Forms.Button btnKhaiTu;
         private System.Windows.Forms.Button btnKhaiSinh;
         private System.Windows.Forms.Panel pnHienThi;
+        private System.Windows.Forms.Button btnTimKiemTen;
     }
 }
 

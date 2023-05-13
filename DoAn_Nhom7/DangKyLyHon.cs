@@ -34,9 +34,9 @@ namespace DoAn_Nhom7
                 string CMNDChuHo = dklhDao.TimChuHoSHK(mashk);
                 string quanhe;
                 if (CMNDChuHo == txtCMNDA.Text)
-                    quanhe = "Vo";
+                    quanhe = "Vợ";
                 else
-                    quanhe = "Con Dau";
+                    quanhe = "Con Dâu";
                 ThanhVienShk tv = new ThanhVienShk(mashk, CMNDChuHo, txtCMNDB.Text,quanhe);
                 //tvDao.XoaThanhVien(tv);
                 CongDan a = new CongDan(txtCMNDB.Text);

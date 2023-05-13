@@ -24,5 +24,10 @@ namespace DoAn_Nhom7
         {
 
         }
+
+        private void ucSoHoKhau1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -62,6 +62,12 @@
       <DependentUpon>DangKyLyHon.cs</DependentUpon>
     </Compile>
     <Compile Include="DangKyLyHonDAO.cs" />
+    <Compile Include="FChuyenChuHo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FChuyenChuHo.Designer.cs">
+      <DependentUpon>FChuyenChuHo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FCongDan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DangKyLyHon.resx">
       <DependentUpon>DangKyLyHon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FChuyenChuHo.resx">
+      <DependentUpon>FChuyenChuHo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FCongDan.resx">
       <DependentUpon>FCongDan.cs</DependentUpon>

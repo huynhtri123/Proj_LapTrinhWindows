@@ -245,5 +245,11 @@ namespace DoAn_Nhom7
             pnHienThi.Controls.Clear();
             pnHienThi.Controls.Add(uc);
         }
+
+        private void btnTimKiemTen_Click(object sender, EventArgs e)
+        {
+            DataSet dts = congdandao.TimCongDanTheoTen(txtCCCD.Text, dGVDanhSach);
+            this.dGVDanhSach.DataSource = dts.Tables["hoTen"];
+        }
     }
 }

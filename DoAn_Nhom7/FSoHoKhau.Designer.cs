@@ -39,6 +39,7 @@
             this.ucSoHoKhau1.Name = "ucSoHoKhau1";
             this.ucSoHoKhau1.Size = new System.Drawing.Size(1176, 709);
             this.ucSoHoKhau1.TabIndex = 0;
+            this.ucSoHoKhau1.Load += new System.EventHandler(this.ucSoHoKhau1_Load);
             // 
             // FSoHoKhau
             // 

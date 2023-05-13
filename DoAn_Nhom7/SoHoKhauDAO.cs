@@ -28,7 +28,7 @@ namespace DoAn_Nhom7
         {
             string sqlStr = string.Format("INSERT INTO SoHoKhau (maSoHoKhau, CMNDChuHo, maKV, xaPhuong, quanHuyen, tinhTP, diaChi,ngayLap)  VALUES ('{0}', '{1}','{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", hk.MaSoHoKhau, hk.CMND, hk.MaKV, hk.XaPhuong, hk.QuanHuyen, hk.TinhThanhPho
             , hk.DiaChi, hk.NgayLap);
-            dbconnection.XuLy(sqlStr);
+            dbconnection.XuLy1(sqlStr);
         }
         public void SuaSoHoKhau(SoHoKhau hk)
         {
@@ -58,14 +58,14 @@ namespace DoAn_Nhom7
             dbconnection.XuLy(sqlStr8);
             dbconnection.XuLy(sqlStr9);
             dbconnection.XuLy(sqlStr10);
-            dbconnection.XuLy(sqlStr11);
+            dbconnection.XuLy1(sqlStr11);
         }
         public void XoaSoHoKhau(SoHoKhau hk)
         {
             string sqlStr1 = string.Format("DELETE FROM ThanhVienSoHoKhau WHERE maSoHoKhau = '{0}'", hk.MaSoHoKhau);
             string sqlStr = string.Format("DELETE FROM SoHoKhau WHERE maSoHoKhau = '{0}'", hk.MaSoHoKhau);
             dbconnection.XuLy(sqlStr1);
-            dbconnection.XuLy(sqlStr);
+            dbconnection.XuLy1(sqlStr);
         }
         public void LapSoHoKhau(TextBox txtMaSoHoKhau,TextBox txtCMND, TextBox txtMaKhuVuc,TextBox txtXaPhuong,TextBox txtQuanHuyen,TextBox txtTinhThanhPho,TextBox txtDiaChi,DateTimePicker dtpNgayLap)
         {

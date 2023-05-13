@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Policy;
+using System.Globalization;
 
 namespace DoAn_Nhom7
 {
@@ -101,6 +102,7 @@ namespace DoAn_Nhom7
             ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text ,txtCMND.Text, txtCmnd_tv.Text, txtQuanHe.Text);
             if (shkDao.KiemTraTVSHK(txtCmnd_tv.Text))
             {
+                tvDao.ThietLapQuanHe(tv);
                 tvDao.ThemThanhVien(tv);
                 LayDanhSachThanhVien();
             }
@@ -133,7 +135,9 @@ namespace DoAn_Nhom7
             txtQuanHuyen.Text = row.Cells[4].Value.ToString();
             txtTinhThanhPho.Text = row.Cells[5].Value.ToString();
             txtDiaChi.Text = row.Cells[6].Value.ToString();
-            dtpNgayLap.Text = row.Cells[7].Value.ToString();
+            DateTime ngayLap = DateTime.ParseExact(row.Cells[7].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            dtpNgayLap.Value = ngayLap;
+
         }
 
         private void dtgvThanhVienShk_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -144,6 +148,7 @@ namespace DoAn_Nhom7
         private void txtCmnd_tv_KeyDown(object sender, KeyEventArgs e)
         {
             hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, txtQuanHe);
+
             if (txtHoTen_tv.Text == "")
                 hkdao.LapThongTin(txtCmnd_tv, txtHoTen_tv, txtGioiTinh_tv);
         }
@@ -207,6 +212,7 @@ namespace DoAn_Nhom7
         {
             hkdao.LapSoHoKhau(txtMaSoHoKhau, txtCMND, txtMaKhuVuc, txtXaPhuong, txtQuanHuyen, txtTinhThanhPho, txtDiaChi, dtpNgayLap);
         }
+
 
     }
     

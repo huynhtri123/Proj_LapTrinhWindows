@@ -284,7 +284,8 @@
             this.dtgvThanhVienShk.RowTemplate.Height = 24;
             this.dtgvThanhVienShk.Size = new System.Drawing.Size(357, 105);
             this.dtgvThanhVienShk.TabIndex = 22;
-            this.dtgvThanhVienShk.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvThanhVienShk_CellClick);            // 
+            this.dtgvThanhVienShk.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvThanhVienShk_CellClick);
+            // 
             // pnSoHoKhau
             // 
             this.pnSoHoKhau.BackColor = System.Drawing.Color.LightBlue;

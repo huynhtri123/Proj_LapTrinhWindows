@@ -40,9 +40,14 @@ namespace DoAn_Nhom7
                     quanhe = "Con Dâu";
                 ThanhVienShk tv = new ThanhVienShk(maSHKCK, CMNDChuHoCK, txtGiayToTuyThanNu.Text, quanhe);
                 ThanhVienShk tv1 = new ThanhVienShk(maSHKVK, CMNDChuHoVK, txtGiayToTuyThanNu.Text, "Con Gái");
-                mem.XoaThanhVien(tv1);
                 cddao.CapNhatKetHon(cdA, cdB);
-                mem.ThemThanhVien(tv);
+                mem.ThietLapQuanHe(tv);
+                DialogResult result = MessageBox.Show("Bạn có muốn chuyển sổ hộ khẩu người vợ không ?", "Thông báo", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    mem.XoaThanhVien(tv1);
+                    mem.ThemThanhVien(tv);
+                }
             }
             else
                 MessageBox.Show("Có người không đạt điều kiện kết hôn (1.chưa đủ tuổi; 2.đã kết hôn,3. trong 1 gia đình)");

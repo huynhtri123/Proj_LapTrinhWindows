@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
 using System.Security.Policy;
@@ -152,8 +153,9 @@ namespace DoAn_Nhom7
             while (dta.Read())
             {
                 a.Text = Convert.ToString(dta["hoTen"]);
-                dt.Text = Convert.ToString(dta["ngayThangNamSinh"]);
-                if (Convert.ToString(dta["gioiTinh"]) == "nu")
+                DateTime ngaySinh = DateTime.ParseExact(Convert.ToString(dta["ngayThangNamSinh"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                dt.Value = ngaySinh;
+                if (Convert.ToString(dta["gioiTinh"]) == "Nữ")
                     b.Checked=true;
                 else
                     b1.Checked=true;
@@ -168,7 +170,8 @@ namespace DoAn_Nhom7
                 i.Text = Convert.ToString(dta["soLanKetHon"]);
                 t.Text = Convert.ToString(dta["tamTru"]);
                 n.Text = Convert.ToString(dta["noiCapCMND"]);
-                m.Text = Convert.ToString(dta["ngayCap"]);
+                DateTime ngaycap = DateTime.ParseExact(Convert.ToString(dta["ngayCap"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                m.Value = ngaycap;
                 p.Text = Convert.ToString(dta["QuocTich"]);
             }
             conn.Close();
@@ -287,6 +290,23 @@ namespace DoAn_Nhom7
             else
             {
                 MessageBox.Show("Không tìm thấy ai có CMND này!");
+            }
+            conn.Close();
+            return ds;
+        }
+        public DataSet TimCongDanTheoTen(string sqlStr, DataGridView dtgv)
+        {
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(sqlStr, conn);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "hoTen");
+            if (ds.Tables["hoTen"].Rows.Count > 0)
+            {
+                dtgv.DataSource = ds.Tables["hoTen"];
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy ai có tên này!");
             }
             conn.Close();
             return ds;
@@ -433,6 +453,7 @@ namespace DoAn_Nhom7
             conn.Close();
             return true;
         }
+
         public bool KiemTraTVSHK(string cmnd, string sqlStr)
         {
             conn.Open();           
@@ -492,7 +513,8 @@ namespace DoAn_Nhom7
                     txtQuanHuyen.Text = Convert.ToString(dta["quanHuyen"]);
                     txtTinhThanhPho.Text = Convert.ToString(dta["tinhTP"]);
                     txtDiaChi.Text = Convert.ToString(dta["diaChi"]);
-                    dtpNgayLap.Text = Convert.ToString(dta["ngayLap"]);
+                    DateTime ngayLap = DateTime.ParseExact(Convert.ToString(dta["ngayLap"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    dtpNgayLap.Value = ngayLap;
                 }
             }
             catch (Exception ex)
@@ -513,7 +535,6 @@ namespace DoAn_Nhom7
                 SqlDataReader dta = cmd.ExecuteReader();
                 if (dta.Read())
                 {
-                    txtMaShk_tv.Text = txtMaSoHoKhau.Text;
                     txtHoTen_tv.Text = Convert.ToString(dta["hoTen"]); ;
                     txtGioiTinh_tv.Text = Convert.ToString(dta["gioiTinh"]);
                     txtQuanHe.Text = Convert.ToString(dta["quanHeVoiCMND1"]);
@@ -533,7 +554,14 @@ namespace DoAn_Nhom7
             finally
             {
                 conn.Close();
-            }          
+            }
+            if (KiemTraSHK(txtCmnd_tv.Text)==false)
+                txtMaShk_tv.Text = txtMaSoHoKhau.Text;
+            else
+                txtMaShk_tv.Text = "";
+
+
+
         }
         public void TraCuu_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, TextBox xaPhuong, TextBox quanHuyen, TextBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, TextBox quanHe)
         {

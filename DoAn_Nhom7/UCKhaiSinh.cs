@@ -58,7 +58,12 @@ namespace DoAn_Nhom7
                 cdDao.Them(congDan);
                 cdDao.CapNhatKhaiSinh(txtCMNDCha.Text, txtCMNDMe.Text, cmndcon);
                 //mem.ThietLapMoiQuanHeBoCon(tv);
-                mem.ThemThanhVien(tv);
+                mem.ThietLapQuanHe(tv);
+                DialogResult result = MessageBox.Show("Bạn có muốn thêm con vào sổ hộ khẩu không", "Thông báo", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    mem.ThemThanhVien(tv);
+                }
                 FThongTinCongDancs form = new FThongTinCongDancs();
                 form.cmnd = cmndcon;
                 form.cmndbo = txtCMNDCha.Text;

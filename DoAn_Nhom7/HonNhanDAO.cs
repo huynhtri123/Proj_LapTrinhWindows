@@ -33,7 +33,8 @@ namespace DoAn_Nhom7
         }
         public int Tuoi(string cmnd)
         {
-            string sqlStr = string.Format("SELECT DATEDIFF(year, cast(ngayThangNamSinh as datetime), getdate()) AS  Tuoi from CongDan Where cmnd = '" + cmnd + "'");
+            //string sqlStr = string.Format("SELECT DATEDIFF(year, cast(ngayThangNamSinh as datetime), getdate()) AS  Tuoi from CongDan Where cmnd = '" + cmnd + "'");
+            string sqlStr = string.Format("SELECT DATEDIFF(year, CONVERT(datetime, ngayThangNamSinh, 103), GETDATE()) AS Tuoi FROM CongDan WHERE cmnd = '"+cmnd+"'");
             return dbc.TinhTuoi(sqlStr);
         }
         public bool ThoaDieuKienLyHon(string cmndNam, string cmndNu)

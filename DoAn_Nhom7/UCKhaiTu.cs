@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DoAn_Nhom7
 {
@@ -20,6 +21,7 @@ namespace DoAn_Nhom7
         ThueDAO thueDao = new ThueDAO();
         KhaiTuDAO ktDao = new KhaiTuDAO();
         SoHoKhauDAO hkdao = new SoHoKhauDAO();
+        KhaiSinhDAO ksdao = new KhaiSinhDAO();
         public UCKhaiTu()
         {
             InitializeComponent();
@@ -27,31 +29,22 @@ namespace DoAn_Nhom7
 
         private void btnNop_Click(object sender, EventArgs e)
         {
+            string cmndbandau=txtCCCD.Text;
+            string mashk = ksdao.TimMaSHK(cmndbandau);
+            string cccdchuho = ksdao.TimChuHoSHK(mashk);
             if (cbToiDongY.Checked)
             {
                 Thue thue = new Thue(txtCCCD.Text);
                 thueDao.XoaDoiTuong(thue);
                 string sqlStr = string.Format("Select * from SoHoKhau where CMNDChuHo = '"+txtCCCD.Text+"'");
-                string sqlStr1 = string.Format("Select * from ThanhVienSoHoKhau where CMNDChuHo ='"+txtCCCD.Text+"'");
                 string maSoHoKhau , CMND="", maKhuVuc, xaPhuong, quanHuyen,tinhThanhPho, diaChi, ngayLap;
-                try
+                if (cccdchuho == cmndbandau)
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr1, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    while (dta.Read())
-                    {
-                        CMND = Convert.ToString(dta["CMNDThanhVien"]);
-                        break;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
+                    FChuyenChuHo chuho = new FChuyenChuHo();
+                    chuho.cmnd = txtCCCD;
+                    chuho.ShowDialog();
+                    string[] words = txtCCCD.Text.Split(' ');
+                    CMND = words[words.Length - 1];
                 }
                 try
                 {
@@ -83,7 +76,7 @@ namespace DoAn_Nhom7
                     conn.Close();
                 }
 
-                CongDan cd = new CongDan(txtCCCD.Text);
+                CongDan cd = new CongDan(cmndbandau);
                 cdDao.Xoa(cd);
             }
             else

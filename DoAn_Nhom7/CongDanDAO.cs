@@ -116,5 +116,10 @@ namespace DoAn_Nhom7
             string sqlStr = "SELECT * from CongDan WHERE cmnd = '" + cccd + "'";
             return db.TimCongDanTheoCCCD(sqlStr, dtgv);
         }
+        public DataSet TimCongDanTheoTen(string name, DataGridView dtgv)
+        {
+            string sqlStr = "SELECT * from CongDan WHERE hoTen LIKE N'%" + name + "%'";
+            return db.TimCongDanTheoTen(sqlStr, dtgv);
+        }
     }
 }
