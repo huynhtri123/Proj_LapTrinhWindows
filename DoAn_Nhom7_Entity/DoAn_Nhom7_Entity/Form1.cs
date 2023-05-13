@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -250,7 +252,7 @@ namespace DoAn_Nhom7_Entity
                 if (!row.IsNewRow)
                 {
                     string date = (string)row.Cells["tamTru"].Value;
-                    if (date.Length > 11)
+                    if (date != null && date.Length > 11)
                     {
                         string[] lines = date.Split('\n');
                         string dateStart = lines[0].Substring(lines[0].Length - 10);
@@ -263,20 +265,46 @@ namespace DoAn_Nhom7_Entity
                             DataGridViewCell cell = row.Cells[13];
                             cell.ErrorText = "Số tháng tạm trú vượt quá 24 : " + months;
                             row.ErrorText = "Có lỗi về ngày tạm trú";
-
                         }
                     }
                 }
             }
-
         }
         private void dGVDanhSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //string cmnd = dGVDanhSach.Rows[e.RowIndex].Cells["cmnd"].Value.ToString();
+            string data = dGVDanhSach.Rows[e.RowIndex].Cells["cmnd"].Value.ToString();
+            DataGridViewRow row = dGVDanhSach.Rows[e.RowIndex];
+            if (row.ErrorText != "")
+            // Tạo và hiển thị form mới với thông tin từ cell click
+            {
+                tclChucNang.SelectedIndex = 2;
+                pnHienThi.Visible = true;
+                UCTamTruTamVang uc = new UCTamTruTamVang();
+                uc.Data = data;
+                uc.Dock = DockStyle.Fill;
+                pnHienThi.Controls.Clear();
+                pnHienThi.Controls.Add(uc);
+            }
+            else
+            {
+                string imagePath = "" + data + ".png";
+                if (File.Exists(imagePath))
+                {
+                    Process.Start(imagePath);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy tệp ảnh.");
+                }
+            }
+        }
 
-            //// Tạo và hiển thị form mới với thông tin từ cell click
-            //FThongTinCongDan form = new FThongTinCongDan(cmnd);
-            //form.ShowDialog();
+        private void btnKhaiSinh_Click(object sender, EventArgs e)
+        {
+            UCKhaiSinh uc = new UCKhaiSinh();
+            uc.Dock = DockStyle.Fill;
+            pnHienThi.Controls.Clear();
+            pnHienThi.Controls.Add(uc);
         }
     }
 }

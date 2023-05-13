@@ -26,5 +26,11 @@ namespace DoAn_Nhom7_Entity
             FDangKiKetHon dkkh = new FDangKiKetHon();
             dkkh.ShowDialog();
         }
+
+        private void btnDangKyLyHon_Click(object sender, EventArgs e)
+        {
+            FDangKyLyHon frm = new FDangKyLyHon();
+            frm.ShowDialog();
+        }
     }
 }

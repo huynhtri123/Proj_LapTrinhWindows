@@ -133,6 +133,7 @@
             this.btnDangKyLyHon.TabIndex = 1;
             this.btnDangKyLyHon.Text = "Đăng Ký Ly Hôn";
             this.btnDangKyLyHon.UseVisualStyleBackColor = true;
+            this.btnDangKyLyHon.Click += new System.EventHandler(this.btnDangKyLyHon_Click);
             // 
             // UCHonNhan
             // 

@@ -192,5 +192,10 @@ namespace DoAn_Nhom7_Entity
                 LapDayThongTin(txtGiayToTuyThanNu, txtHoTenNu, txtNgaySinhNu, txtDanTocNu, txtQueQuanNu, txtNoiCuTruNu);
             }
         }
+
+        private void FDangKiKetHon_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

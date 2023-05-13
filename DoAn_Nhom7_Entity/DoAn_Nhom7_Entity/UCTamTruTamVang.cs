@@ -13,6 +13,7 @@ namespace DoAn_Nhom7_Entity
     public partial class UCTamTruTamVang : UserControl
     {
         QuanLiCongDanEntities db = new QuanLiCongDanEntities();
+        public string Data { get; set; }
         public UCTamTruTamVang()
         {
             InitializeComponent();
@@ -20,7 +21,8 @@ namespace DoAn_Nhom7_Entity
 
         private void UCTamTruTamVang_Load(object sender, EventArgs e)
         {
-
+            txtCMND.Text = Data;
+            LapDayThongTinTamTru(txtCMND, txtHoTen, txtNgaySinh, txtCongAn1, txtThuongTru, txtNgayCap);
         }
         public void LapDayThongTinTamTru(TextBox cmnd, TextBox hoTen, TextBox ngaySinh, TextBox queQuan, TextBox thuongTru, TextBox ngayCap)
         {
