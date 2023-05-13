@@ -368,6 +368,7 @@
             this.Name = "FDangKiKetHon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG KÝ KẾT HÔN";
+            this.Load += new System.EventHandler(this.FDangKiKetHon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

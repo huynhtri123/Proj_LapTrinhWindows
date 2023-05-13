@@ -24,8 +24,7 @@ namespace DoAn_Nhom7
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
-                    /*MessageBox.Show("thanh cong");*/
-            
+                    /*MessageBox.Show("thanh cong");*/           
             }
             catch (Exception ex)
             {
