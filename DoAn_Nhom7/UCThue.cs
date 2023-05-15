@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DoAn_Nhom7
 {
@@ -17,6 +18,19 @@ namespace DoAn_Nhom7
         public UCThue()
         {
             InitializeComponent();
+            string[] loaiThue = { "Thuế thu nhập cá nhân", "Thuế bảo vệ môi trường", "Thuế tài nguyên", "Thuế nhà đất" };
+            foreach (string dt in loaiThue)
+            {
+                cmbLoaiThue.Items.Add(dt);
+            }
+            AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+            foreach (string dt in loaiThue)
+            {
+                data.Add(dt);
+            }
+            cmbLoaiThue.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbLoaiThue.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbLoaiThue.AutoCompleteCustomSource = data;
         }
         private void UCThue_Load(object sender, EventArgs e)
         {
@@ -88,19 +102,19 @@ namespace DoAn_Nhom7
         }
         private void btnThemDoiTuong_Click(object sender, EventArgs e)
         {
-            Thue thue = new Thue(txtCCCD2.Text, txtLoaiThue2.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
+            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
             thueDao.ThemDoiTuong(thue);
             LayDanhSach();
         }
         private void btnSuaDoiTuong_Click(object sender, EventArgs e)
         {
-            Thue thue = new Thue(txtCCCD2.Text, txtLoaiThue2.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
+            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
             thueDao.SuaDoiTuong(thue);
             LayDanhSach();
         }
         private void btnXoaDoiTuong_Click(object sender, EventArgs e)
         {
-            Thue thue = new Thue(txtCCCD2.Text, txtLoaiThue2.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
+            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
             thueDao.XoaDoiTuong(thue);
             LayDanhSach();
         }
@@ -129,7 +143,7 @@ namespace DoAn_Nhom7
             DataGridViewRow row = new DataGridViewRow();
             row = dGVThue.Rows[e.RowIndex];
             txtCCCD2.Text = row.Cells[0].Value.ToString();
-            txtLoaiThue2.Text = row.Cells[1].Value.ToString();
+            cmbLoaiThue.Text = row.Cells[1].Value.ToString();
             txtMucThue2.Text = row.Cells[2].Value.ToString();
             txtTinhTrang2.Text = row.Cells[3].Value.ToString();
         }

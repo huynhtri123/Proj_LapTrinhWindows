@@ -43,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtMucThue2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtLoaiThue2 = new System.Windows.Forms.TextBox();
             this.dGVChinhSuaDanhSach = new System.Windows.Forms.DataGridView();
             this.lblCCCD = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.txtMucThue = new System.Windows.Forms.TextBox();
             this.lblLoaiThue = new System.Windows.Forms.Label();
             this.txtLoaiThue = new System.Windows.Forms.TextBox();
+            this.cmbLoaiThue = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVThue)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVChinhSuaDanhSach)).BeginInit();
@@ -118,6 +118,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmbLoaiThue);
             this.tabPage2.Controls.Add(this.btnXoaDoiTuong);
             this.tabPage2.Controls.Add(this.btnSuaDoiTuong);
             this.tabPage2.Controls.Add(this.btnThemDoiTuong);
@@ -128,14 +129,13 @@
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.txtMucThue2);
             this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.txtLoaiThue2);
             this.tabPage2.Controls.Add(this.dGVChinhSuaDanhSach);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(852, 429);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Chinh sua danh sach";
+            this.tabPage2.Text = "Chỉnh sửa danh sách";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnXoaDoiTuong
@@ -145,7 +145,7 @@
             this.btnXoaDoiTuong.Name = "btnXoaDoiTuong";
             this.btnXoaDoiTuong.Size = new System.Drawing.Size(153, 34);
             this.btnXoaDoiTuong.TabIndex = 30;
-            this.btnXoaDoiTuong.Text = "Xoa doi tuong";
+            this.btnXoaDoiTuong.Text = "Xóa đối tượng";
             this.btnXoaDoiTuong.UseVisualStyleBackColor = true;
             this.btnXoaDoiTuong.Click += new System.EventHandler(this.btnXoaDoiTuong_Click);
             // 
@@ -156,7 +156,7 @@
             this.btnSuaDoiTuong.Name = "btnSuaDoiTuong";
             this.btnSuaDoiTuong.Size = new System.Drawing.Size(153, 34);
             this.btnSuaDoiTuong.TabIndex = 29;
-            this.btnSuaDoiTuong.Text = "Sua doi tuong";
+            this.btnSuaDoiTuong.Text = "Sửa đối tượng";
             this.btnSuaDoiTuong.UseVisualStyleBackColor = true;
             this.btnSuaDoiTuong.Click += new System.EventHandler(this.btnSuaDoiTuong_Click);
             // 
@@ -167,7 +167,7 @@
             this.btnThemDoiTuong.Name = "btnThemDoiTuong";
             this.btnThemDoiTuong.Size = new System.Drawing.Size(153, 34);
             this.btnThemDoiTuong.TabIndex = 28;
-            this.btnThemDoiTuong.Text = "Them doi tuong";
+            this.btnThemDoiTuong.Text = "Thêm đối tượng";
             this.btnThemDoiTuong.UseVisualStyleBackColor = true;
             this.btnThemDoiTuong.Click += new System.EventHandler(this.btnThemDoiTuong_Click);
             // 
@@ -177,9 +177,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label6.Location = new System.Drawing.Point(374, 158);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 20);
+            this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Tinh trang:";
+            this.label6.Text = "Tình trạng";
             // 
             // txtTinhTrang2
             // 
@@ -215,7 +215,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 20);
             this.label4.TabIndex = 23;
-            this.label4.Text = "Muc thue (%):";
+            this.label4.Text = "Mức thuế (%):";
             // 
             // txtMucThue2
             // 
@@ -231,17 +231,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.Location = new System.Drawing.Point(374, 71);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 20);
+            this.label5.Size = new System.Drawing.Size(88, 20);
             this.label5.TabIndex = 21;
-            this.label5.Text = "Loai thue:";
-            // 
-            // txtLoaiThue2
-            // 
-            this.txtLoaiThue2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtLoaiThue2.Location = new System.Drawing.Point(527, 71);
-            this.txtLoaiThue2.Name = "txtLoaiThue2";
-            this.txtLoaiThue2.Size = new System.Drawing.Size(238, 27);
-            this.txtLoaiThue2.TabIndex = 20;
+            this.label5.Text = "Loại thuế :";
             // 
             // dGVChinhSuaDanhSach
             // 
@@ -304,7 +296,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(852, 429);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Xem thue";
+            this.tabPage1.Text = "Xem thuế";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dGVCongDan
@@ -457,6 +449,14 @@
             this.txtLoaiThue.Size = new System.Drawing.Size(192, 27);
             this.txtLoaiThue.TabIndex = 11;
             // 
+            // cmbLoaiThue
+            // 
+            this.cmbLoaiThue.FormattingEnabled = true;
+            this.cmbLoaiThue.Location = new System.Drawing.Point(527, 71);
+            this.cmbLoaiThue.Name = "cmbLoaiThue";
+            this.cmbLoaiThue.Size = new System.Drawing.Size(238, 28);
+            this.cmbLoaiThue.TabIndex = 31;
+            // 
             // UCThue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -499,7 +499,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMucThue2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtLoaiThue2;
         private System.Windows.Forms.DataGridView dGVChinhSuaDanhSach;
         private System.Windows.Forms.Label lblCCCD;
         private System.Windows.Forms.Label label1;
@@ -522,5 +521,6 @@
         private System.Windows.Forms.TextBox txtMucThue;
         private System.Windows.Forms.Label lblLoaiThue;
         private System.Windows.Forms.TextBox txtLoaiThue;
+        private System.Windows.Forms.ComboBox cmbLoaiThue;
     }
 }

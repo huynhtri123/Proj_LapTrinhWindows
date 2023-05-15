@@ -10,10 +10,10 @@ namespace DoAn_Nhom7
     public class TamTruTamVangDAO
     {
         DBConnection dbC = new DBConnection();
-        public void LapDayThongTinTamTru(TextBox cmnd, TextBox hoTen, TextBox ngaySinh, TextBox queQuan, TextBox thuongTru)
+        public void LapDayThongTinTamTru(TextBox cmnd, TextBox hoTen, TextBox ngaySinh, TextBox queQuan, TextBox thuongTru,TextBox ngayCap)
         {
             string sqlStr = String.Format("Select * from CongDan where cmnd = '" + cmnd.Text + "'");
-            dbC.LapDayThongTinTamTru(sqlStr,cmnd,hoTen, ngaySinh, queQuan, thuongTru);
+            dbC.LapDayThongTinTamTru(sqlStr,cmnd,hoTen, ngaySinh, queQuan, thuongTru,ngayCap);
         }       
     }
 }

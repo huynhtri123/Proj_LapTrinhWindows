@@ -97,7 +97,7 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
-        public void LapDayThongTinTamTru(string sqlStr, TextBox cmnd, TextBox hoTen, TextBox ngaySinh, TextBox queQuan, TextBox thuongTru)
+        public void LapDayThongTinTamTru(string sqlStr, TextBox cmnd, TextBox hoTen, TextBox ngaySinh, TextBox queQuan, TextBox thuongTru,TextBox ngayCap)
         {
             try
             {
@@ -110,6 +110,7 @@ namespace DoAn_Nhom7
                     ngaySinh.Text = Convert.ToString(dta["ngayThangNamSinh"]); ;
                     queQuan.Text = Convert.ToString(dta["queQuan"]);
                     thuongTru.Text = Convert.ToString(dta["noiThuongTru"]);
+                    ngayCap.Text= Convert.ToString(dta["ngayCap"]);
                 }
             }
             catch (Exception ex)
@@ -143,7 +144,7 @@ namespace DoAn_Nhom7
             }
             return n;
         }
-        public void LapDayThongTinCD(TextBox cmnd, TextBox a, DateTimePicker dt, RadioButton b,RadioButton b1, TextBox d, TextBox f, TextBox g, TextBox j, TextBox k, TextBox x, TextBox y, TextBox z, TextBox i, TextBox t, TextBox n, DateTimePicker m,TextBox p)
+        public void LapDayThongTinCD(TextBox cmnd, TextBox a, DateTimePicker dt, RadioButton b,RadioButton b1, ComboBox d, TextBox f, TextBox g, ComboBox j, TextBox k, ComboBox x, TextBox y, TextBox z, TextBox i, TextBox t, ComboBox n, DateTimePicker m,ComboBox p)
         {
             conn.Open();
             string sqlStr = "Select * from CongDan where cmnd = '" + cmnd.Text + "'";
@@ -169,9 +170,13 @@ namespace DoAn_Nhom7
                 i.Text = Convert.ToString(dta["soLanKetHon"]);
                 t.Text = Convert.ToString(dta["tamTru"]);
                 n.Text = Convert.ToString(dta["noiCapCMND"]);
-                DateTime ngaycap = DateTime.ParseExact(Convert.ToString(dta["ngayCap"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                m.Value = ngaycap;
+                if (Convert.ToString(dta["ngayCap"]) != "")
+                {
+                    DateTime ngaycap = DateTime.ParseExact(Convert.ToString(dta["ngayCap"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    m.Value = ngaycap;
+                }
                 p.Text = Convert.ToString(dta["QuocTich"]);
+                
             }
             conn.Close();
         }
@@ -497,7 +502,7 @@ namespace DoAn_Nhom7
                 conn.Close();
             }
         }
-        public void LapSoHoKhau(string sqlStr, TextBox txtMaSoHoKhau, TextBox txtCMND, TextBox txtMaKhuVuc, TextBox txtXaPhuong, TextBox txtQuanHuyen, TextBox txtTinhThanhPho, TextBox txtDiaChi, DateTimePicker dtpNgayLap)
+        public void LapSoHoKhau(string sqlStr, TextBox txtMaSoHoKhau, TextBox txtCMND, TextBox txtMaKhuVuc, ComboBox txtXaPhuong, ComboBox txtQuanHuyen, ComboBox txtTinhThanhPho, TextBox txtDiaChi, DateTimePicker dtpNgayLap)
         {
             try
             {
@@ -562,7 +567,7 @@ namespace DoAn_Nhom7
 
 
         }
-        public void TraCuu_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, TextBox xaPhuong, TextBox quanHuyen, TextBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, TextBox quanHe)
+        public void TraCuu_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, TextBox quanHe)
         {
             try
             {

@@ -49,7 +49,6 @@
             this.rDNu = new System.Windows.Forms.RadioButton();
             this.rDNam = new System.Windows.Forms.RadioButton();
             this.tpNgSinh = new System.Windows.Forms.DateTimePicker();
-            this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.txtQuocTich = new System.Windows.Forms.TextBox();
             this.txtDanToc = new System.Windows.Forms.TextBox();
             this.txtNoiSinh = new System.Windows.Forms.TextBox();
@@ -87,6 +86,7 @@
             this.txtTinhThanhPho = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbQueQuan = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -308,14 +308,6 @@
             this.tpNgSinh.Size = new System.Drawing.Size(146, 24);
             this.tpNgSinh.TabIndex = 101;
             // 
-            // txtQueQuan
-            // 
-            this.txtQueQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtQueQuan.Location = new System.Drawing.Point(298, 85);
-            this.txtQueQuan.Name = "txtQueQuan";
-            this.txtQueQuan.Size = new System.Drawing.Size(102, 24);
-            this.txtQueQuan.TabIndex = 100;
-            // 
             // txtQuocTich
             // 
             this.txtQuocTich.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -509,10 +501,10 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel4.Controls.Add(this.cmbQueQuan);
             this.panel4.Controls.Add(this.rDNu);
             this.panel4.Controls.Add(this.rDNam);
             this.panel4.Controls.Add(this.tpNgSinh);
-            this.panel4.Controls.Add(this.txtQueQuan);
             this.panel4.Controls.Add(this.txtQuocTich);
             this.panel4.Controls.Add(this.txtDanToc);
             this.panel4.Controls.Add(this.txtNoiSinh);
@@ -701,6 +693,18 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM";
             // 
+            // cmbQueQuan
+            // 
+            this.cmbQueQuan.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbQueQuan.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmbQueQuan.DropDownHeight = 120;
+            this.cmbQueQuan.FormattingEnabled = true;
+            this.cmbQueQuan.IntegralHeight = false;
+            this.cmbQueQuan.Location = new System.Drawing.Point(298, 86);
+            this.cmbQueQuan.Name = "cmbQueQuan";
+            this.cmbQueQuan.Size = new System.Drawing.Size(102, 26);
+            this.cmbQueQuan.TabIndex = 104;
+            // 
             // UCKhaiSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -753,7 +757,6 @@
         private System.Windows.Forms.RadioButton rDNu;
         private System.Windows.Forms.RadioButton rDNam;
         private System.Windows.Forms.DateTimePicker tpNgSinh;
-        private System.Windows.Forms.TextBox txtQueQuan;
         private System.Windows.Forms.TextBox txtQuocTich;
         private System.Windows.Forms.TextBox txtDanToc;
         private System.Windows.Forms.TextBox txtNoiSinh;
@@ -792,5 +795,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ComboBox cmbQueQuan;
     }
 }

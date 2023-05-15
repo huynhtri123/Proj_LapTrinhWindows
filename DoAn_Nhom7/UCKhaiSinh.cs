@@ -20,6 +20,20 @@ namespace DoAn_Nhom7
         public UCKhaiSinh()
         {
             InitializeComponent();
+            string[] tinh = { "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cần Thơ", "Cao Bằng", "Đà Nẵng", "Đắk Lắk", "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Nội", "Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa", "Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An", "Ninh Bình", "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế", "Tiền Giang", "TP Hồ Chí Minh", "Trà Vinh", "Tuyên Quang", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái" };
+
+            foreach (string dt in tinh)
+            {
+                cmbQueQuan.Items.Add(dt);
+            }
+            AutoCompleteStringCollection data1 = new AutoCompleteStringCollection();
+            foreach (string dt in tinh)
+            {
+                data1.Add(dt);
+            }
+            cmbQueQuan.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbQueQuan.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbQueQuan.AutoCompleteCustomSource = data1;
         }
 
         private void UCKhaiSinh_Load(object sender, EventArgs e)
@@ -54,7 +68,7 @@ namespace DoAn_Nhom7
                     quanhe = "Cháu";
                 ThanhVienShk tv = new ThanhVienShk(mashk, cmndChuHo, cmndcon, quanhe);
 
-                CongDan congDan = new CongDan(txtTen.Text, tpNgSinh.Text, GioiTinh, cmndcon, txtDanToc.Text, "Doc Than", txtNoiSinh.Text, txtQueQuan.Text, txtQueQuan.Text, txtQuocTich.Text);
+                CongDan congDan = new CongDan(txtTen.Text, tpNgSinh.Text, GioiTinh, cmndcon, txtDanToc.Text, "Doc Than", txtNoiSinh.Text, cmbQueQuan.Text, cmbQueQuan.Text, txtQuocTich.Text);
                 cdDao.Them(congDan);
                 cdDao.CapNhatKhaiSinh(txtCMNDCha.Text, txtCMNDMe.Text, cmndcon);
                 //mem.ThietLapMoiQuanHeBoCon(tv);
@@ -110,6 +124,9 @@ namespace DoAn_Nhom7
                 }
                 else
                     MessageBox.Show("Khong tim thay nguoi yeu");
+                txtDanToc.Text=txtDanTocCha.Text;
+                txtQuocTich.Text = txtQuocTichCha.Text;
+
             }
         }
     }

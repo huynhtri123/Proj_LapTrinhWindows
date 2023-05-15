@@ -199,3 +199,4 @@ select * from TaiKhoan
  SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= 3
 SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo=1
 SELECT * FROM CongDan WHERE hoTen LIKE N'%Hải%'
+

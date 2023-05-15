@@ -323,9 +323,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(41, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(361, 18);
+            this.label1.Size = new System.Drawing.Size(304, 18);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Điền CMND 1 trong 2 người và ấn enter để điền nhanh";
+            this.label1.Text = "Điền CMND chồng và ấn enter để điền nhanh";
             // 
             // DangKyLyHon
             // 
