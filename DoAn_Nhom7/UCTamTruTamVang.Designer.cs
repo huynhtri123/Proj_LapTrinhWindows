@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCongAn = new System.Windows.Forms.TextBox();
             this.lblKinhGui = new System.Windows.Forms.Label();
             this.dTPNgayBatDau = new System.Windows.Forms.DateTimePicker();
             this.btnXacNhan = new System.Windows.Forms.Button();
@@ -58,6 +57,7 @@
             this.lblNgaySinh = new System.Windows.Forms.Label();
             this.lblHoTen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbTinh = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbldltd = new System.Windows.Forms.Label();
@@ -74,18 +74,6 @@
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 70;
             this.label1.Text = "từ ngày*:";
-            // 
-            // txtCongAn
-            // 
-            this.txtCongAn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtCongAn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCongAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtCongAn.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtCongAn.Location = new System.Drawing.Point(318, 8);
-            this.txtCongAn.Name = "txtCongAn";
-            this.txtCongAn.Size = new System.Drawing.Size(144, 27);
-            this.txtCongAn.TabIndex = 30;
-            this.txtCongAn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCongAn_KeyDown);
             // 
             // lblKinhGui
             // 
@@ -123,7 +111,7 @@
             this.txtCongAn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtCongAn3.Location = new System.Drawing.Point(543, 328);
             this.txtCongAn3.Name = "txtCongAn3";
-            this.txtCongAn3.Size = new System.Drawing.Size(107, 27);
+            this.txtCongAn3.Size = new System.Drawing.Size(138, 27);
             this.txtCongAn3.TabIndex = 67;
             // 
             // txtLyDo
@@ -138,9 +126,9 @@
             // 
             this.txtCongAn2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCongAn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtCongAn2.Location = new System.Drawing.Point(301, 207);
+            this.txtCongAn2.Location = new System.Drawing.Point(284, 207);
             this.txtCongAn2.Name = "txtCongAn2";
-            this.txtCongAn2.Size = new System.Drawing.Size(100, 27);
+            this.txtCongAn2.Size = new System.Drawing.Size(129, 27);
             this.txtCongAn2.TabIndex = 65;
             // 
             // txtTamTru
@@ -343,10 +331,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.cmbTinh);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtCongAn);
             this.panel1.Controls.Add(this.lblKinhGui);
             this.panel1.Controls.Add(this.dTPNgayBatDau);
             this.panel1.Controls.Add(this.btnXacNhan);
@@ -378,6 +366,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 442);
             this.panel1.TabIndex = 48;
+            // 
+            // cmbTinh
+            // 
+            this.cmbTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbTinh.DropDownHeight = 120;
+            this.cmbTinh.FormattingEnabled = true;
+            this.cmbTinh.IntegralHeight = false;
+            this.cmbTinh.Location = new System.Drawing.Point(318, 11);
+            this.cmbTinh.Name = "cmbTinh";
+            this.cmbTinh.Size = new System.Drawing.Size(144, 24);
+            this.cmbTinh.TabIndex = 90;
+            this.cmbTinh.SelectedIndexChanged += new System.EventHandler(this.cmbTinh_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -439,7 +439,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCongAn;
         private System.Windows.Forms.Label lblKinhGui;
         private System.Windows.Forms.DateTimePicker dTPNgayBatDau;
         private System.Windows.Forms.Button btnXacNhan;
@@ -472,5 +471,6 @@
         private System.Windows.Forms.Label lblchxh;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbTinh;
     }
 }

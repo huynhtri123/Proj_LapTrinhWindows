@@ -76,7 +76,7 @@ namespace DoAn_Nhom7
             string n = "";
             string sqlStr = string.Format("Select * from CongDan where cmnd = '" + cd.cmnd + "'");
             n = db.CapNhatTamTru(sqlStr, n);
-            string sqlStr2 = string.Format("UPDATE CongDan SET tamTru = '{0} {1}\n{2}' WHERE CMND ='{3}'", cd.tamTru, cd.ngayCap, n, cd.CMND);
+            string sqlStr2 = string.Format("UPDATE CongDan SET tamTru = N'{0} {1}\n{2}' WHERE CMND ='{3}'", cd.tamTru, cd.ngayCap, n, cd.CMND);
             db.XuLy(sqlStr2);
         }
         public void CapNhatKetHon(CongDan nam,CongDan nu)

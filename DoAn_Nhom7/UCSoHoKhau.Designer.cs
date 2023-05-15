@@ -62,15 +62,15 @@
             this.lblDiaChi = new System.Windows.Forms.Label();
             this.txtMaKhuVuc = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.txtXaPhuong = new System.Windows.Forms.TextBox();
             this.txtMaSoHoKhau = new System.Windows.Forms.TextBox();
-            this.txtQuanHuyen = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
-            this.txtTinhThanhPho = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTraCuu = new System.Windows.Forms.TextBox();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.cmbQuanHuyen = new System.Windows.Forms.ComboBox();
+            this.cmbTinhThanhPho = new System.Windows.Forms.ComboBox();
+            this.cmbXaPhuong = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSoHoKhau)).BeginInit();
             this.pnThanhvien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvThanhVienShk)).BeginInit();
@@ -290,6 +290,9 @@
             // 
             this.pnSoHoKhau.BackColor = System.Drawing.Color.LightBlue;
             this.pnSoHoKhau.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnSoHoKhau.Controls.Add(this.cmbXaPhuong);
+            this.pnSoHoKhau.Controls.Add(this.cmbTinhThanhPho);
+            this.pnSoHoKhau.Controls.Add(this.cmbQuanHuyen);
             this.pnSoHoKhau.Controls.Add(this.dtgvSoHoKhau);
             this.pnSoHoKhau.Controls.Add(this.lblMaKhuVuc);
             this.pnSoHoKhau.Controls.Add(this.btnThem);
@@ -306,11 +309,8 @@
             this.pnSoHoKhau.Controls.Add(this.lblDiaChi);
             this.pnSoHoKhau.Controls.Add(this.txtMaKhuVuc);
             this.pnSoHoKhau.Controls.Add(this.txtDiaChi);
-            this.pnSoHoKhau.Controls.Add(this.txtXaPhuong);
             this.pnSoHoKhau.Controls.Add(this.txtMaSoHoKhau);
-            this.pnSoHoKhau.Controls.Add(this.txtQuanHuyen);
             this.pnSoHoKhau.Controls.Add(this.txtCMND);
-            this.pnSoHoKhau.Controls.Add(this.txtTinhThanhPho);
             this.pnSoHoKhau.Location = new System.Drawing.Point(15, 70);
             this.pnSoHoKhau.Name = "pnSoHoKhau";
             this.pnSoHoKhau.Size = new System.Drawing.Size(443, 418);
@@ -458,14 +458,6 @@
             this.txtDiaChi.Size = new System.Drawing.Size(94, 27);
             this.txtDiaChi.TabIndex = 15;
             // 
-            // txtXaPhuong
-            // 
-            this.txtXaPhuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtXaPhuong.Location = new System.Drawing.Point(116, 276);
-            this.txtXaPhuong.Name = "txtXaPhuong";
-            this.txtXaPhuong.Size = new System.Drawing.Size(102, 27);
-            this.txtXaPhuong.TabIndex = 8;
-            // 
             // txtMaSoHoKhau
             // 
             this.txtMaSoHoKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -475,14 +467,6 @@
             this.txtMaSoHoKhau.TabIndex = 12;
             this.txtMaSoHoKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaSoHoKhau_KeyDown);
             // 
-            // txtQuanHuyen
-            // 
-            this.txtQuanHuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtQuanHuyen.Location = new System.Drawing.Point(338, 158);
-            this.txtQuanHuyen.Name = "txtQuanHuyen";
-            this.txtQuanHuyen.Size = new System.Drawing.Size(94, 27);
-            this.txtQuanHuyen.TabIndex = 9;
-            // 
             // txtCMND
             // 
             this.txtCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -490,14 +474,6 @@
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(102, 27);
             this.txtCMND.TabIndex = 11;
-            // 
-            // txtTinhThanhPho
-            // 
-            this.txtTinhThanhPho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTinhThanhPho.Location = new System.Drawing.Point(338, 201);
-            this.txtTinhThanhPho.Name = "txtTinhThanhPho";
-            this.txtTinhThanhPho.Size = new System.Drawing.Size(94, 27);
-            this.txtTinhThanhPho.TabIndex = 10;
             // 
             // label3
             // 
@@ -534,6 +510,33 @@
             this.label4.Size = new System.Drawing.Size(131, 16);
             this.label4.TabIndex = 34;
             this.label4.Text = "Nhập CMND cần tìm:";
+            // 
+            // cmbQuanHuyen
+            // 
+            this.cmbQuanHuyen.FormattingEnabled = true;
+            this.cmbQuanHuyen.Location = new System.Drawing.Point(338, 156);
+            this.cmbQuanHuyen.Name = "cmbQuanHuyen";
+            this.cmbQuanHuyen.Size = new System.Drawing.Size(94, 24);
+            this.cmbQuanHuyen.TabIndex = 26;
+            this.cmbQuanHuyen.SelectedIndexChanged += new System.EventHandler(this.cmbQuanHuyen_SelectedIndexChanged);
+            // 
+            // cmbTinhThanhPho
+            // 
+            this.cmbTinhThanhPho.FormattingEnabled = true;
+            this.cmbTinhThanhPho.Location = new System.Drawing.Point(338, 196);
+            this.cmbTinhThanhPho.Name = "cmbTinhThanhPho";
+            this.cmbTinhThanhPho.Size = new System.Drawing.Size(94, 24);
+            this.cmbTinhThanhPho.TabIndex = 27;
+            this.cmbTinhThanhPho.SelectedIndexChanged += new System.EventHandler(this.cmbTinhThanhPho_SelectedIndexChanged);
+            // 
+            // cmbXaPhuong
+            // 
+            this.cmbXaPhuong.FormattingEnabled = true;
+            this.cmbXaPhuong.Location = new System.Drawing.Point(116, 279);
+            this.cmbXaPhuong.Name = "cmbXaPhuong";
+            this.cmbXaPhuong.Size = new System.Drawing.Size(102, 24);
+            this.cmbXaPhuong.TabIndex = 28;
+            this.cmbXaPhuong.SelectedIndexChanged += new System.EventHandler(this.cmbXaPhuong_SelectedIndexChanged);
             // 
             // UCSoHoKhau
             // 
@@ -595,14 +598,14 @@
         private System.Windows.Forms.Label lblDiaChi;
         private System.Windows.Forms.TextBox txtMaKhuVuc;
         private System.Windows.Forms.TextBox txtDiaChi;
-        private System.Windows.Forms.TextBox txtXaPhuong;
         private System.Windows.Forms.TextBox txtMaSoHoKhau;
-        private System.Windows.Forms.TextBox txtQuanHuyen;
         private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.TextBox txtTinhThanhPho;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTraCuu;
         private System.Windows.Forms.Button btnTraCuu;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbTinhThanhPho;
+        private System.Windows.Forms.ComboBox cmbQuanHuyen;
+        private System.Windows.Forms.ComboBox cmbXaPhuong;
     }
 }

@@ -67,7 +67,7 @@ namespace DoAn_Nhom7
             dbconnection.XuLy(sqlStr1);
             dbconnection.XuLy1(sqlStr);
         }
-        public void LapSoHoKhau(TextBox txtMaSoHoKhau,TextBox txtCMND, TextBox txtMaKhuVuc,TextBox txtXaPhuong,TextBox txtQuanHuyen,TextBox txtTinhThanhPho,TextBox txtDiaChi,DateTimePicker dtpNgayLap)
+        public void LapSoHoKhau(TextBox txtMaSoHoKhau,TextBox txtCMND, TextBox txtMaKhuVuc,ComboBox txtXaPhuong,ComboBox txtQuanHuyen,ComboBox txtTinhThanhPho,TextBox txtDiaChi,DateTimePicker dtpNgayLap)
         {
             string sqlStr = string.Format("SELECT * FROM SoHoKhau WHERE maSoHoKhau = '" + txtMaSoHoKhau.Text + "'");
             dbconnection.LapSoHoKhau(sqlStr, txtMaSoHoKhau, txtCMND, txtMaKhuVuc, txtXaPhuong, txtQuanHuyen, txtTinhThanhPho, txtDiaChi, dtpNgayLap);
@@ -77,7 +77,7 @@ namespace DoAn_Nhom7
             string sqlStr = string.Format("SELECT CongDan.hoTen, CongDan.gioiTinh , QuanHe.quanHeVoiCMND1 FROM QuanHe JOIN CongDan ON CongDan.CMND = QuanHe.CMND2 WHERE QuanHe.CMND1 = '" + txtCMND.Text + "' AND QuanHe.CMND2 = '" + txtCmnd_tv.Text + "' ");
             dbconnection.LapTVSoHoKhau(sqlStr, txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, txtQuanHe);
         }
-        public void TraCuu_Click(object sender, EventArgs e, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, TextBox xaPhuong, TextBox quanHuyen, TextBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, TextBox quanHe)
+        public void TraCuu_Click(object sender, EventArgs e, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, TextBox quanHe)
         {
             string sqlStr = string.Format("SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien = '" + traCuu.Text + "' OR CMNDChuHo = '" + traCuu.Text + "'");
             string sqlStr_lapShk = string.Format("SELECT * FROM SoHoKhau WHERE maSoHoKhau = '" + maShk.Text + "'");

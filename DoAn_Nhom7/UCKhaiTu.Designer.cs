@@ -68,8 +68,8 @@
             this.lblCCCD = new System.Windows.Forms.Label();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblTen = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblTen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -280,9 +280,9 @@
             // txtNgheNghiep
             // 
             this.txtNgheNghiep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtNgheNghiep.Location = new System.Drawing.Point(661, 238);
+            this.txtNgheNghiep.Location = new System.Drawing.Point(680, 234);
             this.txtNgheNghiep.Name = "txtNgheNghiep";
-            this.txtNgheNghiep.Size = new System.Drawing.Size(161, 27);
+            this.txtNgheNghiep.Size = new System.Drawing.Size(142, 27);
             this.txtNgheNghiep.TabIndex = 49;
             // 
             // txtThuongTru
@@ -301,7 +301,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 20);
             this.label11.TabIndex = 46;
-            this.label11.Text = "Nghe nghiep";
+            this.label11.Text = "Nghề nghiệp";
             // 
             // lblNoiThuongTru
             // 
@@ -321,14 +321,14 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 20);
             this.label3.TabIndex = 41;
-            this.label3.Text = "Ngay thang nam sinh";
+            this.label3.Text = "Ngày tháng năm sinh";
             // 
             // txtQueQuan
             // 
             this.txtQueQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtQueQuan.Location = new System.Drawing.Point(661, 199);
+            this.txtQueQuan.Location = new System.Drawing.Point(680, 199);
             this.txtQueQuan.Name = "txtQueQuan";
-            this.txtQueQuan.Size = new System.Drawing.Size(161, 27);
+            this.txtQueQuan.Size = new System.Drawing.Size(142, 27);
             this.txtQueQuan.TabIndex = 40;
             // 
             // label8
@@ -339,7 +339,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 20);
             this.label8.TabIndex = 39;
-            this.label8.Text = "Que quan";
+            this.label8.Text = "Quê quán";
             // 
             // txtHonNhan
             // 
@@ -404,9 +404,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.Location = new System.Drawing.Point(198, 130);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(169, 20);
+            this.label7.Size = new System.Drawing.Size(157, 20);
             this.label7.TabIndex = 37;
-            this.label7.Text = "Tinh Trang Hon Nhan";
+            this.label7.Text = "Tình trạng hôn nhân";
             // 
             // txtCCCD
             // 
@@ -471,16 +471,6 @@
             this.panel2.Size = new System.Drawing.Size(844, 309);
             this.panel2.TabIndex = 11;
             // 
-            // lblTen
-            // 
-            this.lblTen.AutoSize = true;
-            this.lblTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblTen.Location = new System.Drawing.Point(198, 12);
-            this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(97, 20);
-            this.lblTen.TabIndex = 0;
-            this.lblTen.Text = "Họ và tên *:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -490,6 +480,16 @@
             this.label4.Size = new System.Drawing.Size(231, 15);
             this.label4.TabIndex = 88;
             this.label4.Text = "*Nhập cmnd và click enter để điền nhanh";
+            // 
+            // lblTen
+            // 
+            this.lblTen.AutoSize = true;
+            this.lblTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblTen.Location = new System.Drawing.Point(198, 12);
+            this.lblTen.Name = "lblTen";
+            this.lblTen.Size = new System.Drawing.Size(97, 20);
+            this.lblTen.TabIndex = 0;
+            this.lblTen.Text = "Họ và tên *:";
             // 
             // UCKhaiTu
             // 

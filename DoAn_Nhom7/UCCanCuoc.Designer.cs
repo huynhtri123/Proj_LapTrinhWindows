@@ -44,31 +44,27 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtHocVan = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbDanToc = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.rDNu = new System.Windows.Forms.RadioButton();
             this.rDNam = new System.Windows.Forms.RadioButton();
-            this.txtQuocTich = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.txtKhaiSinh = new System.Windows.Forms.TextBox();
             this.dTPNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtHonNhan = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
-            this.txtDanToc = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSoLanKetHon = new System.Windows.Forms.TextBox();
             this.lblSoLanKetHon = new System.Windows.Forms.Label();
             this.dTPNgayCap = new System.Windows.Forms.DateTimePicker();
-            this.txtNoiCapCMND = new System.Windows.Forms.TextBox();
             this.lblNoiCapCMND = new System.Windows.Forms.Label();
             this.lblNgayCap = new System.Windows.Forms.Label();
             this.lblTamTru = new System.Windows.Forms.Label();
@@ -76,6 +72,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.cmbQuocTich = new System.Windows.Forms.ComboBox();
+            this.cmbTinh = new System.Windows.Forms.ComboBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.cmbHocVan = new System.Windows.Forms.ComboBox();
+            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.cmbNoiCap = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -227,14 +229,6 @@
             this.label16.TabIndex = 66;
             this.label16.Text = "Nơi đăng ký khai sinh";
             // 
-            // txtHocVan
-            // 
-            this.txtHocVan.BackColor = System.Drawing.Color.White;
-            this.txtHocVan.Location = new System.Drawing.Point(145, 169);
-            this.txtHocVan.Name = "txtHocVan";
-            this.txtHocVan.Size = new System.Drawing.Size(100, 22);
-            this.txtHocVan.TabIndex = 65;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -284,10 +278,14 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.cmbNoiCap);
+            this.panel2.Controls.Add(this.cmbHocVan);
+            this.panel2.Controls.Add(this.cmbTinh);
+            this.panel2.Controls.Add(this.cmbQuocTich);
+            this.panel2.Controls.Add(this.cmbDanToc);
             this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.rDNu);
             this.panel2.Controls.Add(this.rDNam);
-            this.panel2.Controls.Add(this.txtQuocTich);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
@@ -305,25 +303,21 @@
             this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.txtHocVan);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtQueQuan);
             this.panel2.Controls.Add(this.txtKhaiSinh);
             this.panel2.Controls.Add(this.dTPNgaySinh);
             this.panel2.Controls.Add(this.txtHonNhan);
             this.panel2.Controls.Add(this.txtCMND);
-            this.panel2.Controls.Add(this.txtDanToc);
             this.panel2.Controls.Add(this.txtHoTen);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtSoLanKetHon);
             this.panel2.Controls.Add(this.lblSoLanKetHon);
             this.panel2.Controls.Add(this.dTPNgayCap);
-            this.panel2.Controls.Add(this.txtNoiCapCMND);
             this.panel2.Controls.Add(this.lblNoiCapCMND);
             this.panel2.Controls.Add(this.lblNgayCap);
             this.panel2.Controls.Add(this.lblTamTru);
@@ -333,11 +327,22 @@
             this.panel2.Size = new System.Drawing.Size(863, 463);
             this.panel2.TabIndex = 1;
             // 
+            // cmbDanToc
+            // 
+            this.cmbDanToc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbDanToc.DropDownHeight = 120;
+            this.cmbDanToc.FormattingEnabled = true;
+            this.cmbDanToc.IntegralHeight = false;
+            this.cmbDanToc.Location = new System.Drawing.Point(145, 104);
+            this.cmbDanToc.Name = "cmbDanToc";
+            this.cmbDanToc.Size = new System.Drawing.Size(100, 24);
+            this.cmbDanToc.TabIndex = 89;
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label21.Location = new System.Drawing.Point(3, 83);
+            this.label21.Location = new System.Drawing.Point(0, 86);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(231, 15);
             this.label21.TabIndex = 88;
@@ -365,13 +370,6 @@
             this.rDNam.Text = "Nam";
             this.rDNam.UseVisualStyleBackColor = true;
             // 
-            // txtQuocTich
-            // 
-            this.txtQuocTich.Location = new System.Drawing.Point(441, 358);
-            this.txtQuocTich.Name = "txtQuocTich";
-            this.txtQuocTich.Size = new System.Drawing.Size(155, 22);
-            this.txtQuocTich.TabIndex = 84;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -389,14 +387,6 @@
             this.label5.Size = new System.Drawing.Size(132, 16);
             this.label5.TabIndex = 59;
             this.label5.Text = "Ngày tháng năm sinh";
-            // 
-            // txtQueQuan
-            // 
-            this.txtQueQuan.BackColor = System.Drawing.Color.White;
-            this.txtQueQuan.Location = new System.Drawing.Point(145, 355);
-            this.txtQueQuan.Name = "txtQueQuan";
-            this.txtQueQuan.Size = new System.Drawing.Size(100, 22);
-            this.txtQueQuan.TabIndex = 58;
             // 
             // txtKhaiSinh
             // 
@@ -432,14 +422,6 @@
             this.txtCMND.TabIndex = 54;
             this.txtCMND.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCMND_KeyDown);
             // 
-            // txtDanToc
-            // 
-            this.txtDanToc.BackColor = System.Drawing.Color.White;
-            this.txtDanToc.Location = new System.Drawing.Point(145, 101);
-            this.txtDanToc.Name = "txtDanToc";
-            this.txtDanToc.Size = new System.Drawing.Size(100, 22);
-            this.txtDanToc.TabIndex = 53;
-            // 
             // txtHoTen
             // 
             this.txtHoTen.BackColor = System.Drawing.Color.White;
@@ -472,7 +454,7 @@
             this.lblSoLanKetHon.Name = "lblSoLanKetHon";
             this.lblSoLanKetHon.Size = new System.Drawing.Size(91, 16);
             this.lblSoLanKetHon.TabIndex = 49;
-            this.lblSoLanKetHon.Text = "So lan ket hon";
+            this.lblSoLanKetHon.Text = "Số lần kết hôn";
             // 
             // dTPNgayCap
             // 
@@ -482,14 +464,6 @@
             this.dTPNgayCap.Name = "dTPNgayCap";
             this.dTPNgayCap.Size = new System.Drawing.Size(155, 22);
             this.dTPNgayCap.TabIndex = 48;
-            // 
-            // txtNoiCapCMND
-            // 
-            this.txtNoiCapCMND.BackColor = System.Drawing.Color.White;
-            this.txtNoiCapCMND.Location = new System.Drawing.Point(441, 56);
-            this.txtNoiCapCMND.Name = "txtNoiCapCMND";
-            this.txtNoiCapCMND.Size = new System.Drawing.Size(155, 22);
-            this.txtNoiCapCMND.TabIndex = 47;
             // 
             // lblNoiCapCMND
             // 
@@ -512,11 +486,11 @@
             // lblTamTru
             // 
             this.lblTamTru.AutoSize = true;
-            this.lblTamTru.Location = new System.Drawing.Point(268, 396);
+            this.lblTamTru.Location = new System.Drawing.Point(272, 396);
             this.lblTamTru.Name = "lblTamTru";
-            this.lblTamTru.Size = new System.Drawing.Size(55, 16);
+            this.lblTamTru.Size = new System.Drawing.Size(52, 16);
             this.lblTamTru.TabIndex = 44;
-            this.lblTamTru.Text = "TamTru";
+            this.lblTamTru.Text = "Tạm trú";
             // 
             // txtTamTru
             // 
@@ -554,6 +528,49 @@
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 47;
             // 
+            // cmbQuocTich
+            // 
+            this.cmbQuocTich.FormattingEnabled = true;
+            this.cmbQuocTich.Location = new System.Drawing.Point(441, 355);
+            this.cmbQuocTich.Name = "cmbQuocTich";
+            this.cmbQuocTich.Size = new System.Drawing.Size(155, 24);
+            this.cmbQuocTich.TabIndex = 90;
+            this.cmbQuocTich.SelectedValueChanged += new System.EventHandler(this.cmbQuocTich_SelectedValueChanged);
+            // 
+            // cmbTinh
+            // 
+            this.cmbTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbTinh.DropDownHeight = 120;
+            this.cmbTinh.FormattingEnabled = true;
+            this.cmbTinh.IntegralHeight = false;
+            this.cmbTinh.Location = new System.Drawing.Point(145, 353);
+            this.cmbTinh.Name = "cmbTinh";
+            this.cmbTinh.Size = new System.Drawing.Size(100, 24);
+            this.cmbTinh.TabIndex = 91;
+            // 
+            // cmbHocVan
+            // 
+            this.cmbHocVan.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbHocVan.DropDownHeight = 120;
+            this.cmbHocVan.DropDownWidth = 145;
+            this.cmbHocVan.FormattingEnabled = true;
+            this.cmbHocVan.IntegralHeight = false;
+            this.cmbHocVan.Location = new System.Drawing.Point(145, 164);
+            this.cmbHocVan.Name = "cmbHocVan";
+            this.cmbHocVan.Size = new System.Drawing.Size(100, 24);
+            this.cmbHocVan.TabIndex = 92;
+            // 
+            // cmbNoiCap
+            // 
+            this.cmbNoiCap.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbNoiCap.DropDownHeight = 120;
+            this.cmbNoiCap.FormattingEnabled = true;
+            this.cmbNoiCap.IntegralHeight = false;
+            this.cmbNoiCap.Location = new System.Drawing.Point(441, 58);
+            this.cmbNoiCap.Name = "cmbNoiCap";
+            this.cmbNoiCap.Size = new System.Drawing.Size(155, 24);
+            this.cmbNoiCap.TabIndex = 93;
+            // 
             // UCCanCuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -588,7 +605,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtHocVan;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label8;
@@ -596,18 +612,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtQueQuan;
         private System.Windows.Forms.TextBox txtKhaiSinh;
         private System.Windows.Forms.DateTimePicker dTPNgaySinh;
         private System.Windows.Forms.TextBox txtHonNhan;
         private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.TextBox txtDanToc;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSoLanKetHon;
         private System.Windows.Forms.Label lblSoLanKetHon;
         private System.Windows.Forms.DateTimePicker dTPNgayCap;
-        private System.Windows.Forms.TextBox txtNoiCapCMND;
         private System.Windows.Forms.Label lblNoiCapCMND;
         private System.Windows.Forms.Label lblNgayCap;
         private System.Windows.Forms.Label lblTamTru;
@@ -615,10 +628,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtQuocTich;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RadioButton rDNu;
         private System.Windows.Forms.RadioButton rDNam;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cmbDanToc;
+        private System.Windows.Forms.ComboBox cmbQuocTich;
+        private System.Windows.Forms.ComboBox cmbTinh;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ComboBox cmbHocVan;
+        private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.ComboBox cmbNoiCap;
     }
 }

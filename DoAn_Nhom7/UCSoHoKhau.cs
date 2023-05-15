@@ -23,6 +23,19 @@ namespace DoAn_Nhom7
         public UCSoHoKhau()
         {
             InitializeComponent();
+            string[] tinh = { "Nghệ An", "Hồ Chí Minh" };
+            foreach (string dt in tinh)
+            {
+                cmbTinhThanhPho.Items.Add(dt);
+            }
+            AutoCompleteStringCollection data1 = new AutoCompleteStringCollection();
+            foreach (string dt in tinh)
+            {
+                data1.Add(dt);
+            }
+            cmbTinhThanhPho.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbTinhThanhPho.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbTinhThanhPho.AutoCompleteCustomSource = data1;
         }
         public void LayDanhSach()
         {
@@ -33,7 +46,7 @@ namespace DoAn_Nhom7
         {
             if (db.KiemTraSHK(txtCMND.Text))
             {
-                SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, txtXaPhuong.Text, txtQuanHuyen.Text, txtTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
+                SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, cmbXaPhuong.Text, cmbQuanHuyen.Text, cmbTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
                 hkdao.ThemSoHoKhau(hk);
                 LayDanhSach();
             }
@@ -43,7 +56,7 @@ namespace DoAn_Nhom7
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, txtXaPhuong.Text, txtQuanHuyen.Text, txtTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
+            SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, cmbXaPhuong.Text, cmbQuanHuyen.Text, cmbTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
             hkdao.XoaSoHoKhau(hk);
             LayDanhSach();
         }
@@ -52,7 +65,7 @@ namespace DoAn_Nhom7
         {
             if (hkdao.TimMaSHK(txtCMND.Text)==txtMaSoHoKhau.Text)
             {
-                SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, txtXaPhuong.Text, txtQuanHuyen.Text, txtTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
+                SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, cmbXaPhuong.Text, cmbQuanHuyen.Text, cmbTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
                 hkdao.SuaSoHoKhau(hk);
                 LayDanhSach();
             }
@@ -79,9 +92,9 @@ namespace DoAn_Nhom7
             txtMaSoHoKhau.Text = row.Cells[0].Value.ToString();
             txtCMND.Text = row.Cells[1].Value.ToString();
             txtMaKhuVuc.Text = row.Cells[2].Value.ToString();
-            txtXaPhuong.Text = row.Cells[3].Value.ToString();
-            txtQuanHuyen.Text = row.Cells[4].Value.ToString();
-            txtTinhThanhPho.Text = row.Cells[5].Value.ToString();
+            cmbXaPhuong.Text = row.Cells[3].Value.ToString();
+            cmbQuanHuyen.Text = row.Cells[4].Value.ToString();
+            cmbTinhThanhPho.Text = row.Cells[5].Value.ToString();
             txtDiaChi.Text = row.Cells[6].Value.ToString();
             dtpNgayLap.Text = row.Cells[7].Value.ToString();
         }
@@ -99,6 +112,7 @@ namespace DoAn_Nhom7
 
         private void btnThemTv_Click(object sender, EventArgs e)
         {
+
             ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text ,txtCMND.Text, txtCmnd_tv.Text, txtQuanHe.Text);
             if (shkDao.KiemTraTVSHK(txtCmnd_tv.Text))
             {
@@ -131,9 +145,9 @@ namespace DoAn_Nhom7
             txtMaSoHoKhau.Text = row.Cells[0].Value.ToString();
             txtCMND.Text = row.Cells[1].Value.ToString();
             txtMaKhuVuc.Text = row.Cells[2].Value.ToString();
-            txtXaPhuong.Text = row.Cells[3].Value.ToString();
-            txtQuanHuyen.Text = row.Cells[4].Value.ToString();
-            txtTinhThanhPho.Text = row.Cells[5].Value.ToString();
+            cmbXaPhuong.Text = row.Cells[3].Value.ToString();
+            cmbQuanHuyen.Text = row.Cells[4].Value.ToString();
+            cmbTinhThanhPho.Text = row.Cells[5].Value.ToString();
             txtDiaChi.Text = row.Cells[6].Value.ToString();
             DateTime ngayLap = DateTime.ParseExact(row.Cells[7].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
             dtpNgayLap.Value = ngayLap;
@@ -166,7 +180,7 @@ namespace DoAn_Nhom7
                 {
                     txtMaSoHoKhau.Text = Convert.ToString(dta["maSoHoKhau"]);
                     txtCmnd_tv.Text = txtTraCuu.Text;
-                    hkdao.LapSoHoKhau(txtMaSoHoKhau, txtCMND, txtMaKhuVuc, txtXaPhuong, txtQuanHuyen, txtTinhThanhPho, txtDiaChi, dtpNgayLap);
+                    hkdao.LapSoHoKhau(txtMaSoHoKhau, txtCMND, txtMaKhuVuc, cmbXaPhuong, cmbQuanHuyen, cmbTinhThanhPho, txtDiaChi, dtpNgayLap);
                     hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, txtQuanHe);
                     if (txtHoTen_tv.Text == "")
                         txtCmnd_tv.Text = "";
@@ -210,10 +224,135 @@ namespace DoAn_Nhom7
 
         private void txtMaSoHoKhau_KeyDown(object sender, KeyEventArgs e)
         {
-            hkdao.LapSoHoKhau(txtMaSoHoKhau, txtCMND, txtMaKhuVuc, txtXaPhuong, txtQuanHuyen, txtTinhThanhPho, txtDiaChi, dtpNgayLap);
+            hkdao.LapSoHoKhau(txtMaSoHoKhau, txtCMND, txtMaKhuVuc, cmbXaPhuong, cmbQuanHuyen, cmbTinhThanhPho, txtDiaChi, dtpNgayLap);
         }
 
+        private void cmbTinhThanhPho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTinhThanhPho.SelectedIndex == 0)
+            {
+                cmbQuanHuyen.Items.Clear();
+                string[] quanhuyen = { "Nam Đàn", "Thanh Chương" };
+                // Thêm tên dân tộc vào ComboBox
+                foreach (string dt in quanhuyen)
+                {
+                    cmbQuanHuyen.Items.Add(dt);
+                }
+                AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+                foreach (string dt in quanhuyen)
+                {
+                    data.Add(dt);
+                }
+                cmbQuanHuyen.AutoCompleteMode = AutoCompleteMode.Suggest;
+                cmbQuanHuyen.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                cmbQuanHuyen.AutoCompleteCustomSource = data;
 
+            }
+            else
+            {
+                    cmbQuanHuyen.Items.Clear();
+                    string[] quanhuyen = { "Thủ Đức", "Bình Thạnh" };
+                    // Thêm tên dân tộc vào ComboBox
+                    foreach (string dt in quanhuyen)
+                    {
+                        cmbQuanHuyen.Items.Add(dt);
+                    }
+                    AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+                    foreach (string dt in quanhuyen)
+                    {
+                        data.Add(dt);
+                    }
+                    cmbQuanHuyen.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    cmbQuanHuyen.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    cmbQuanHuyen.AutoCompleteCustomSource = data;
+                
+            }
+        }
+
+        private void cmbXaPhuong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbQuanHuyen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbQuanHuyen.SelectedItem.ToString() == "Nam Đàn")
+            {
+                cmbXaPhuong.Items.Clear();
+                string[] quanhuyen = { "Nam Kim", "Khánh Sơn", "Nam Cường" };
+                // Thêm tên dân tộc vào ComboBox
+                foreach (string dt in quanhuyen)
+                {
+                    cmbXaPhuong.Items.Add(dt);
+                }
+                AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+                foreach (string dt in quanhuyen)
+                {
+                    data.Add(dt);
+                }
+                cmbXaPhuong.AutoCompleteMode = AutoCompleteMode.Suggest;
+                cmbXaPhuong.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                cmbXaPhuong.AutoCompleteCustomSource = data;
+
+            }
+            else if (cmbQuanHuyen.SelectedItem.ToString() == "Thanh Chương")
+            {
+                cmbXaPhuong.Items.Clear();
+                string[] quanhuyen = { "Cát Văn", "Thanh Nho", "Hạnh Lâm" };
+                // Thêm tên dân tộc vào ComboBox
+                foreach (string dt in quanhuyen)
+                {
+                    cmbXaPhuong.Items.Add(dt);
+                }
+                AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+                foreach (string dt in quanhuyen)
+                {
+                    data.Add(dt);
+                }
+                cmbXaPhuong.AutoCompleteMode = AutoCompleteMode.Suggest;
+                cmbXaPhuong.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                cmbXaPhuong.AutoCompleteCustomSource = data;
+
+            }
+            else if (cmbQuanHuyen.SelectedItem.ToString() == "Bình Thạnh")
+            {
+                cmbXaPhuong.Items.Clear();
+                string[] quanhuyen = { "Phường 3", "Phường 1", "Phường 5" };
+                // Thêm tên dân tộc vào ComboBox
+                foreach (string dt in quanhuyen)
+                {
+                    cmbXaPhuong.Items.Add(dt);
+                }
+                AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+                foreach (string dt in quanhuyen)
+                {
+                    data.Add(dt);
+                }
+                cmbXaPhuong.AutoCompleteMode = AutoCompleteMode.Suggest;
+                cmbXaPhuong.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                cmbXaPhuong.AutoCompleteCustomSource = data;
+
+            }
+            else if (cmbQuanHuyen.SelectedItem.ToString() == "Thủ Đức")
+            {
+                cmbXaPhuong.Items.Clear();
+                string[] quanhuyen = { "Linh Chiểu", "Bình Thọ", "Linh Tây" };
+                // Thêm tên dân tộc vào ComboBox
+                foreach (string dt in quanhuyen)
+                {
+                    cmbXaPhuong.Items.Add(dt);
+                }
+                AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+                foreach (string dt in quanhuyen)
+                {
+                    data.Add(dt);
+                }
+                cmbXaPhuong.AutoCompleteMode = AutoCompleteMode.Suggest;
+                cmbXaPhuong.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                cmbXaPhuong.AutoCompleteCustomSource = data;
+
+            }
+        }
     }
     
 }

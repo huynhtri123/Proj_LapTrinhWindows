@@ -42,7 +42,7 @@
             this.lblDoanVan.Size = new System.Drawing.Size(493, 78);
             this.lblDoanVan.TabIndex = 0;
             this.lblDoanVan.Text = "Vì người đăng ký khai tử là chủ hộ vậy nên cần phải chọn chủ hộ mới trước khi kha" +
-    "i tử để tránh bị xóa hộ khẩu, nếu ấn cancel sẽ bị xóa hộ khẩu. ";
+    "i tử để tránh bị xóa hộ khẩu. ";
             this.lblDoanVan.Click += new System.EventHandler(this.lblDoanVan_Click);
             // 
             // cmbDanhSach

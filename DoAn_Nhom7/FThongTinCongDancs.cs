@@ -37,7 +37,7 @@ namespace DoAn_Nhom7
             db.LapDayThongTinKhaiSinh(cmndbo, lblHoTenNguoiKhaiSinh, lblCCCDNguoiKhaiSinh, lblHoTenNguoiKhaiSinh, lblHoTenBo, lblNamSinhBo, lblDanTocBo, lblQuocTichBo, lblQueQuanBo);
             lblNoiKhaiSinh.Text = noidk;
             lblNgayDangKy.Text = ngaydk;
-
+            lblKyTen.Text = lblHoTenBo.Text;
         }
 
         private void FThongTinCongDancs_Scroll(object sender, ScrollEventArgs e)
