@@ -274,8 +274,8 @@
             // 
             // FThongTinCongDan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(701, 988);
@@ -303,6 +303,7 @@
             this.Controls.Add(this.lblNamSinhChu);
             this.Controls.Add(this.lblNamSinh);
             this.Controls.Add(this.lblHoTen);
+            this.MaximizeBox = false;
             this.Name = "FThongTinCongDan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin công dân";

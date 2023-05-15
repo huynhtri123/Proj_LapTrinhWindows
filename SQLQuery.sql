@@ -1,4 +1,4 @@
-use ahihi
+use project_LTWD
 --CONG DAN--
 CREATE TABLE CongDan (
  hoTen nvarchar(100),
@@ -199,5 +199,4 @@ select * from TaiKhoan
  SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= 3
 SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo=1
 SELECT * FROM CongDan WHERE hoTen LIKE N'%Hải%'
-SELECT * FROM CongDan WHERE cmnd = '1-con 4'
 

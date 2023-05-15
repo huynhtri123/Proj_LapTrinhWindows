@@ -142,6 +142,7 @@
             this.btnKhaiSinh.TabIndex = 7;
             this.btnKhaiSinh.Text = "Khai sinh";
             this.btnKhaiSinh.UseVisualStyleBackColor = false;
+            this.btnKhaiSinh.Click += new System.EventHandler(this.btnKhaiSinh_Click);
             // 
             // btnHonNhan
             // 

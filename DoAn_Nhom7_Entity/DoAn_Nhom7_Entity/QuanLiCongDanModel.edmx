@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLiCongDanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLiCongDanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CongDan">
           <Key>
             <PropertyRef Name="cmnd" />
@@ -78,7 +78,7 @@
           <Property Name="MucThue" Type="real" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__QuanHe__CMND1__398D8EEE">
+        <Association Name="FK__QuanHe__CMND1__373B3228">
           <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
           <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -90,7 +90,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__QuanHe__CMND2__3A81B327">
+        <Association Name="FK__QuanHe__CMND2__382F5661">
           <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
           <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,11 +173,11 @@
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThanhVienSoHoKhau" EntityType="Self.ThanhVienSoHoKhau" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Thue" EntityType="Self.Thue" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__QuanHe__CMND1__398D8EEE" Association="Self.FK__QuanHe__CMND1__398D8EEE">
+          <AssociationSet Name="FK__QuanHe__CMND1__373B3228" Association="Self.FK__QuanHe__CMND1__373B3228">
             <End Role="CongDan" EntitySet="CongDan" />
             <End Role="QuanHe" EntitySet="QuanHe" />
           </AssociationSet>
-          <AssociationSet Name="FK__QuanHe__CMND2__3A81B327" Association="Self.FK__QuanHe__CMND2__3A81B327">
+          <AssociationSet Name="FK__QuanHe__CMND2__382F5661" Association="Self.FK__QuanHe__CMND2__382F5661">
             <End Role="CongDan" EntitySet="CongDan" />
             <End Role="QuanHe" EntitySet="QuanHe" />
           </AssociationSet>
@@ -202,8 +202,7 @@
             <End Role="Thue" EntitySet="Thue" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLiCongDanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
