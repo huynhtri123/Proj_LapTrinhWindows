@@ -24,7 +24,7 @@ namespace DoAn_Nhom7
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
-                    /*MessageBox.Show("thanh cong");*/           
+                /*MessageBox.Show("thanh cong");*/
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace DoAn_Nhom7
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                if(cmd.ExecuteNonQuery()>0)
+                if (cmd.ExecuteNonQuery() > 0)
                     MessageBox.Show("Thành công");
 
             }
@@ -97,7 +97,7 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
-        public void LapDayThongTinTamTru(string sqlStr, TextBox cmnd, TextBox hoTen, TextBox ngaySinh, TextBox queQuan, TextBox thuongTru,TextBox ngayCap)
+        public void LapDayThongTinTamTru(string sqlStr, TextBox cmnd, TextBox hoTen, TextBox ngaySinh, TextBox queQuan, TextBox thuongTru, TextBox ngayCap)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace DoAn_Nhom7
                     ngaySinh.Text = Convert.ToString(dta["ngayThangNamSinh"]); ;
                     queQuan.Text = Convert.ToString(dta["queQuan"]);
                     thuongTru.Text = Convert.ToString(dta["noiThuongTru"]);
-                    ngayCap.Text= Convert.ToString(dta["ngayCap"]);
+                    ngayCap.Text = Convert.ToString(dta["ngayCap"]);
                 }
             }
             catch (Exception ex)
@@ -144,7 +144,7 @@ namespace DoAn_Nhom7
             }
             return n;
         }
-        public void LapDayThongTinCD(TextBox cmnd, TextBox a, DateTimePicker dt, RadioButton b,RadioButton b1, ComboBox d, TextBox f, TextBox g, ComboBox j, TextBox k, ComboBox x, TextBox y, TextBox z, TextBox i, TextBox t, ComboBox n, DateTimePicker m,ComboBox p)
+        public void LapDayThongTinCD(TextBox cmnd, TextBox a, DateTimePicker dt, RadioButton b, RadioButton b1, ComboBox d, TextBox f, TextBox g, ComboBox j, TextBox k, ComboBox x, TextBox y, TextBox z, TextBox i, TextBox t, ComboBox n, DateTimePicker m, ComboBox p)
         {
             conn.Open();
             string sqlStr = "Select * from CongDan where cmnd = '" + cmnd.Text + "'";
@@ -156,9 +156,9 @@ namespace DoAn_Nhom7
                 DateTime ngaySinh = DateTime.ParseExact(Convert.ToString(dta["ngayThangNamSinh"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 dt.Value = ngaySinh;
                 if (Convert.ToString(dta["gioiTinh"]) == "Nữ")
-                    b.Checked=true;
+                    b.Checked = true;
                 else
-                    b1.Checked=true;
+                    b1.Checked = true;
                 d.Text = Convert.ToString(dta["danToc"]);
                 f.Text = Convert.ToString(dta["tinhTrangHonNhan"]);
                 g.Text = Convert.ToString(dta["noiDangKiKhaiSinh"]);
@@ -176,7 +176,7 @@ namespace DoAn_Nhom7
                     m.Value = ngaycap;
                 }
                 p.Text = Convert.ToString(dta["QuocTich"]);
-                
+
             }
             conn.Close();
         }
@@ -330,7 +330,7 @@ namespace DoAn_Nhom7
             conn.Close();
             return tuoi;
         }
-        public bool ChuaCoQuanHe(string cmnda,string cmndb)
+        public bool ChuaCoQuanHe(string cmnda, string cmndb)
         {
             conn.Open();
             string sqlStr = "Select * from QuanHe where CMND1 = '" + cmnda + "' and CMND2  = '" + cmndb + "'";
@@ -349,7 +349,7 @@ namespace DoAn_Nhom7
             conn.Open();
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader dr = cmd.ExecuteReader();
-            string gioiTinh="";
+            string gioiTinh = "";
             if (dr.Read())
             {
                 gioiTinh = Convert.ToString(dr["gioiTinh"].ToString());
@@ -357,7 +357,7 @@ namespace DoAn_Nhom7
             conn.Close();
             return gioiTinh;
         }
-        
+
         public void KhaiTu_KeyDown(string sqlStr, TextBox cmnd, TextBox ten, TextBox ngsinh, TextBox honNhan, TextBox noiThuongTru, TextBox gioiTinh, TextBox danToc, TextBox quocTich, TextBox queQuan, TextBox ngheNghiep)
         {
             conn.Open();
@@ -377,7 +377,7 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
-        public void KhaiSinh_KeyDown(string sqlStr, TextBox cmnd, TextBox ten, TextBox danToc,TextBox quocTich)
+        public void KhaiSinh_KeyDown(string sqlStr, TextBox cmnd, TextBox ten, TextBox danToc, TextBox quocTich)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
@@ -457,7 +457,7 @@ namespace DoAn_Nhom7
 
         public bool KiemTraTVSHK(string sqlStr)
         {
-            conn.Open();           
+            conn.Open();
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
@@ -528,7 +528,7 @@ namespace DoAn_Nhom7
             }
         }
         public void LapTVSoHoKhau(string sqlStr, TextBox txtCMND, TextBox txtCmnd_tv, TextBox txtMaShk_tv, TextBox txtMaSoHoKhau, TextBox txtHoTen_tv, TextBox txtGioiTinh_tv, ComboBox txtQuanHe)
-        {            
+        {
             try
             {
                 conn.Open();
@@ -568,7 +568,7 @@ namespace DoAn_Nhom7
                 {
                     maShk.Text = Convert.ToString(dta["maSoHoKhau"]);
                     cmndTv.Text = traCuu.Text;
-                    LapSoHoKhau(sqlStr_lapShk, maShk,cmnd,maKv, xaPhuong, quanHuyen, tinhTp, diaChi, ngayLap);
+                    LapSoHoKhau(sqlStr_lapShk, maShk, cmnd, maKv, xaPhuong, quanHuyen, tinhTp, diaChi, ngayLap);
                     LapTVSoHoKhau(sqlStr_lapTvShk, cmnd, cmndTv, maShkTv, maShk, hoTenTv, gioiTinhTv, quanHe);
                     if (hoTenTv.Text == "")
                         cmndTv.Text = "";
@@ -601,7 +601,7 @@ namespace DoAn_Nhom7
                 conn.Close();
             }
         }
-        public void LapDayThongTinKhaiSinh(string cmnd,Label a,Label b, Label a1,Label s, Label a2, Label a3, Label a4, Label a5)
+        public void LapDayThongTinKhaiSinh(string cmnd, Label a, Label b, Label a1, Label s, Label a2, Label a3, Label a4, Label a5)
         {
             conn.Open();
             string sqlStr = "Select * from CongDan where cmnd = '" + cmnd + "'";
@@ -609,7 +609,7 @@ namespace DoAn_Nhom7
             SqlDataReader dta = cmd.ExecuteReader();
             while (dta.Read())
             {
-                a.Text= Convert.ToString(dta["cmnd"]);
+                a.Text = Convert.ToString(dta["cmnd"]);
                 b.Text = Convert.ToString(dta["hoTen"]);
                 a1.Text = Convert.ToString(dta["hoTen"]);
                 a2.Text = Convert.ToString(dta["ngayThangNamSinh"]);
@@ -620,7 +620,7 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
-        public void LapDayThongTinKhaiSinhCon(string cmnd, Label a, Label a1, Label a2, Label a3, Label a4, Label a5,Label a6,Label a7)
+        public void LapDayThongTinKhaiSinhCon(string cmnd, Label a, Label a1, Label a2, Label a3, Label a4, Label a5, Label a6, Label a7)
         {
             conn.Open();
             string sqlStr = "Select * from CongDan where cmnd = '" + cmnd + "'";
@@ -655,7 +655,7 @@ namespace DoAn_Nhom7
             conn.Close();
             return null;
         }
-            //thue
+        //thue
         public void LayThongTinCongDan_Thue(string sqlStr, DataGridView dtgv, TextBox luong, TextBox ten, TextBox nghe)
         {
             try
@@ -737,34 +737,35 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
-        public void PhucVuKhaiTu(string sqlStr, ref string maSoHoKhau, ref string maKhuVuc, ref string xaPhuong, ref string quanHuyen, ref string tinhThanhPho, ref string diaChi, ref string ngayLap )
-        {
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                SqlDataReader dta = cmd.ExecuteReader();
-                while (dta.Read())
-                {
-                    maSoHoKhau = Convert.ToString(dta["maSoHoKhau"]);
-                    maKhuVuc = Convert.ToString(dta["maKV"]);
-                    xaPhuong = Convert.ToString(dta["xaPhuong"]);
-                    quanHuyen = Convert.ToString(dta["quanHuyen"]);
-                    tinhThanhPho = Convert.ToString(dta["tinhTP"]);
-                    diaChi = Convert.ToString(dta["diaChi"]);
-                    ngayLap = Convert.ToString(dta["ngayLap"]);
 
+            public void PhucVuKhaiTu(string sqlStr, ref string maSoHoKhau, ref string maKhuVuc, ref string xaPhuong, ref string quanHuyen, ref string tinhThanhPho, ref string diaChi, ref string ngayLap)
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                    SqlDataReader dta = cmd.ExecuteReader();
+                    while (dta.Read())
+                    {
+                        maSoHoKhau = Convert.ToString(dta["maSoHoKhau"]);
+                        maKhuVuc = Convert.ToString(dta["maKV"]);
+                        xaPhuong = Convert.ToString(dta["xaPhuong"]);
+                        quanHuyen = Convert.ToString(dta["quanHuyen"]);
+                        tinhThanhPho = Convert.ToString(dta["tinhTP"]);
+                        diaChi = Convert.ToString(dta["diaChi"]);
+                        ngayLap = Convert.ToString(dta["ngayLap"]);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
         public void LapThongTin_Shk(string sqlStr, TextBox txtCmnd_tv, TextBox txtHoTen_tv, TextBox txtGioiTinh_tv)
         {            
             try
@@ -815,6 +816,7 @@ namespace DoAn_Nhom7
             {
                 conn.Close();
             }
-        }
+        } 
     }
-}
+} 
+
