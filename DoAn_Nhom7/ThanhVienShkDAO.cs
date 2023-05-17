@@ -67,17 +67,17 @@ namespace DoAn_Nhom7
         public void ThietLapQuanHeGiaDinh(ThanhVienShk tv)
         {
             string sqlStr = string.Format("SELECT CMNDThanhVien,quanHeVoiChuHo FROM ThanhVienSoHoKhau WHERE maSoHoKhau = '" + tv.MaShk+ "'");
-            if (tv.QuanHe == "Con Dâu")
+            try
             {
-                try
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                SqlDataReader dta = cmd.ExecuteReader();
+                while (dta.Read())
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    while (dta.Read())
+                    string a = Convert.ToString(dta["CMNDThanhVien"]);
+                    string b = Convert.ToString(dta["quanHeVoiChuHo"]);
+                    if (tv.QuanHe == "Con Dâu")
                     {
-                        string a = Convert.ToString(dta["CMNDThanhVien"]);
-                        string b = Convert.ToString(dta["quanHeVoiChuHo"]);
                         if (dbc.ChuaCoQuanHe(a, tv.CmndThanhVien) && dbc.ChuaCoQuanHe(tv.CmndThanhVien, a))
                         {
                             if ((b == "Con Trai" || b == "Con Gái"))
@@ -103,30 +103,11 @@ namespace DoAn_Nhom7
                                 dbc.XuLy(sqlStr1);
                                 dbc.XuLy(sqlStr2);
                             }
-                        }
 
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            else if (tv.QuanHe == "Cháu Trai"|| tv.QuanHe == "Cháu Gái")
-            {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    while (dta.Read())
+                    else if (tv.QuanHe == "Cháu Trai" || tv.QuanHe == "Cháu Gái")
                     {
-                        string a = Convert.ToString(dta["CMNDThanhVien"]);
-                        string b = Convert.ToString(dta["quanHeVoiChuHo"]);
                         if (dbc.ChuaCoQuanHe(a, tv.CmndThanhVien) && dbc.ChuaCoQuanHe(tv.CmndThanhVien, a))
                         {
                             if ((b == "Con Trai"))
@@ -175,27 +156,8 @@ namespace DoAn_Nhom7
                             }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            else if (tv.QuanHe == "Con Trai" )
-            {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    while (dta.Read())
+                    else if (tv.QuanHe == "Con Trai")
                     {
-                        string a = Convert.ToString(dta["CMNDThanhVien"]);
-                        string b = Convert.ToString(dta["quanHeVoiChuHo"]);
                         if (dbc.ChuaCoQuanHe(a, tv.CmndThanhVien) && dbc.ChuaCoQuanHe(tv.CmndThanhVien, a))
                         {
                             if ((b == "Bố"))
@@ -206,7 +168,7 @@ namespace DoAn_Nhom7
                                 dbc.XuLy(sqlStr1);
                                 dbc.XuLy(sqlStr2);
                             }
-                            else if ((b == "Mẹ") )
+                            else if ((b == "Mẹ"))
                             {
 
                                 string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Trai", "Bà");
@@ -228,7 +190,7 @@ namespace DoAn_Nhom7
                                 dbc.XuLy1(sqlStr1);
                                 dbc.XuLy1(sqlStr2);
                             }
-                            else if ((b == "Vợ") )
+                            else if ((b == "Vợ"))
                             {
 
                                 string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Con Trai", "Mẹ");
@@ -252,29 +214,17 @@ namespace DoAn_Nhom7
                                 dbc.XuLy(sqlStr1);
                                 dbc.XuLy(sqlStr2);
                             }
+                            else if (b == "Con Dâu")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em Rể", "Chị Dâu");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chị Dâu", "Em Rể");
+                                dbc.XuLy(sqlStr1);
+                                dbc.XuLy(sqlStr2);
+                            }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            else if (tv.QuanHe == "Con Gái")
-            {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    while (dta.Read())
+                    else if (tv.QuanHe == "Con Gái")
                     {
-                        string a = Convert.ToString(dta["CMNDThanhVien"]);
-                        string b = Convert.ToString(dta["quanHeVoiChuHo"]);
                         if (dbc.ChuaCoQuanHe(a, tv.CmndThanhVien) && dbc.ChuaCoQuanHe(tv.CmndThanhVien, a))
                         {
                             if ((b == "Bố"))
@@ -331,29 +281,17 @@ namespace DoAn_Nhom7
                                 dbc.XuLy(sqlStr1);
                                 dbc.XuLy(sqlStr2);
                             }
+                            else if (b == "Con Dâu")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em Rể", "Chị Dâu");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chị Dâu", "Em Rể");
+                                dbc.XuLy(sqlStr1);
+                                dbc.XuLy(sqlStr2);
+                            }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            else if (tv.QuanHe == "Vợ")
-            {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    while (dta.Read())
+                    else if (tv.QuanHe == "Vợ")
                     {
-                        string a = Convert.ToString(dta["CMNDThanhVien"]);
-                        string b = Convert.ToString(dta["quanHeVoiChuHo"]);
                         if (dbc.ChuaCoQuanHe(a, tv.CmndThanhVien) && dbc.ChuaCoQuanHe(tv.CmndThanhVien, a))
                         {
                             if (b == "Bố")
@@ -379,20 +317,21 @@ namespace DoAn_Nhom7
                                 dbc.XuLy(sqlStr1);
                                 dbc.XuLy(sqlStr2);
                             }
-
-
                         }
-                    }
+                    }    
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
+                                      
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            
+                   
 
         }
         public void ThietLapQuanHe(ThanhVienShk tv)
