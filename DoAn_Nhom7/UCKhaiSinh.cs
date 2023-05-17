@@ -63,14 +63,29 @@ namespace DoAn_Nhom7
                 string cmndChuHo = ksDao.TimChuHoSHK(mashk);
                 string quanhe;
                 if (cmndChuHo == txtCMNDCha.Text)
-                    quanhe = "Con";
+                {
+                    if (GioiTinh == "Nam")
+                        quanhe = "Con Trai";
+                    else
+                        quanhe = "Con Gái";
+                }
                 else
-                    quanhe = "Cháu";
+                {
+                    if (GioiTinh == "Nữ")
+                        quanhe = "Cháu Gái";
+                    else
+                        quanhe = "Cháu Trai";
+                }
+                    
                 ThanhVienShk tv = new ThanhVienShk(mashk, cmndChuHo, cmndcon, quanhe);
 
-                CongDan congDan = new CongDan(txtTen.Text, tpNgSinh.Text, GioiTinh, cmndcon, txtDanToc.Text, "Doc Than", txtNoiSinh.Text, cmbQueQuan.Text, cmbQueQuan.Text, txtQuocTich.Text);
+                CongDan congDan = new CongDan(txtTen.Text, tpNgSinh.Text, GioiTinh, cmndcon, txtDanToc.Text, "Độc Thân", txtNoiSinh.Text, cmbQueQuan.Text, cmbQueQuan.Text, txtQuocTich.Text);
                 cdDao.Them(congDan);
-                cdDao.CapNhatKhaiSinh(txtCMNDCha.Text, txtCMNDMe.Text, cmndcon);
+                if (GioiTinh == "Nam")
+                    quanhe = "Con Trai";
+                else
+                    quanhe = "Con Gái";
+                cdDao.CapNhatKhaiSinh(txtCMNDCha.Text, txtCMNDMe.Text, cmndcon,quanhe);
                 //mem.ThietLapMoiQuanHeBoCon(tv);
                 mem.ThietLapQuanHe(tv);
                 DialogResult result = MessageBox.Show("Bạn có muốn thêm con vào sổ hộ khẩu không", "Thông báo", MessageBoxButtons.OKCancel);

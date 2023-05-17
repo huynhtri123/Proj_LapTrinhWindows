@@ -90,15 +90,15 @@ namespace DoAn_Nhom7
             string sqlStr3 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')",  nu.cmnd, nam.cmnd, "Chồng", "Vợ");
             db.XuLy(sqlStr3);
         }
-        public void CapNhatKhaiSinh(string cmndbo,string cmndme,string cmndcon)
+        public void CapNhatKhaiSinh(string cmndbo,string cmndme,string cmndcon,string quanhe)
         {
-            string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", cmndbo, cmndcon, "Con", "Bố");
+            string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", cmndbo, cmndcon, quanhe, "Bố");
             db.XuLy(sqlStr2);
-            string sqlStr3 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", cmndcon, cmndbo, "Bố", "Con");
+            string sqlStr3 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", cmndcon, cmndbo, "Bố", quanhe);
             db.XuLy(sqlStr3);
-            string sqlStr4 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", cmndme, cmndcon, "Con", "Mẹ");
+            string sqlStr4 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", cmndme, cmndcon, quanhe, "Mẹ");
             db.XuLy(sqlStr4);
-            string sqlStr5 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", cmndcon, cmndme, "Mẹ", "Con");
+            string sqlStr5 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", cmndcon, cmndme, "Mẹ", quanhe);
             db.XuLy(sqlStr5);
         }
         public DataSet TimCongDanDaKetHon(DataGridView dtgv)
