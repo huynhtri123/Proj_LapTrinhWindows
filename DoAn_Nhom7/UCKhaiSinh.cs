@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 
 namespace DoAn_Nhom7
 {
     public partial class UCKhaiSinh : UserControl
     {
+        public static int stt;
         CongDanDAO cdDao = new CongDanDAO();
         ThanhVienShkDAO mem = new ThanhVienShkDAO();
         KhaiSinhDAO ksDao = new KhaiSinhDAO();
@@ -47,9 +49,13 @@ namespace DoAn_Nhom7
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
+
             if (KiemTraHonNhan(txtCMNDCha.Text))
             {
-                string cmndcon = txtCMNDCha.Text + "-con " + ksDao.SoLuongThanhVien(txtCMNDCha.Text) + "";
+                stt = Convert.ToInt32(File.ReadAllText("cmndcon.txt"));
+                string cmndcon = txtCMNDCha.Text + "-con " + stt + "";
+                stt++;
+                File.WriteAllText("cmndcon.txt", stt.ToString());
                 string GioiTinh;
                 if (rDNam.Checked)
                 {
