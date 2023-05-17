@@ -24,7 +24,6 @@ namespace DoAn_Nhom7
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
-                /*MessageBox.Show("thanh cong");*/
             }
             catch (Exception ex)
             {
@@ -144,42 +143,7 @@ namespace DoAn_Nhom7
             }
             return n;
         }
-        public void LapDayThongTinCD(TextBox cmnd, TextBox a, DateTimePicker dt, RadioButton b, RadioButton b1, ComboBox d, TextBox f, TextBox g, ComboBox j, TextBox k, ComboBox x, TextBox y, TextBox z, TextBox i, TextBox t, ComboBox n, DateTimePicker m, ComboBox p)
-        {
-            conn.Open();
-            string sqlStr = "Select * from CongDan where cmnd = '" + cmnd.Text + "'";
-            SqlCommand cmd = new SqlCommand(sqlStr, conn);
-            SqlDataReader dta = cmd.ExecuteReader();
-            while (dta.Read())
-            {
-                a.Text = Convert.ToString(dta["hoTen"]);
-                DateTime ngaySinh = DateTime.ParseExact(Convert.ToString(dta["ngayThangNamSinh"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                dt.Value = ngaySinh;
-                if (Convert.ToString(dta["gioiTinh"]) == "Nữ")
-                    b.Checked = true;
-                else
-                    b1.Checked = true;
-                d.Text = Convert.ToString(dta["danToc"]);
-                f.Text = Convert.ToString(dta["tinhTrangHonNhan"]);
-                g.Text = Convert.ToString(dta["noiDangKiKhaiSinh"]);
-                j.Text = Convert.ToString(dta["queQuan"]);
-                k.Text = Convert.ToString(dta["noiThuongTru"]);
-                x.Text = Convert.ToString(dta["trinhDoHocVan"]);
-                y.Text = Convert.ToString(dta["ngheNghiep"]);
-                z.Text = Convert.ToString(dta["luong"]);
-                i.Text = Convert.ToString(dta["soLanKetHon"]);
-                t.Text = Convert.ToString(dta["tamTru"]);
-                n.Text = Convert.ToString(dta["noiCapCMND"]);
-                if (Convert.ToString(dta["ngayCap"]) != "")
-                {
-                    DateTime ngaycap = DateTime.ParseExact(Convert.ToString(dta["ngayCap"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    m.Value = ngaycap;
-                }
-                p.Text = Convert.ToString(dta["QuocTich"]);
-
-            }
-            conn.Close();
-        }
+       
         public string CMNDVoChong(string cmnd, string sqlStr)
         {
             conn.Open();
@@ -201,7 +165,6 @@ namespace DoAn_Nhom7
         public bool KiemTraHonNhan(string sqlStr)
         {
             conn.Open();
-            //string sqlStr = "Select * from CongDan where cmnd = '" + cmnd + "'";
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
@@ -219,7 +182,6 @@ namespace DoAn_Nhom7
         public bool KiemTraVoChong(string sqlStr, string a, string b)
         {
             conn.Open();
-            //string sqlStr = "Select * from CongDan where cmnd = '" + cmnd + "'";
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
@@ -235,7 +197,7 @@ namespace DoAn_Nhom7
             conn.Close();
             return false;
         }
-        public int SoLuongThanhVien(string cmnd, string sqlStr)
+        public int SoLuongThanhVien(string sqlStr)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
@@ -330,20 +292,6 @@ namespace DoAn_Nhom7
             conn.Close();
             return tuoi;
         }
-        public bool ChuaCoQuanHe(string cmnda, string cmndb)
-        {
-            conn.Open();
-            string sqlStr = "Select * from QuanHe where CMND1 = '" + cmnda + "' and CMND2  = '" + cmndb + "'";
-            SqlCommand cmd = new SqlCommand(sqlStr, conn);
-            SqlDataReader dta = cmd.ExecuteReader();
-            if (dta.Read())
-            {
-                conn.Close();
-                return false;
-            }
-            conn.Close();
-            return true;
-        }
         public string GioiTinh(string sqlStr)
         {
             conn.Open();
@@ -390,11 +338,9 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
-        public string TimMaSHK(string cmnd, string sqlStr)
+        public string TimMaSHK(string sqlStr)
         {
             conn.Open();
-            //string sqlStr2 = "Select maSoHoKhau From ThanhVienSoHoKhau where CMNDThanhVien= '" + cmnd + "'";
-            //string sqlStr = sqlStr1 + " UNION " + sqlStr2;
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader dta = cmd.ExecuteReader();
             while (dta.Read())
@@ -407,7 +353,7 @@ namespace DoAn_Nhom7
             conn.Close();
             return null;
         }
-        public string TimChuHoSHK(string mashk, string sqlStr)
+        public string TimChuHoSHK(string sqlStr)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
@@ -423,10 +369,9 @@ namespace DoAn_Nhom7
             return null;
         }
 
-        public bool KiemTraTaiKhoanTonTai(string input)
+        public bool KiemTraTaiKhoanTonTai(string input, string sqlStr)
         {
             conn.Open();
-            string sqlStr = string.Format("SELECT * FROM TaiKhoan WHERE TaiKhoan = '{0}'", input);
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -437,7 +382,7 @@ namespace DoAn_Nhom7
             conn.Close();
             return false;
         }
-        public bool KiemTraSHK(string cmnd,string sqlStr)
+        public bool KiemTraSHK(string sqlStr)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
@@ -557,7 +502,50 @@ namespace DoAn_Nhom7
                 conn.Close();
             }
         }
-        public void TraCuu_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
+        public void DangKyTaiKhoan(string sqlStr)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                if (cmd.ExecuteNonQuery() > 0)
+                    MessageBox.Show("Thanh cong");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("That bai" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void DangNhap(string sqlStr)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                SqlDataReader dta = cmd.ExecuteReader();
+                if (dta.Read() == true)
+                {
+
+                }
+                else
+                    MessageBox.Show("Tai khoan ban dang nhap sai");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("That bai" + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void TraCuuSoHoKhau_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
         {
             try
             {
@@ -590,7 +578,7 @@ namespace DoAn_Nhom7
                     }
                 }
                 else
-                    MessageBox.Show("Khong thuoc shk nao");
+                    MessageBox.Show("Không thuộc sổ hộ khẩu nào!");
             }
             catch (Exception ex)
             {
@@ -601,10 +589,9 @@ namespace DoAn_Nhom7
                 conn.Close();
             }
         }
-        public void LapDayThongTinKhaiSinh(string cmnd, Label a, Label b, Label a1, Label s, Label a2, Label a3, Label a4, Label a5)
+        public void LapDayThongTinKhaiSinh(string sqlStr, Label a, Label b, Label a1, Label s, Label a2, Label a3, Label a4, Label a5)
         {
             conn.Open();
-            string sqlStr = "Select * from CongDan where cmnd = '" + cmnd + "'";
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader dta = cmd.ExecuteReader();
             while (dta.Read())
@@ -620,10 +607,9 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
-        public void LapDayThongTinKhaiSinhCon(string cmnd, Label a, Label a1, Label a2, Label a3, Label a4, Label a5, Label a6, Label a7)
+        public void LapDayThongTinKhaiSinhCon(string sqlStr, Label a, Label a1, Label a2, Label a3, Label a4, Label a5, Label a6, Label a7)
         {
             conn.Open();
-            string sqlStr = "Select * from CongDan where cmnd = '" + cmnd + "'";
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader dta = cmd.ExecuteReader();
             while (dta.Read())
@@ -640,22 +626,6 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
-        public string timCMNDBo(string maSHK)
-        {
-            conn.Open();
-            string sqlStr = string.Format("select shk.maSoHoKhau,cd.cmnd, cd.hoten ,cd.gioiTinh,'chu ho' AS QuanHe  FROM CongDan cd INNER JOIN SoHoKhau shk ON cd.cmnd = shk.CMNDChuHo where shk.maSoHoKhau = '" + maSHK + "'");
-            SqlCommand cmd = new SqlCommand(sqlStr, conn);
-            SqlDataReader dta = cmd.ExecuteReader();
-            while (dta.Read())
-            {
-                string a = Convert.ToString(dta["cd.cmnd"]);
-                conn.Close();
-                return a;
-            }
-            conn.Close();
-            return null;
-        }
-        //thue
         public void LayThongTinCongDan_Thue(string sqlStr, DataGridView dtgv, TextBox luong, TextBox ten, TextBox nghe)
         {
             try
@@ -738,34 +708,34 @@ namespace DoAn_Nhom7
             conn.Close();
         }
 
-            public void PhucVuKhaiTu(string sqlStr, ref string maSoHoKhau, ref string maKhuVuc, ref string xaPhuong, ref string quanHuyen, ref string tinhThanhPho, ref string diaChi, ref string ngayLap)
+        public void PhucVuKhaiTu(string sqlStr, ref string maSoHoKhau, ref string maKhuVuc, ref string xaPhuong, ref string quanHuyen, ref string tinhThanhPho, ref string diaChi, ref string ngayLap)
+        {
+            try
             {
-                try
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                SqlDataReader dta = cmd.ExecuteReader();
+                while (dta.Read())
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    while (dta.Read())
-                    {
-                        maSoHoKhau = Convert.ToString(dta["maSoHoKhau"]);
-                        maKhuVuc = Convert.ToString(dta["maKV"]);
-                        xaPhuong = Convert.ToString(dta["xaPhuong"]);
-                        quanHuyen = Convert.ToString(dta["quanHuyen"]);
-                        tinhThanhPho = Convert.ToString(dta["tinhTP"]);
-                        diaChi = Convert.ToString(dta["diaChi"]);
-                        ngayLap = Convert.ToString(dta["ngayLap"]);
+                    maSoHoKhau = Convert.ToString(dta["maSoHoKhau"]);
+                    maKhuVuc = Convert.ToString(dta["maKV"]);
+                    xaPhuong = Convert.ToString(dta["xaPhuong"]);
+                    quanHuyen = Convert.ToString(dta["quanHuyen"]);
+                    tinhThanhPho = Convert.ToString(dta["tinhTP"]);
+                    diaChi = Convert.ToString(dta["diaChi"]);
+                    ngayLap = Convert.ToString(dta["ngayLap"]);
 
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public void LapThongTin_Shk(string sqlStr, TextBox txtCmnd_tv, TextBox txtHoTen_tv, TextBox txtGioiTinh_tv)
         {            
             try
@@ -816,7 +786,289 @@ namespace DoAn_Nhom7
             {
                 conn.Close();
             }
-        } 
+        }
+        /// ////////////////////////Doan nay chua lam ADO duoc////////////////////////////
+        public bool ChuaCoQuanHe(string cmnda, string cmndb)
+        {
+            conn.Open();
+            string sqlStr = "Select * from QuanHe where CMND1 = '" + cmnda + "' and CMND2  = '" + cmndb + "'";
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            SqlDataReader dta = cmd.ExecuteReader();
+            if (dta.Read())
+            {
+                conn.Close();
+                return false;
+            }
+            conn.Close();
+            return true;
+        }
+        public void ThietLapQuanHeGiaDinh(ThanhVienShk tv, string sqlStr)
+        {           
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                SqlDataReader dta = cmd.ExecuteReader();
+                while (dta.Read())
+                {
+                    string a = Convert.ToString(dta["CMNDThanhVien"]);
+                    string b = Convert.ToString(dta["quanHeVoiChuHo"]);
+                    if (tv.QuanHe == "Con Dâu")
+                    {
+                        if (ChuaCoQuanHe(a, tv.CmndThanhVien) && ChuaCoQuanHe(tv.CmndThanhVien, a))
+                        {
+                            if ((b == "Con Trai" || b == "Con Gái"))
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Chị Dâu", "Em Rể");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Em Rể", "Chị Dâu");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+
+                            else if (b == "Vợ")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Con Dâu", "Me Chồng");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Mẹ Chồng", "Con Dâu");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Cháu")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Mự", "Cháu");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Cháu", "Mự");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+
+                        }
+                    }
+                    else if (tv.QuanHe == "Cháu Trai" || tv.QuanHe == "Cháu Gái")
+                    {
+                        if (ChuaCoQuanHe(a, tv.CmndThanhVien) && ChuaCoQuanHe(tv.CmndThanhVien, a))
+                        {
+                            if ((b == "Con Trai"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, tv.QuanHe, "Chú");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chú", tv.QuanHe);
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Con Gái")
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, tv.QuanHe, "Dì");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Dì", tv.QuanHe);
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Vợ")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, tv.QuanHe, "Bà");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Bà", tv.QuanHe);
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Con Dâu")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, tv.QuanHe, "Mự");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Mự", tv.QuanHe);
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Cháu Trai")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em", "Anh Trai");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Anh Trai", "Em");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Cháu Gái")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em ", "Chị Gái");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chị Gái", "Em");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                        }
+                    }
+                    else if (tv.QuanHe == "Con Trai")
+                    {
+                        if (ChuaCoQuanHe(a, tv.CmndThanhVien) && ChuaCoQuanHe(tv.CmndThanhVien, a))
+                        {
+                            if ((b == "Bố"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Trai", "Ông");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Ông", "Cháu Trai");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if ((b == "Mẹ"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Trai", "Bà");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Bà", "Cháu Trai");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Anh Trai")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Trai", "Chú");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chú", "Cháu Trai");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Em Gái")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Trai", "Gì");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Gì", "Cháu Trai");
+                                XuLy1(sqlStr1);
+                                XuLy1(sqlStr2);
+                            }
+                            else if ((b == "Vợ"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Con Trai", "Mẹ");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Mẹ", "Con Trai");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if ((b == "Con Trai"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em Trai", "Anh Trai");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Anh Trai", "Em Trai");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if ((b == "Con Gái"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em Trai", "Chị Gái");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chị Gái", "Em Trai");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Con Dâu")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em Rể", "Chị Dâu");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chị Dâu", "Em Rể");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                        }
+                    }
+                    else if (tv.QuanHe == "Con Gái")
+                    {
+                        if (ChuaCoQuanHe(a, tv.CmndThanhVien) && ChuaCoQuanHe(tv.CmndThanhVien, a))
+                        {
+                            if ((b == "Bố"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Gái", "Ông");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Ông", "Cháu Gái");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if ((b == "Mẹ"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Gái", "Bà");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Bà", "Cháu Gái");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Anh Trai")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Gái", "Chú");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chú", "Cháu Gái");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Em Gái")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Cháu Gái", "Gì");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Gì", "Cháu Gái");
+                                XuLy1(sqlStr1);
+                                XuLy1(sqlStr2);
+                            }
+                            else if ((b == "Vợ"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Con Gái", "Mẹ");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Mẹ", "Con Gái");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if ((b == "Con Trai"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em Gái", "Anh Trai");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Anh Trai", "Em Gái");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if ((b == "Con Gái"))
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em Gái", "Chị Gái");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chị Gái", "Em Gái");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Con Dâu")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Em Rể", "Chị Dâu");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Chị Dâu", "Em Rể");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                        }
+                    }
+                    else if (tv.QuanHe == "Vợ")
+                    {
+                        if (ChuaCoQuanHe(a, tv.CmndThanhVien) && ChuaCoQuanHe(tv.CmndThanhVien, a))
+                        {
+                            if (b == "Bố")
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Con Dâu", "Bố Chồng");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Bố Chồng", "Con Dâu");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Mẹ")
+                            {
+
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Con Dâu", "Mẹ Chồng");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Mẹ Chồng", "Con Dâu");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                            else if (b == "Anh Trai" || b == "Em Gái" || b == "Chị Gái" || b == "Em Trai")
+                            {
+                                string sqlStr1 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", a, tv.CmndThanhVien, "Chị Dâu", "Em Rể");
+                                string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", tv.CmndThanhVien, a, "Em Rể", "Chị Dâu");
+                                XuLy(sqlStr1);
+                                XuLy(sqlStr2);
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        /// /////////////////////////////////////////////////////////////////////////////
     }
+
 } 
 

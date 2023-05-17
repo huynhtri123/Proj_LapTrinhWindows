@@ -1,4 +1,5 @@
-use ahihi
+create database proj_nhom7
+use proj_nhom7
 --CONG DAN--
 CREATE TABLE CongDan (
  hoTen nvarchar(100),

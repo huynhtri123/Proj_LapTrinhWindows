@@ -19,7 +19,6 @@ namespace DoAn_Nhom7
         {
             InitializeComponent();
 
-            //
             string[] quocTich = { "Việt Nam", "Nga"};
             foreach (string dt in quocTich)
             {

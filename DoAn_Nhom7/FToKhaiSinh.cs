@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace DoAn_Nhom7
 {
-    public partial class FThongTinCongDancs : Form
+    public partial class FToKhaiSinh : Form
     {
+        ToKhaiSinhDAO toDao = new ToKhaiSinhDAO();
         public string cmnd { get; set; }
         public string cmndbo { get; set; }
         public string cmndme { get; set; }
@@ -19,7 +20,7 @@ namespace DoAn_Nhom7
         public string ngaydk { get; set; }
 
         DBConnection db = new DBConnection();
-        public FThongTinCongDancs()
+        public FToKhaiSinh()
         {
             InitializeComponent();
             /*db.LapDayThongTinKhaiSinhCon(cmnd, lblCCCD, lblHoTen, lblNamSinh, lblDanToc, lblQuocTich, lblQueQuan, lblNoiSinh, lblNoiKhaiSinh);
@@ -32,9 +33,9 @@ namespace DoAn_Nhom7
         private void FThongTinCongDancs_Load(object sender, EventArgs e)
 
         {
-            db.LapDayThongTinKhaiSinhCon(cmnd,lblCCCD, lblHoTen, lblNamSinh, lblDanToc, lblQuocTich, lblQueQuan,lblNoiSinh,lblNoiKhaiSinh);
-            db.LapDayThongTinKhaiSinh(cmndme,lblHoTenNguoiKhaiSinh, lblCCCDNguoiKhaiSinh,lblHoTenNguoiKhaiSinh, lblHoTenMe, lblNamSinhMe, lblDanTocMe, lblQuocTichMe, lblQueQuanMe);
-            db.LapDayThongTinKhaiSinh(cmndbo, lblHoTenNguoiKhaiSinh, lblCCCDNguoiKhaiSinh, lblHoTenNguoiKhaiSinh, lblHoTenBo, lblNamSinhBo, lblDanTocBo, lblQuocTichBo, lblQueQuanBo);
+            toDao.LapDayThongTinKhaiSinhCon(cmnd,lblCCCD, lblHoTen, lblNamSinh, lblDanToc, lblQuocTich, lblQueQuan,lblNoiSinh,lblNoiKhaiSinh);
+            toDao.LapDayThongTinKhaiSinh(cmndme,lblHoTenNguoiKhaiSinh, lblCCCDNguoiKhaiSinh,lblHoTenNguoiKhaiSinh, lblHoTenMe, lblNamSinhMe, lblDanTocMe, lblQuocTichMe, lblQueQuanMe);
+            toDao.LapDayThongTinKhaiSinh(cmndbo, lblHoTenNguoiKhaiSinh, lblCCCDNguoiKhaiSinh, lblHoTenNguoiKhaiSinh, lblHoTenBo, lblNamSinhBo, lblDanTocBo, lblQuocTichBo, lblQueQuanBo);
             lblNoiKhaiSinh.Text = noidk;
             lblNgayDangKy.Text = ngaydk;
             lblKyTen.Text = lblHoTenBo.Text;

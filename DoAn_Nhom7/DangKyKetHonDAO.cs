@@ -12,12 +12,12 @@ namespace DoAn_Nhom7
         public string TimMaSHK(string cmnd)
         {
             string sqlStr = "SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDChuHo = '" + cmnd + "' or CMNDThanhVien= '" + cmnd + "'";
-            return db.TimMaSHK(cmnd, sqlStr);
+            return db.TimMaSHK(sqlStr);
         }
         public string TimChuHoSHK(string mashk)
         {
             string sqlStr = "SELECT CMNDChuHo FROM SoHoKhau WHERE maSoHoKhau = '" + mashk + "'";
-            return db.TimChuHoSHK(mashk, sqlStr);
+            return db.TimChuHoSHK(sqlStr);
         }
     }
 }

@@ -119,11 +119,11 @@
     <Compile Include="FThongKe.Designer.cs">
       <DependentUpon>FThongKe.cs</DependentUpon>
     </Compile>
-    <Compile Include="FThongTinCongDancs.cs">
+    <Compile Include="FToKhaiSinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FThongTinCongDancs.Designer.cs">
-      <DependentUpon>FThongTinCongDancs.cs</DependentUpon>
+    <Compile Include="FToKhaiSinh.Designer.cs">
+      <DependentUpon>FToKhaiSinh.cs</DependentUpon>
     </Compile>
     <Compile Include="FThue.cs">
       <SubType>Form</SubType>
@@ -152,6 +152,7 @@
     <Compile Include="ThongKeDAO.cs" />
     <Compile Include="Thue.cs" />
     <Compile Include="ThueDAO.cs" />
+    <Compile Include="ToKhaiSinhDAO.cs" />
     <Compile Include="UCCanCuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,8 +234,8 @@
     <EmbeddedResource Include="FThongKe.resx">
       <DependentUpon>FThongKe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FThongTinCongDancs.resx">
-      <DependentUpon>FThongTinCongDancs.cs</DependentUpon>
+    <EmbeddedResource Include="FToKhaiSinh.resx">
+      <DependentUpon>FToKhaiSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FThue.resx">
       <DependentUpon>FThue.cs</DependentUpon>

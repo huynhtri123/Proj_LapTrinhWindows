@@ -54,8 +54,6 @@ namespace DoAn_Nhom7
             congAn3.Text = congAn;
         }
 
-
-
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             CongDan cdA = new CongDan(txtTamTru.Text, txtCMND.Text, dTPNgayBatDau.Text);

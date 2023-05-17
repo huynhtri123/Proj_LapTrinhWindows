@@ -18,7 +18,7 @@ namespace DoAn_Nhom7
         SoHoKhauDAO hkdao = new SoHoKhauDAO();
         ThanhVienShkDAO tvDao = new ThanhVienShkDAO();
         SoHoKhauDAO shkDao = new SoHoKhauDAO();
-        DBConnection db = new DBConnection();
+        //DBConnection db = new DBConnection();
         KhaiSinhDAO ksdao = new KhaiSinhDAO();
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr);
         public UCSoHoKhau()
@@ -66,7 +66,7 @@ namespace DoAn_Nhom7
                 LayDanhSach();
             }
             else
-                MessageBox.Show("Da co shk");
+                MessageBox.Show("Người này đã có sổ hộ khẩu rồi!");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace DoAn_Nhom7
                 LayDanhSach();
             }
             else
-                MessageBox.Show("Khong cung shk");
+                MessageBox.Show("Không cùng sổ hộ khẩu");
         }
 
         private void UCSoHoKhau_Load(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace DoAn_Nhom7
                 }    
             }
             else
-                MessageBox.Show("Da co shk");
+                MessageBox.Show("Người này đã có sổ hộ khẩu roi");
         }
 
         private void btnXoaTv_Click(object sender, EventArgs e)
@@ -250,11 +250,10 @@ namespace DoAn_Nhom7
                 conn.Close();
             }
 
-            /*LayDanhSach();
-            shkDao.TraCuu_Click(sender, e, dtgvSoHoKhau, dtgvThanhVienShk,
-                txtMaSoHoKhau, txtCmnd_tv, txtTraCuu, txtCMND, txtMaKhuVuc, txtXaPhuong, txtQuanHuyen, txtTinhThanhPho,
-                txtDiaChi, dtpNgayLap, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, txtQuanHe);
-            LayDanhSachThanhVien();*/
+            //LayDanhSach();
+            //shkDao.TraCuuSoHoKhau_Click(sender, e, dtgvSoHoKhau, dtgvThanhVienShk, txtMaSoHoKhau, txtCmnd_tv, txtTraCuu, txtCMND, txtMaKhuVuc,
+            //                    cmbXaPhuong, cmbQuanHuyen, cmbTinhThanhPho, txtDiaChi, dtpNgayLap, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);            
+            //LayDanhSachThanhVien();
 
         }
 

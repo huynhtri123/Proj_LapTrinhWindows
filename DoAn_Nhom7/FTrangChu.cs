@@ -17,7 +17,6 @@ namespace DoAn_Nhom7
 {
     public partial class FTrangChu : Form
     {
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr);
         CongDanDAO congdandao = new CongDanDAO();
         public FTrangChu()
         {

@@ -12,7 +12,6 @@ namespace DoAn_Nhom7
 {
     internal class SoHoKhauDAO
     {
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr);
         DBConnection dbconnection = new DBConnection();
         public DataTable DanhSach()
         {
@@ -82,13 +81,13 @@ namespace DoAn_Nhom7
             else
                 txtMaShk_tv.Text = "";
         }
-        public void TraCuu_Click(object sender, EventArgs e, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
+        public void TraCuuSoHoKhau_Click(object sender, EventArgs e, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
         {
             string sqlStr = string.Format("SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien = '" + traCuu.Text + "' OR CMNDChuHo = '" + traCuu.Text + "'");
             string sqlStr_lapShk = string.Format("SELECT * FROM SoHoKhau WHERE maSoHoKhau = '" + maShk.Text + "'");
             string sqlStr_lapTvShk = string.Format("SELECT CongDan.hoTen, CongDan.gioiTinh , QuanHe.quanHeVoiCMND1 FROM QuanHe JOIN CongDan ON CongDan.CMND = QuanHe.CMND2 WHERE QuanHe.CMND1 = '" + cmnd.Text + "' AND QuanHe.CMND2 = '" + cmndTv.Text + "' ");          
             
-            dbconnection.TraCuu_Click(sender, e, sqlStr, sqlStr_lapShk, sqlStr_lapTvShk,
+            dbconnection.TraCuuSoHoKhau_Click(sender, e, sqlStr, sqlStr_lapShk, sqlStr_lapTvShk,
                 dtgvSoHoKhau, dtgvThanhVienShk, maShk, cmndTv, traCuu, cmnd,
                 maKv, xaPhuong, quanHuyen, tinhTp, diaChi, ngayLap, maShkTv, hoTenTv, gioiTinhTv, quanHe);
         }
@@ -100,14 +99,11 @@ namespace DoAn_Nhom7
         public string TimMaSHK(string cmnd)
         {
             string sqlStr = "SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDChuHo = '" + cmnd + "' or CMNDThanhVien= '" + cmnd + "'";
-            return dbconnection.TimMaSHK(cmnd, sqlStr);
+            return dbconnection.TimMaSHK(sqlStr);
         }
         public bool KiemTraTVSHK(string cmnd)
         {
-            //string sqlStr = "Select * from CongDan where cmnd = '" + cmnd + "'";
             string sqlStr = " SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= '" + cmnd + "'";
-            //string sqlStr2 = " SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo= '" + cmnd1 + "'";
-            //string sqlStr = sqlStr2 + "UNION" + sqlStr1;
             return dbconnection.KiemTraTVSHK(sqlStr);
         }
         public bool KiemTraSHK(string cmnd)
@@ -115,7 +111,7 @@ namespace DoAn_Nhom7
             string sqlStr1 = " SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= '" + cmnd + "'";
             string sqlStr2 = " SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo= '" + cmnd + "'";
             string sqlStr = sqlStr2 + "UNION" + sqlStr1;
-            return dbconnection.KiemTraSHK(cmnd,sqlStr);
+            return dbconnection.KiemTraSHK(sqlStr);
         }
     }
 }

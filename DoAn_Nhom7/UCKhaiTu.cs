@@ -16,7 +16,6 @@ namespace DoAn_Nhom7
     public partial class UCKhaiTu : UserControl
 
     {
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr);
         CongDanDAO cdDao = new CongDanDAO();
         ThueDAO thueDao = new ThueDAO();
         KhaiTuDAO ktDao = new KhaiTuDAO();
@@ -55,7 +54,7 @@ namespace DoAn_Nhom7
                 cdDao.Xoa(cd);
             }
             else
-                MessageBox.Show("Vui long xac nhan!");
+                MessageBox.Show("Vui lòng xác nhận!");
         }
         private void txtCCCD_KeyDown(object sender, KeyEventArgs e)
         {

@@ -1,6 +1,6 @@
 ﻿namespace DoAn_Nhom7
 {
-    partial class FThongTinCongDancs
+    partial class FToKhaiSinh
     {
         /// <summary>
         /// Required designer variable.

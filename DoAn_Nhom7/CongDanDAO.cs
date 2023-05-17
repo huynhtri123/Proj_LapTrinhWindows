@@ -54,7 +54,7 @@ namespace DoAn_Nhom7
         public string TimMaSHK(string cmnd)
         {
             string sqlStr = "SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDChuHo = '" + cmnd + "' or CMNDThanhVien= '" + cmnd + "'";
-            return db.TimMaSHK(cmnd, sqlStr);
+            return db.TimMaSHK(sqlStr);
         }
         public DataTable DanhSach()
         {

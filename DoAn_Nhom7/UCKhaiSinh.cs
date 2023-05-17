@@ -52,10 +52,10 @@ namespace DoAn_Nhom7
 
             if (KiemTraHonNhan(txtCMNDCha.Text))
             {
-                stt = Convert.ToInt32(File.ReadAllText("E://Sualancuoi/Proj_LapTrinhWindows/cmndcon.txt"));
+                stt = Convert.ToInt32(File.ReadAllText("D:/Nam2/HKII/LapTrinhWindows/Proj/Proj_LapTrinhWindows/cmndcon.txt"));
                 string cmndcon = txtCMNDCha.Text + "-con " + stt + "";
                 stt++;
-                File.WriteAllText("E://Sualancuoi/Proj_LapTrinhWindows/cmndcon.txt", stt.ToString());
+                File.WriteAllText("D:/Nam2/HKII/LapTrinhWindows/Proj/Proj_LapTrinhWindows/cmndcon.txt", stt.ToString());
                 string GioiTinh;
                 if (rDNam.Checked)
                 {
@@ -92,14 +92,13 @@ namespace DoAn_Nhom7
                 else
                     quanhe = "Con Gái";
                 cdDao.CapNhatKhaiSinh(txtCMNDCha.Text, txtCMNDMe.Text, cmndcon,quanhe);
-                //mem.ThietLapMoiQuanHeBoCon(tv);
                 mem.ThietLapQuanHe(tv);
                 DialogResult result = MessageBox.Show("Bạn có muốn thêm con vào sổ hộ khẩu không", "Thông báo", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
                     mem.ThemThanhVien(tv);
                 }
-                FThongTinCongDancs form = new FThongTinCongDancs();
+                FToKhaiSinh form = new FToKhaiSinh();
                 form.cmnd = cmndcon;
                 form.cmndbo = txtCMNDCha.Text;
                 form.cmndme = txtCMNDMe.Text;
