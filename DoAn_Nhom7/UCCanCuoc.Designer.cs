@@ -50,6 +50,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbNoiCap = new System.Windows.Forms.ComboBox();
+            this.cmbHocVan = new System.Windows.Forms.ComboBox();
+            this.cmbTinh = new System.Windows.Forms.ComboBox();
+            this.cmbQuocTich = new System.Windows.Forms.ComboBox();
             this.cmbDanToc = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.rDNu = new System.Windows.Forms.RadioButton();
@@ -72,12 +76,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbQuocTich = new System.Windows.Forms.ComboBox();
-            this.cmbTinh = new System.Windows.Forms.ComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.cmbHocVan = new System.Windows.Forms.ComboBox();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
-            this.cmbNoiCap = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -327,6 +327,49 @@
             this.panel2.Size = new System.Drawing.Size(863, 463);
             this.panel2.TabIndex = 1;
             // 
+            // cmbNoiCap
+            // 
+            this.cmbNoiCap.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbNoiCap.DropDownHeight = 120;
+            this.cmbNoiCap.FormattingEnabled = true;
+            this.cmbNoiCap.IntegralHeight = false;
+            this.cmbNoiCap.Location = new System.Drawing.Point(441, 58);
+            this.cmbNoiCap.Name = "cmbNoiCap";
+            this.cmbNoiCap.Size = new System.Drawing.Size(155, 24);
+            this.cmbNoiCap.TabIndex = 93;
+            // 
+            // cmbHocVan
+            // 
+            this.cmbHocVan.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbHocVan.DropDownHeight = 120;
+            this.cmbHocVan.DropDownWidth = 145;
+            this.cmbHocVan.FormattingEnabled = true;
+            this.cmbHocVan.IntegralHeight = false;
+            this.cmbHocVan.Location = new System.Drawing.Point(145, 164);
+            this.cmbHocVan.Name = "cmbHocVan";
+            this.cmbHocVan.Size = new System.Drawing.Size(100, 24);
+            this.cmbHocVan.TabIndex = 92;
+            // 
+            // cmbTinh
+            // 
+            this.cmbTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbTinh.DropDownHeight = 120;
+            this.cmbTinh.FormattingEnabled = true;
+            this.cmbTinh.IntegralHeight = false;
+            this.cmbTinh.Location = new System.Drawing.Point(145, 353);
+            this.cmbTinh.Name = "cmbTinh";
+            this.cmbTinh.Size = new System.Drawing.Size(100, 24);
+            this.cmbTinh.TabIndex = 91;
+            // 
+            // cmbQuocTich
+            // 
+            this.cmbQuocTich.FormattingEnabled = true;
+            this.cmbQuocTich.Location = new System.Drawing.Point(441, 355);
+            this.cmbQuocTich.Name = "cmbQuocTich";
+            this.cmbQuocTich.Size = new System.Drawing.Size(155, 24);
+            this.cmbQuocTich.TabIndex = 90;
+            this.cmbQuocTich.SelectedValueChanged += new System.EventHandler(this.cmbQuocTich_SelectedValueChanged);
+            // 
             // cmbDanToc
             // 
             this.cmbDanToc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
@@ -528,49 +571,6 @@
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 47;
             // 
-            // cmbQuocTich
-            // 
-            this.cmbQuocTich.FormattingEnabled = true;
-            this.cmbQuocTich.Location = new System.Drawing.Point(441, 355);
-            this.cmbQuocTich.Name = "cmbQuocTich";
-            this.cmbQuocTich.Size = new System.Drawing.Size(155, 24);
-            this.cmbQuocTich.TabIndex = 90;
-            this.cmbQuocTich.SelectedValueChanged += new System.EventHandler(this.cmbQuocTich_SelectedValueChanged);
-            // 
-            // cmbTinh
-            // 
-            this.cmbTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbTinh.DropDownHeight = 120;
-            this.cmbTinh.FormattingEnabled = true;
-            this.cmbTinh.IntegralHeight = false;
-            this.cmbTinh.Location = new System.Drawing.Point(145, 353);
-            this.cmbTinh.Name = "cmbTinh";
-            this.cmbTinh.Size = new System.Drawing.Size(100, 24);
-            this.cmbTinh.TabIndex = 91;
-            // 
-            // cmbHocVan
-            // 
-            this.cmbHocVan.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbHocVan.DropDownHeight = 120;
-            this.cmbHocVan.DropDownWidth = 145;
-            this.cmbHocVan.FormattingEnabled = true;
-            this.cmbHocVan.IntegralHeight = false;
-            this.cmbHocVan.Location = new System.Drawing.Point(145, 164);
-            this.cmbHocVan.Name = "cmbHocVan";
-            this.cmbHocVan.Size = new System.Drawing.Size(100, 24);
-            this.cmbHocVan.TabIndex = 92;
-            // 
-            // cmbNoiCap
-            // 
-            this.cmbNoiCap.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbNoiCap.DropDownHeight = 120;
-            this.cmbNoiCap.FormattingEnabled = true;
-            this.cmbNoiCap.IntegralHeight = false;
-            this.cmbNoiCap.Location = new System.Drawing.Point(441, 58);
-            this.cmbNoiCap.Name = "cmbNoiCap";
-            this.cmbNoiCap.Size = new System.Drawing.Size(155, 24);
-            this.cmbNoiCap.TabIndex = 93;
-            // 
             // UCCanCuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -579,6 +579,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "UCCanCuoc";
             this.Size = new System.Drawing.Size(911, 526);
+            this.Load += new System.EventHandler(this.UCCanCuoc_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

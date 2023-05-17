@@ -14,8 +14,6 @@ namespace DoAn_Nhom7
 {
     public partial class UCCanCuoc : UserControl
     {
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr);
-        DBConnection dbconnection = new DBConnection();
         CongDanDAO cddao = new CongDanDAO();
         public UCCanCuoc()
         {
@@ -100,7 +98,7 @@ namespace DoAn_Nhom7
         {
             if (e.KeyCode == Keys.Enter)
             {
-                dbconnection.LapDayThongTinCD(txtCMND, txtHoTen, dTPNgaySinh, rDNu,rDNam, cmbDanToc, txtHonNhan, txtKhaiSinh, cmbTinh, txtThuongTru, cmbHocVan, txtNgheNghiep, txtLuong, txtSoLanKetHon, txtTamTru, cmbNoiCap, dTPNgayCap,cmbQuocTich);
+                cddao.LapDayThongTinCD(txtCMND, txtHoTen, dTPNgaySinh, rDNu,rDNam, cmbDanToc, txtHonNhan, txtKhaiSinh, cmbTinh, txtThuongTru, cmbHocVan, txtNgheNghiep, txtLuong, txtSoLanKetHon, txtTamTru, cmbNoiCap, dTPNgayCap,cmbQuocTich);
             }
         }
 
@@ -182,6 +180,11 @@ namespace DoAn_Nhom7
                 cmbNoiCap.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 cmbNoiCap.AutoCompleteCustomSource = data1;
             }    
+        }
+
+        private void UCCanCuoc_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

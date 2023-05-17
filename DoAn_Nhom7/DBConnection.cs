@@ -714,8 +714,41 @@ namespace DoAn_Nhom7
             {
                 conn.Close();
             }
-
         }
-        
+     public void LapDayThongTinCD(string sqlStr, TextBox cmnd, TextBox a, DateTimePicker dt, RadioButton b,RadioButton b1, ComboBox d, TextBox f, TextBox g, ComboBox j, TextBox k, ComboBox x, TextBox y, TextBox z, TextBox i, TextBox t, ComboBox n, DateTimePicker m,ComboBox p)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            SqlDataReader dta = cmd.ExecuteReader();
+            while (dta.Read())
+            {
+                a.Text = Convert.ToString(dta["hoTen"]);
+                DateTime ngaySinh = DateTime.ParseExact(Convert.ToString(dta["ngayThangNamSinh"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                dt.Value = ngaySinh;
+                if (Convert.ToString(dta["gioiTinh"]) == "Nữ")
+                    b.Checked=true;
+                else
+                    b1.Checked=true;
+                d.Text = Convert.ToString(dta["danToc"]);
+                f.Text = Convert.ToString(dta["tinhTrangHonNhan"]);
+                g.Text = Convert.ToString(dta["noiDangKiKhaiSinh"]);
+                j.Text = Convert.ToString(dta["queQuan"]);
+                k.Text = Convert.ToString(dta["noiThuongTru"]);
+                x.Text = Convert.ToString(dta["trinhDoHocVan"]);
+                y.Text = Convert.ToString(dta["ngheNghiep"]);
+                z.Text = Convert.ToString(dta["luong"]);
+                i.Text = Convert.ToString(dta["soLanKetHon"]);
+                t.Text = Convert.ToString(dta["tamTru"]);
+                n.Text = Convert.ToString(dta["noiCapCMND"]);
+                if (Convert.ToString(dta["ngayCap"]) != "")
+                {
+                    DateTime ngaycap = DateTime.ParseExact(Convert.ToString(dta["ngayCap"]), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    m.Value = ngaycap;
+                }
+                p.Text = Convert.ToString(dta["QuocTich"]);
+                
+            }
+            conn.Close();
+        }
     }
 }
