@@ -42,7 +42,7 @@ namespace DoAn_Nhom7
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
                 if(cmd.ExecuteNonQuery()>0)
-                    MessageBox.Show("thanh cong");
+                    MessageBox.Show("Thành công");
 
             }
             catch (Exception ex)
@@ -189,8 +189,10 @@ namespace DoAn_Nhom7
             if (dta.Read())
             {
                 a = Convert.ToString(dta["tinhTrangHonNhan"]);
-                if (a != "Doc Than")
+                if (a != "Độc Thân")
+                {
                     a = a.Substring(32);
+                }
                 else a = "";
             }
             conn.Close();
@@ -205,7 +207,7 @@ namespace DoAn_Nhom7
             if (dr.Read())
             {
                 string a = Convert.ToString(dr["tinhTrangHonNhan"]);
-                if (a == "Doc Than")
+                if (a == "Độc Thân")
                 {
                     conn.Close();
                     return true;
@@ -324,7 +326,6 @@ namespace DoAn_Nhom7
             if (dr.Read())
             {
                 tuoi = Convert.ToInt32(dr["Tuoi"].ToString());
-                MessageBox.Show("Tinh tuoi thanh cong");
             }
             conn.Close();
             return tuoi;
@@ -559,8 +560,10 @@ namespace DoAn_Nhom7
             {
                 conn.Close();
             }
+            string sqlStrx = "SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDChuHo = '" + txtCmnd_tv.Text + "' or CMNDThanhVien= '" + txtCmnd_tv.Text + "'";
+
             if (KiemTraSHK(txtCmnd_tv.Text)==false)
-                txtMaShk_tv.Text = txtMaSoHoKhau.Text;
+                txtMaShk_tv.Text = TimMaSHK(txtCmnd_tv.Text,sqlStrx);
             else
                 txtMaShk_tv.Text = "";
 

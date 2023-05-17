@@ -63,7 +63,7 @@ namespace DoAn_Nhom7
         }
         public void CapNhatLyHon(CongDan cd)
         {
-            string sqlStr = string.Format("UPDATE CongDan SET  tinhTrangHonNhan='Doc Than' WHERE CMND = '{0}'", cd.CMND);
+            string sqlStr = string.Format("UPDATE CongDan SET  tinhTrangHonNhan=N'Độc Thân' WHERE CMND = '{0}'", cd.CMND);
             db.XuLy(sqlStr);
         }
         public void CapNhatQuanHeLyHon(CongDan a,CongDan b)
@@ -77,13 +77,13 @@ namespace DoAn_Nhom7
             string sqlStr = string.Format("Select * from CongDan where cmnd = '" + cd.cmnd + "'");
             n = db.CapNhatTamTru(sqlStr, n);
             string sqlStr2 = string.Format("UPDATE CongDan SET tamTru = N'{0} {1}\n{2}' WHERE CMND ='{3}'", cd.tamTru, cd.ngayCap, n, cd.CMND);
-            db.XuLy(sqlStr2);
+            db.XuLy1(sqlStr2);
         }
         public void CapNhatKetHon(CongDan nam,CongDan nu)
         {
-            string sqlStr = string.Format("UPDATE CongDan SET  tinhTrangHonNhan='Da Ket Hon Voi Nguoi Co CMND La " + nu.CMND + "' WHERE CMND = '{0}'", nam.CMND);
+            string sqlStr = string.Format("UPDATE CongDan SET  tinhTrangHonNhan=N'Đã kết hôn với người có cmnd là " + nu.CMND + "' WHERE CMND = '{0}'", nam.CMND);
             db.XuLy(sqlStr);
-            string sqlStr1 = string.Format("UPDATE CongDan SET  tinhTrangHonNhan='Da Ket Hon Voi Nguoi Co CMND La " + nam.CMND + "' WHERE CMND = '{0}'", nu.CMND);
+            string sqlStr1 = string.Format("UPDATE CongDan SET  tinhTrangHonNhan=N'Đã kết hôn với người có cmnd là " + nam.CMND + "' WHERE CMND = '{0}'", nu.CMND);
             db.XuLy(sqlStr1);
             string sqlStr2 = string.Format("INSERT INTO QuanHe(CMND1, CMND2, quanHeVoiCMND1, quanHeVoiCMND2) VALUES ('{0}', '{1}', N'{2}',N'{3}')", nam.cmnd, nu.cmnd, "Vợ", "Chồng");
             db.XuLy(sqlStr2);

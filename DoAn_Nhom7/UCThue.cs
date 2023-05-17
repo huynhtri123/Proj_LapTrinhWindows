@@ -31,6 +31,19 @@ namespace DoAn_Nhom7
             cmbLoaiThue.AutoCompleteMode = AutoCompleteMode.Suggest;
             cmbLoaiThue.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmbLoaiThue.AutoCompleteCustomSource = data;
+            string[] tinhTrang = { "Đã đóng","Chưa đóng"};
+            foreach (string dt in tinhTrang)
+            {
+                cmbTinhTrang2.Items.Add(dt);
+            }
+            AutoCompleteStringCollection data1 = new AutoCompleteStringCollection();
+            foreach (string dt in tinhTrang)
+            {
+                data1.Add(dt);
+            }
+            cmbTinhTrang2.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbTinhTrang2.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbTinhTrang2.AutoCompleteCustomSource = data;
         }
         private void UCThue_Load(object sender, EventArgs e)
         {
@@ -102,19 +115,19 @@ namespace DoAn_Nhom7
         }
         private void btnThemDoiTuong_Click(object sender, EventArgs e)
         {
-            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
+            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), cmbTinhTrang2.Text);
             thueDao.ThemDoiTuong(thue);
             LayDanhSach();
         }
         private void btnSuaDoiTuong_Click(object sender, EventArgs e)
         {
-            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
+            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), cmbTinhTrang2.Text);
             thueDao.SuaDoiTuong(thue);
             LayDanhSach();
         }
         private void btnXoaDoiTuong_Click(object sender, EventArgs e)
         {
-            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), txtTinhTrang2.Text);
+            Thue thue = new Thue(txtCCCD2.Text, cmbLoaiThue.Text, Convert.ToDouble(txtMucThue2.Text), cmbTinhTrang2.Text);
             thueDao.XoaDoiTuong(thue);
             LayDanhSach();
         }
@@ -125,12 +138,12 @@ namespace DoAn_Nhom7
             txtCCCD.Text = row.Cells[0].Value.ToString();
             txtLoaiThue.Text = row.Cells[1].Value.ToString();
             txtMucThue.Text = row.Cells[2].Value.ToString();
-            if (row.Cells[3].Value.ToString() == "Chua dong")
+            if (row.Cells[3].Value.ToString() == "Chưa đóng")
             {
                 cbChuaDong.Checked = true;
                 cbDaDong.Checked = false;
             }
-            else if (row.Cells[3].Value.ToString() == "Da dong")
+            else if (row.Cells[3].Value.ToString() == "Đã đóng")
             {
                 cbDaDong.Checked = true;
                 cbChuaDong.Checked = false;
@@ -145,7 +158,7 @@ namespace DoAn_Nhom7
             txtCCCD2.Text = row.Cells[0].Value.ToString();
             cmbLoaiThue.Text = row.Cells[1].Value.ToString();
             txtMucThue2.Text = row.Cells[2].Value.ToString();
-            txtTinhTrang2.Text = row.Cells[3].Value.ToString();
+            cmbTinhTrang2.Text = row.Cells[3].Value.ToString();
         }
     }
 }

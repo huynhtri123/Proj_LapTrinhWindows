@@ -33,11 +33,11 @@
             this.txtCCCD = new System.Windows.Forms.TextBox();
             this.dGVThue = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cmbLoaiThue = new System.Windows.Forms.ComboBox();
             this.btnXoaDoiTuong = new System.Windows.Forms.Button();
             this.btnSuaDoiTuong = new System.Windows.Forms.Button();
             this.btnThemDoiTuong = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTinhTrang2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCCCD2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.txtMucThue = new System.Windows.Forms.TextBox();
             this.lblLoaiThue = new System.Windows.Forms.Label();
             this.txtLoaiThue = new System.Windows.Forms.TextBox();
-            this.cmbLoaiThue = new System.Windows.Forms.ComboBox();
+            this.cmbTinhTrang2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVThue)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVChinhSuaDanhSach)).BeginInit();
@@ -118,12 +118,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmbTinhTrang2);
             this.tabPage2.Controls.Add(this.cmbLoaiThue);
             this.tabPage2.Controls.Add(this.btnXoaDoiTuong);
             this.tabPage2.Controls.Add(this.btnSuaDoiTuong);
             this.tabPage2.Controls.Add(this.btnThemDoiTuong);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.txtTinhTrang2);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.txtCCCD2);
             this.tabPage2.Controls.Add(this.label4);
@@ -137,6 +137,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Chỉnh sửa danh sách";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cmbLoaiThue
+            // 
+            this.cmbLoaiThue.FormattingEnabled = true;
+            this.cmbLoaiThue.Location = new System.Drawing.Point(527, 71);
+            this.cmbLoaiThue.Name = "cmbLoaiThue";
+            this.cmbLoaiThue.Size = new System.Drawing.Size(238, 28);
+            this.cmbLoaiThue.TabIndex = 31;
             // 
             // btnXoaDoiTuong
             // 
@@ -180,14 +188,6 @@
             this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 27;
             this.label6.Text = "Tình trạng";
-            // 
-            // txtTinhTrang2
-            // 
-            this.txtTinhTrang2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTinhTrang2.Location = new System.Drawing.Point(527, 158);
-            this.txtTinhTrang2.Name = "txtTinhTrang2";
-            this.txtTinhTrang2.Size = new System.Drawing.Size(238, 27);
-            this.txtTinhTrang2.TabIndex = 26;
             // 
             // label3
             // 
@@ -449,13 +449,14 @@
             this.txtLoaiThue.Size = new System.Drawing.Size(192, 27);
             this.txtLoaiThue.TabIndex = 11;
             // 
-            // cmbLoaiThue
+            // cmbTinhTrang2
             // 
-            this.cmbLoaiThue.FormattingEnabled = true;
-            this.cmbLoaiThue.Location = new System.Drawing.Point(527, 71);
-            this.cmbLoaiThue.Name = "cmbLoaiThue";
-            this.cmbLoaiThue.Size = new System.Drawing.Size(238, 28);
-            this.cmbLoaiThue.TabIndex = 31;
+            this.cmbTinhTrang2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbTinhTrang2.FormattingEnabled = true;
+            this.cmbTinhTrang2.Location = new System.Drawing.Point(527, 158);
+            this.cmbTinhTrang2.Name = "cmbTinhTrang2";
+            this.cmbTinhTrang2.Size = new System.Drawing.Size(238, 28);
+            this.cmbTinhTrang2.TabIndex = 32;
             // 
             // UCThue
             // 
@@ -493,7 +494,6 @@
         private System.Windows.Forms.Button btnSuaDoiTuong;
         private System.Windows.Forms.Button btnThemDoiTuong;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtTinhTrang2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCCCD2;
         private System.Windows.Forms.Label label4;
@@ -522,5 +522,6 @@
         private System.Windows.Forms.Label lblLoaiThue;
         private System.Windows.Forms.TextBox txtLoaiThue;
         private System.Windows.Forms.ComboBox cmbLoaiThue;
+        private System.Windows.Forms.ComboBox cmbTinhTrang2;
     }
 }
