@@ -32,17 +32,17 @@ namespace DoAn_Nhom7
         public void ThemDoiTuong(Thue thue)
         {
             string sqlStr = string.Format("INSERT INTO Thue( CCCD, LoaiThue, MucThue, TinhTrang)  VALUES ('{0}', N'{1}','{2}', N'{3}')", thue.CCCD, thue.LoaiThue, thue.MucThue, thue.TinhTrang);
-            dbconnection.XuLy(sqlStr);
+            dbconnection.XuLy1(sqlStr);
         }
         public void SuaDoiTuong(Thue thue)
         {
             string sqlStr = string.Format("UPDATE Thue SET LoaiThue = N'{0}' , MucThue = '{1}', TinhTrang = N'{2}' WHERE CCCD = '{3}'", thue.LoaiThue, thue.MucThue, thue.TinhTrang, thue.CCCD);
-            dbconnection.XuLy(sqlStr);
+            dbconnection.XuLy1(sqlStr);
         }
         public void XoaDoiTuong(Thue thue)
         {
             string sqlStr = string.Format("DELETE FROM Thue WHERE CCCD = '{0}'", thue.CCCD);
-            dbconnection.XuLy(sqlStr);
+            dbconnection.XuLy1(sqlStr);
         }
         public void LayThongTinCongDan(string cccd, DataGridView dtgv, TextBox luong, TextBox ten, TextBox nghe)
         {
