@@ -52,10 +52,10 @@ namespace DoAn_Nhom7
 
             if (KiemTraHonNhan(txtCMNDCha.Text))
             {
-                stt = Convert.ToInt32(File.ReadAllText("cmndcon.txt"));
+                stt = Convert.ToInt32(File.ReadAllText("E://Sualancuoi/Proj_LapTrinhWindows/cmndcon.txt"));
                 string cmndcon = txtCMNDCha.Text + "-con " + stt + "";
                 stt++;
-                File.WriteAllText("cmndcon.txt", stt.ToString());
+                File.WriteAllText("E://Sualancuoi/Proj_LapTrinhWindows/cmndcon.txt", stt.ToString());
                 string GioiTinh;
                 if (rDNam.Checked)
                 {
