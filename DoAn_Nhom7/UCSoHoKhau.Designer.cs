@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblQuanHe = new System.Windows.Forms.Label();
-            this.txtQuanHe = new System.Windows.Forms.TextBox();
             this.lblGioiTinh_tv = new System.Windows.Forms.Label();
             this.txtGioiTinh_tv = new System.Windows.Forms.TextBox();
             this.lblHoTen_tv = new System.Windows.Forms.Label();
@@ -48,6 +47,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtgvThanhVienShk = new System.Windows.Forms.DataGridView();
             this.pnSoHoKhau = new System.Windows.Forms.Panel();
+            this.cmbXaPhuong = new System.Windows.Forms.ComboBox();
+            this.cmbTinhThanhPho = new System.Windows.Forms.ComboBox();
+            this.cmbQuanHuyen = new System.Windows.Forms.ComboBox();
             this.lblMaKhuVuc = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.lblXaPhuong = new System.Windows.Forms.Label();
@@ -68,9 +70,7 @@
             this.txtTraCuu = new System.Windows.Forms.TextBox();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbQuanHuyen = new System.Windows.Forms.ComboBox();
-            this.cmbTinhThanhPho = new System.Windows.Forms.ComboBox();
-            this.cmbXaPhuong = new System.Windows.Forms.ComboBox();
+            this.cmbQuanHe = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSoHoKhau)).BeginInit();
             this.pnThanhvien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvThanhVienShk)).BeginInit();
@@ -86,14 +86,6 @@
             this.lblQuanHe.Size = new System.Drawing.Size(153, 20);
             this.lblQuanHe.TabIndex = 35;
             this.lblQuanHe.Text = "Quan hệ với chủ hộ";
-            // 
-            // txtQuanHe
-            // 
-            this.txtQuanHe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtQuanHe.Location = new System.Drawing.Point(180, 294);
-            this.txtQuanHe.Name = "txtQuanHe";
-            this.txtQuanHe.Size = new System.Drawing.Size(141, 27);
-            this.txtQuanHe.TabIndex = 36;
             // 
             // lblGioiTinh_tv
             // 
@@ -231,11 +223,11 @@
             // 
             this.pnThanhvien.BackColor = System.Drawing.Color.LightBlue;
             this.pnThanhvien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnThanhvien.Controls.Add(this.cmbQuanHe);
             this.pnThanhvien.Controls.Add(this.btnThemTv);
             this.pnThanhvien.Controls.Add(this.btnXoaTv);
             this.pnThanhvien.Controls.Add(this.btnSuaTv);
             this.pnThanhvien.Controls.Add(this.lblQuanHe);
-            this.pnThanhvien.Controls.Add(this.txtQuanHe);
             this.pnThanhvien.Controls.Add(this.lblGioiTinh_tv);
             this.pnThanhvien.Controls.Add(this.txtGioiTinh_tv);
             this.pnThanhvien.Controls.Add(this.lblHoTen_tv);
@@ -315,6 +307,33 @@
             this.pnSoHoKhau.Name = "pnSoHoKhau";
             this.pnSoHoKhau.Size = new System.Drawing.Size(443, 418);
             this.pnSoHoKhau.TabIndex = 30;
+            // 
+            // cmbXaPhuong
+            // 
+            this.cmbXaPhuong.FormattingEnabled = true;
+            this.cmbXaPhuong.Location = new System.Drawing.Point(116, 279);
+            this.cmbXaPhuong.Name = "cmbXaPhuong";
+            this.cmbXaPhuong.Size = new System.Drawing.Size(102, 24);
+            this.cmbXaPhuong.TabIndex = 28;
+            this.cmbXaPhuong.SelectedIndexChanged += new System.EventHandler(this.cmbXaPhuong_SelectedIndexChanged);
+            // 
+            // cmbTinhThanhPho
+            // 
+            this.cmbTinhThanhPho.FormattingEnabled = true;
+            this.cmbTinhThanhPho.Location = new System.Drawing.Point(338, 196);
+            this.cmbTinhThanhPho.Name = "cmbTinhThanhPho";
+            this.cmbTinhThanhPho.Size = new System.Drawing.Size(94, 24);
+            this.cmbTinhThanhPho.TabIndex = 27;
+            this.cmbTinhThanhPho.SelectedIndexChanged += new System.EventHandler(this.cmbTinhThanhPho_SelectedIndexChanged);
+            // 
+            // cmbQuanHuyen
+            // 
+            this.cmbQuanHuyen.FormattingEnabled = true;
+            this.cmbQuanHuyen.Location = new System.Drawing.Point(338, 156);
+            this.cmbQuanHuyen.Name = "cmbQuanHuyen";
+            this.cmbQuanHuyen.Size = new System.Drawing.Size(94, 24);
+            this.cmbQuanHuyen.TabIndex = 26;
+            this.cmbQuanHuyen.SelectedIndexChanged += new System.EventHandler(this.cmbQuanHuyen_SelectedIndexChanged);
             // 
             // lblMaKhuVuc
             // 
@@ -511,32 +530,16 @@
             this.label4.TabIndex = 34;
             this.label4.Text = "Nhập CMND cần tìm:";
             // 
-            // cmbQuanHuyen
+            // cmbQuanHe
             // 
-            this.cmbQuanHuyen.FormattingEnabled = true;
-            this.cmbQuanHuyen.Location = new System.Drawing.Point(338, 156);
-            this.cmbQuanHuyen.Name = "cmbQuanHuyen";
-            this.cmbQuanHuyen.Size = new System.Drawing.Size(94, 24);
-            this.cmbQuanHuyen.TabIndex = 26;
-            this.cmbQuanHuyen.SelectedIndexChanged += new System.EventHandler(this.cmbQuanHuyen_SelectedIndexChanged);
-            // 
-            // cmbTinhThanhPho
-            // 
-            this.cmbTinhThanhPho.FormattingEnabled = true;
-            this.cmbTinhThanhPho.Location = new System.Drawing.Point(338, 196);
-            this.cmbTinhThanhPho.Name = "cmbTinhThanhPho";
-            this.cmbTinhThanhPho.Size = new System.Drawing.Size(94, 24);
-            this.cmbTinhThanhPho.TabIndex = 27;
-            this.cmbTinhThanhPho.SelectedIndexChanged += new System.EventHandler(this.cmbTinhThanhPho_SelectedIndexChanged);
-            // 
-            // cmbXaPhuong
-            // 
-            this.cmbXaPhuong.FormattingEnabled = true;
-            this.cmbXaPhuong.Location = new System.Drawing.Point(116, 279);
-            this.cmbXaPhuong.Name = "cmbXaPhuong";
-            this.cmbXaPhuong.Size = new System.Drawing.Size(102, 24);
-            this.cmbXaPhuong.TabIndex = 28;
-            this.cmbXaPhuong.SelectedIndexChanged += new System.EventHandler(this.cmbXaPhuong_SelectedIndexChanged);
+            this.cmbQuanHe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbQuanHe.DropDownHeight = 120;
+            this.cmbQuanHe.FormattingEnabled = true;
+            this.cmbQuanHe.IntegralHeight = false;
+            this.cmbQuanHe.Location = new System.Drawing.Point(180, 293);
+            this.cmbQuanHe.Name = "cmbQuanHe";
+            this.cmbQuanHe.Size = new System.Drawing.Size(141, 24);
+            this.cmbQuanHe.TabIndex = 40;
             // 
             // UCSoHoKhau
             // 
@@ -565,7 +568,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblQuanHe;
-        private System.Windows.Forms.TextBox txtQuanHe;
         private System.Windows.Forms.Label lblGioiTinh_tv;
         private System.Windows.Forms.TextBox txtGioiTinh_tv;
         private System.Windows.Forms.Label lblHoTen_tv;
@@ -607,5 +609,6 @@
         private System.Windows.Forms.ComboBox cmbTinhThanhPho;
         private System.Windows.Forms.ComboBox cmbQuanHuyen;
         private System.Windows.Forms.ComboBox cmbXaPhuong;
+        private System.Windows.Forms.ComboBox cmbQuanHe;
     }
 }

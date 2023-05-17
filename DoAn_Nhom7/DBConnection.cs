@@ -476,7 +476,7 @@ namespace DoAn_Nhom7
             conn.Close();
             return true;
         }
-        public void ThanhVienShk_CellClick(object sender, DataGridViewCellEventArgs e, string sqlStr, DataGridView dtgvThanhVienShk, TextBox cmndTv, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, TextBox quanHe)
+        public void ThanhVienShk_CellClick(object sender, DataGridViewCellEventArgs e, string sqlStr, DataGridView dtgvThanhVienShk, TextBox cmndTv, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
         {
             DataGridViewRow row = new DataGridViewRow();
             row = dtgvThanhVienShk.Rows[e.RowIndex];
@@ -531,7 +531,7 @@ namespace DoAn_Nhom7
                 conn.Close();
             }
         }
-        public void LapTVSoHoKhau(string sqlStr, TextBox txtCMND, TextBox txtCmnd_tv, TextBox txtMaShk_tv, TextBox txtMaSoHoKhau, TextBox txtHoTen_tv, TextBox txtGioiTinh_tv, TextBox txtQuanHe)
+        public void LapTVSoHoKhau(string sqlStr, TextBox txtCMND, TextBox txtCmnd_tv, TextBox txtMaShk_tv, TextBox txtMaSoHoKhau, TextBox txtHoTen_tv, TextBox txtGioiTinh_tv, ComboBox txtQuanHe)
         {            
             try
             {
@@ -570,7 +570,7 @@ namespace DoAn_Nhom7
 
 
         }
-        public void TraCuu_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, TextBox quanHe)
+        public void TraCuu_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
         {
             try
             {
@@ -716,6 +716,33 @@ namespace DoAn_Nhom7
             }
 
         }
-        
+        public void PhucVuKhaiTu(string sqlStr, ref string maSoHoKhau, ref string maKhuVuc, ref string xaPhuong, ref string quanHuyen, ref string tinhThanhPho, ref string diaChi, ref string ngayLap )
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                SqlDataReader dta = cmd.ExecuteReader();
+                while (dta.Read())
+                {
+                    maSoHoKhau = Convert.ToString(dta["maSoHoKhau"]);
+                    maKhuVuc = Convert.ToString(dta["maKV"]);
+                    xaPhuong = Convert.ToString(dta["xaPhuong"]);
+                    quanHuyen = Convert.ToString(dta["quanHuyen"]);
+                    tinhThanhPho = Convert.ToString(dta["tinhTP"]);
+                    diaChi = Convert.ToString(dta["diaChi"]);
+                    ngayLap = Convert.ToString(dta["ngayLap"]);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
