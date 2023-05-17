@@ -59,7 +59,7 @@ namespace DoAn_Nhom7
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (db.KiemTraSHK(txtCMND.Text))
+            if (shkDao.KiemTraSHK(txtCMND.Text))
             {
                 SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, cmbXaPhuong.Text, cmbQuanHuyen.Text, cmbTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
                 hkdao.ThemSoHoKhau(hk);
@@ -128,7 +128,6 @@ namespace DoAn_Nhom7
 
         private void btnThemTv_Click(object sender, EventArgs e)
         {
-
             ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text ,txtCMND.Text, txtCmnd_tv.Text, cmbQuanHe.Text);
             if (shkDao.KiemTraTVSHK(txtCmnd_tv.Text))
             {
@@ -149,7 +148,6 @@ namespace DoAn_Nhom7
                     tvDao.ThemThanhVien(tv);
                     LayDanhSachThanhVien();
                 }    
-
             }
             else
                 MessageBox.Show("Da co shk");
@@ -196,17 +194,15 @@ namespace DoAn_Nhom7
 
             if (txtHoTen_tv.Text == "")
                 hkdao.LapThongTin(txtCmnd_tv, txtHoTen_tv, txtGioiTinh_tv);
-            /*tvDao.ThanhVienShk_CellClick(sender, e, dtgvThanhVienShk, txtCmnd_tv, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);*/
         }
 
         private void txtCmnd_tv_KeyDown(object sender, KeyEventArgs e)
         {
             hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);
-
             if (txtHoTen_tv.Text == "")
                 hkdao.LapThongTin(txtCmnd_tv, txtHoTen_tv, txtGioiTinh_tv);
         }
-
+        
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
             LayDanhSach();

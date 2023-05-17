@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaShk_tv = new System.Windows.Forms.TextBox();
             this.pnThanhvien = new System.Windows.Forms.Panel();
+            this.cmbQuanHe = new System.Windows.Forms.ComboBox();
             this.btnXem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgvThanhVienShk = new System.Windows.Forms.DataGridView();
@@ -70,7 +71,6 @@
             this.txtTraCuu = new System.Windows.Forms.TextBox();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbQuanHe = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSoHoKhau)).BeginInit();
             this.pnThanhvien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvThanhVienShk)).BeginInit();
@@ -243,6 +243,17 @@
             this.pnThanhvien.Name = "pnThanhvien";
             this.pnThanhvien.Size = new System.Drawing.Size(416, 418);
             this.pnThanhvien.TabIndex = 29;
+            // 
+            // cmbQuanHe
+            // 
+            this.cmbQuanHe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbQuanHe.DropDownHeight = 120;
+            this.cmbQuanHe.FormattingEnabled = true;
+            this.cmbQuanHe.IntegralHeight = false;
+            this.cmbQuanHe.Location = new System.Drawing.Point(180, 293);
+            this.cmbQuanHe.Name = "cmbQuanHe";
+            this.cmbQuanHe.Size = new System.Drawing.Size(141, 24);
+            this.cmbQuanHe.TabIndex = 40;
             // 
             // btnXem
             // 
@@ -529,17 +540,6 @@
             this.label4.Size = new System.Drawing.Size(131, 16);
             this.label4.TabIndex = 34;
             this.label4.Text = "Nhập CMND cần tìm:";
-            // 
-            // cmbQuanHe
-            // 
-            this.cmbQuanHe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbQuanHe.DropDownHeight = 120;
-            this.cmbQuanHe.FormattingEnabled = true;
-            this.cmbQuanHe.IntegralHeight = false;
-            this.cmbQuanHe.Location = new System.Drawing.Point(180, 293);
-            this.cmbQuanHe.Name = "cmbQuanHe";
-            this.cmbQuanHe.Size = new System.Drawing.Size(141, 24);
-            this.cmbQuanHe.TabIndex = 40;
             // 
             // UCSoHoKhau
             // 

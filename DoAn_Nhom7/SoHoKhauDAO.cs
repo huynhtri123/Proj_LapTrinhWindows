@@ -76,6 +76,11 @@ namespace DoAn_Nhom7
         {
             string sqlStr = string.Format("SELECT CongDan.hoTen, CongDan.gioiTinh , QuanHe.quanHeVoiCMND1 FROM QuanHe JOIN CongDan ON CongDan.CMND = QuanHe.CMND2 WHERE QuanHe.CMND1 = '" + txtCMND.Text + "' AND QuanHe.CMND2 = '" + txtCmnd_tv.Text + "' ");
             dbconnection.LapTVSoHoKhau(sqlStr, txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, txtQuanHe);
+            
+            if (KiemTraSHK(txtCmnd_tv.Text) == false)
+                txtMaShk_tv.Text = TimMaSHK(txtCmnd_tv.Text);
+            else
+                txtMaShk_tv.Text = "";
         }
         public void TraCuu_Click(object sender, EventArgs e, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
         {
@@ -87,35 +92,10 @@ namespace DoAn_Nhom7
                 dtgvSoHoKhau, dtgvThanhVienShk, maShk, cmndTv, traCuu, cmnd,
                 maKv, xaPhuong, quanHuyen, tinhTp, diaChi, ngayLap, maShkTv, hoTenTv, gioiTinhTv, quanHe);
         }
-        public void LapThongTin(TextBox txtCmnd_tv,TextBox txtHoTen_tv, TextBox txtGioiTinh_tv)
+        public void LapThongTin(TextBox txtCmnd_tv, TextBox txtHoTen_tv, TextBox txtGioiTinh_tv)
         {
             string sqlStr = string.Format("SELECT hoTen,gioiTinh FROM CongDan WHERE cmnd = '" + txtCmnd_tv.Text + "' ");
-            {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    if (dta.Read())
-                    {
-                        txtHoTen_tv.Text = Convert.ToString(dta["hoTen"]); ;
-                        txtGioiTinh_tv.Text = Convert.ToString(dta["gioiTinh"]);
-                    }
-                    else
-                    {
-                        txtHoTen_tv.Text = "";
-                        txtGioiTinh_tv.Text = "";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
+            dbconnection.LapThongTin_Shk(sqlStr,txtCmnd_tv, txtHoTen_tv, txtGioiTinh_tv);
         }
         public string TimMaSHK(string cmnd)
         {
@@ -128,7 +108,14 @@ namespace DoAn_Nhom7
             string sqlStr = " SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= '" + cmnd + "'";
             //string sqlStr2 = " SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo= '" + cmnd1 + "'";
             //string sqlStr = sqlStr2 + "UNION" + sqlStr1;
-            return dbconnection.KiemTraTVSHK(cmnd, sqlStr);
+            return dbconnection.KiemTraTVSHK(sqlStr);
+        }
+        public bool KiemTraSHK(string cmnd)
+        {
+            string sqlStr1 = " SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= '" + cmnd + "'";
+            string sqlStr2 = " SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo= '" + cmnd + "'";
+            string sqlStr = sqlStr2 + "UNION" + sqlStr1;
+            return dbconnection.KiemTraSHK(cmnd,sqlStr);
         }
     }
 }

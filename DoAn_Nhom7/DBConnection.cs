@@ -437,13 +437,9 @@ namespace DoAn_Nhom7
             conn.Close();
             return false;
         }
-        public bool KiemTraSHK(string cmnd)
+        public bool KiemTraSHK(string cmnd,string sqlStr)
         {
             conn.Open();
-            //string sqlStr = "Select * from CongDan where cmnd = '" + cmnd + "'";
-            string sqlStr1 = " SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= '" + cmnd + "'";
-            string sqlStr2 = " SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo= '" + cmnd + "'";
-            string sqlStr = sqlStr2 + "UNION" + sqlStr1;
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
@@ -459,7 +455,7 @@ namespace DoAn_Nhom7
             return true;
         }
 
-        public bool KiemTraTVSHK(string cmnd, string sqlStr)
+        public bool KiemTraTVSHK(string sqlStr)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
@@ -560,15 +556,6 @@ namespace DoAn_Nhom7
             {
                 conn.Close();
             }
-            string sqlStrx = "SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDChuHo = '" + txtCmnd_tv.Text + "' or CMNDThanhVien= '" + txtCmnd_tv.Text + "'";
-
-            if (KiemTraSHK(txtCmnd_tv.Text) == false)
-                txtMaShk_tv.Text = TimMaSHK(txtCmnd_tv.Text, sqlStrx);
-            else
-                txtMaShk_tv.Text = "";
-
-
-
         }
         public void TraCuu_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
         {
@@ -750,6 +737,7 @@ namespace DoAn_Nhom7
             }
             conn.Close();
         }
+
             public void PhucVuKhaiTu(string sqlStr, ref string maSoHoKhau, ref string maKhuVuc, ref string xaPhuong, ref string quanHuyen, ref string tinhThanhPho, ref string diaChi, ref string ngayLap)
             {
                 try
@@ -778,5 +766,57 @@ namespace DoAn_Nhom7
                     conn.Close();
                 }
             }
+        public void LapThongTin_Shk(string sqlStr, TextBox txtCmnd_tv, TextBox txtHoTen_tv, TextBox txtGioiTinh_tv)
+        {            
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                SqlDataReader dta = cmd.ExecuteReader();
+                if (dta.Read())
+                {
+                    txtHoTen_tv.Text = Convert.ToString(dta["hoTen"]); ;
+                    txtGioiTinh_tv.Text = Convert.ToString(dta["gioiTinh"]);
+                }
+                else
+                {
+                    txtHoTen_tv.Text = "";
+                    txtGioiTinh_tv.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }         
+        }
+        public void DienThanhVienSHK(string sqlStr, TextBox mashk, TextBox hoten, TextBox gioitinh, TextBox quanhe)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                SqlDataReader dta = cmd.ExecuteReader();
+                while (dta.Read())
+                {
+                    mashk.Text = Convert.ToString(dta["maSoHoKhau"]);
+                    hoten.Text = Convert.ToString(dta["hoTen"]); ;
+                    gioitinh.Text = Convert.ToString(dta["gioiTinh"]);
+                    quanhe.Text = Convert.ToString(dta["quanHeVoiChuHo"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         } 
-}
+    }
+} 
+
