@@ -78,7 +78,7 @@
           <Property Name="MucThue" Type="real" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__QuanHe__CMND1__373B3228">
+        <Association Name="FK__QuanHe__CMND1__7AF13DF7">
           <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
           <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -90,7 +90,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__QuanHe__CMND2__382F5661">
+        <Association Name="FK__QuanHe__CMND2__7BE56230">
           <End Role="CongDan" Type="Self.CongDan" Multiplicity="1" />
           <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,11 +173,11 @@
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThanhVienSoHoKhau" EntityType="Self.ThanhVienSoHoKhau" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Thue" EntityType="Self.Thue" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__QuanHe__CMND1__373B3228" Association="Self.FK__QuanHe__CMND1__373B3228">
+          <AssociationSet Name="FK__QuanHe__CMND1__7AF13DF7" Association="Self.FK__QuanHe__CMND1__7AF13DF7">
             <End Role="CongDan" EntitySet="CongDan" />
             <End Role="QuanHe" EntitySet="QuanHe" />
           </AssociationSet>
-          <AssociationSet Name="FK__QuanHe__CMND2__382F5661" Association="Self.FK__QuanHe__CMND2__382F5661">
+          <AssociationSet Name="FK__QuanHe__CMND2__7BE56230" Association="Self.FK__QuanHe__CMND2__7BE56230">
             <End Role="CongDan" EntitySet="CongDan" />
             <End Role="QuanHe" EntitySet="QuanHe" />
           </AssociationSet>
