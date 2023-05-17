@@ -17,9 +17,17 @@ namespace DoAn_Nhom7
         }
         public bool ThoaDieuKienKetHon(string cmndNam, string cmndNu)
         {
-            if (Tuoi(cmndNam) >= 20 && Tuoi(cmndNu) >= 18 && KiemTraHonNhan(cmndNam) == true && KiemTraHonNhan(cmndNu) == true && TimMaSHK(cmndNam)!=TimMaSHK(cmndNu))
+            if (Tuoi(cmndNam) >= 20 && Tuoi(cmndNu) >= 18 && KiemTraHonNhan(cmndNam) == true && KiemTraHonNhan(cmndNu) == true && CungGiaDinh(cmndNam, cmndNu))
                 return true;
             else return false;
+        }
+        public bool CungGiaDinh(string cmndNam, string cmndNu)
+        {
+            if (TimMaSHK(cmndNam) != null && TimMaSHK(cmndNu) != null)
+                if (TimMaSHK(cmndNam) == TimMaSHK(cmndNu))
+                    return false;
+            return true;
+
         }
         public string TimMaSHK(string cmnd)
         {

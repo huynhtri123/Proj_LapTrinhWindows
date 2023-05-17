@@ -96,7 +96,8 @@ namespace DoAn_Nhom7
             cmbQuanHuyen.Text = row.Cells[4].Value.ToString();
             cmbTinhThanhPho.Text = row.Cells[5].Value.ToString();
             txtDiaChi.Text = row.Cells[6].Value.ToString();
-            dtpNgayLap.Text = row.Cells[7].Value.ToString();
+            DateTime ngayLap = DateTime.ParseExact(row.Cells[7].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            dtpNgayLap.Value = ngayLap;
         }
         public void LayDanhSachThanhVien()
         {

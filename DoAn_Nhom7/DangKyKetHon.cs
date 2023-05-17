@@ -30,24 +30,51 @@ namespace DoAn_Nhom7
                 CongDan cdA = new CongDan(txtGiayToTuyThanNam.Text, txtHoTenNam.Text);
                 CongDan cdB = new CongDan(txtGiayToTuyThanNu.Text, txtHoTenNu.Text);
                 string maSHKCK = dkkhDao.TimMaSHK(txtGiayToTuyThanNam.Text);
-                string CMNDChuHoCK = dkkhDao.TimChuHoSHK(maSHKCK);
                 string maSHKVK = dkkhDao.TimMaSHK(txtGiayToTuyThanNu.Text);
-                string CMNDChuHoVK = dkkhDao.TimChuHoSHK(maSHKVK);
-                string quanhe;
-                if (CMNDChuHoCK == txtGiayToTuyThanNam.Text)
-                    quanhe = "Vợ";
-                else
-                    quanhe = "Con Dâu";
-                ThanhVienShk tv = new ThanhVienShk(maSHKCK, CMNDChuHoCK, txtGiayToTuyThanNu.Text, quanhe);
-                ThanhVienShk tv1 = new ThanhVienShk(maSHKVK, CMNDChuHoVK, txtGiayToTuyThanNu.Text, "Con Gái");
-                cddao.CapNhatKetHon(cdA, cdB);
-                mem.ThietLapQuanHe(tv);
-                DialogResult result = MessageBox.Show("Bạn có muốn chuyển sổ hộ khẩu người vợ không ?", "Thông báo", MessageBoxButtons.OKCancel);
-                if (result == DialogResult.OK)
+                if (maSHKCK != null && maSHKVK != null)
                 {
-                    mem.XoaThanhVien(tv1);
-                    mem.ThemThanhVien(tv);
+                    string CMNDChuHoCK = dkkhDao.TimChuHoSHK(maSHKCK);
+                    string CMNDChuHoVK = dkkhDao.TimChuHoSHK(maSHKVK);
+                    string quanhe;
+                    if (CMNDChuHoCK == txtGiayToTuyThanNam.Text)
+                        quanhe = "Vợ";
+                    else
+                        quanhe = "Con Dâu";
+                    ThanhVienShk tv = new ThanhVienShk(maSHKCK, CMNDChuHoCK, txtGiayToTuyThanNu.Text, quanhe);
+                    ThanhVienShk tv1 = new ThanhVienShk(maSHKVK, CMNDChuHoVK, txtGiayToTuyThanNu.Text, "Con Gái");
+                    cddao.CapNhatKetHon(cdA, cdB);
+                    mem.ThietLapQuanHe(tv);
+                    DialogResult result = MessageBox.Show("Bạn có muốn chuyển sổ hộ khẩu người vợ không ?", "Thông báo", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        mem.XoaThanhVien(tv1);
+                        mem.ThemThanhVien(tv);
+                    }
                 }
+                else if (maSHKCK != null && maSHKVK == null)
+                {
+                    string CMNDChuHoCK = dkkhDao.TimChuHoSHK(maSHKCK);
+                    string CMNDChuHoVK = dkkhDao.TimChuHoSHK(maSHKVK);
+                    string quanhe;
+                    if (CMNDChuHoCK == txtGiayToTuyThanNam.Text)
+                        quanhe = "Vợ";
+                    else
+                        quanhe = "Con Dâu";
+                    ThanhVienShk tv = new ThanhVienShk(maSHKCK, CMNDChuHoCK, txtGiayToTuyThanNu.Text, quanhe);
+                    cddao.CapNhatKetHon(cdA, cdB);
+                    mem.ThietLapQuanHe(tv);
+                    DialogResult result = MessageBox.Show("Bạn có muốn chuyển sổ hộ khẩu người vợ không ?", "Thông báo", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        mem.ThemThanhVien(tv);
+                    }
+                }
+                else
+                {
+                    cddao.CapNhatKetHon(cdA, cdB);
+                    MessageBox.Show("Thành công");
+                }
+
             }
             else
                 MessageBox.Show("Có người không đạt điều kiện kết hôn (1.chưa đủ tuổi; 2.đã kết hôn,3. trong 1 gia đình)");

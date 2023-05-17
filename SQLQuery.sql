@@ -1,4 +1,4 @@
-use project_LTWD
+use ahihi
 --CONG DAN--
 CREATE TABLE CongDan (
  hoTen nvarchar(100),
