@@ -19,6 +19,7 @@ namespace DoAn_Nhom7
         ThanhVienShkDAO tvDao = new ThanhVienShkDAO();
         SoHoKhauDAO shkDao = new SoHoKhauDAO();
         DBConnection db = new DBConnection();
+        KhaiSinhDAO ksdao = new KhaiSinhDAO();
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr);
         public UCSoHoKhau()
         {
@@ -36,6 +37,20 @@ namespace DoAn_Nhom7
             cmbTinhThanhPho.AutoCompleteMode = AutoCompleteMode.Suggest;
             cmbTinhThanhPho.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmbTinhThanhPho.AutoCompleteCustomSource = data1;
+            string[] quanHe = { "Con Dâu", "Vợ", "Con Trai", "Con Gái","Cháu Trai","Cháu Gái" };
+            foreach (string dt in quanHe)
+            {
+                cmbQuanHe.Items.Add(dt);
+            }
+            AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+            foreach (string dt in quanHe)
+            {
+                data.Add(dt);
+            }
+            cmbQuanHe.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbQuanHe.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbQuanHe.AutoCompleteCustomSource = data;
+ 
         }
         public void LayDanhSach()
         {
@@ -114,12 +129,27 @@ namespace DoAn_Nhom7
         private void btnThemTv_Click(object sender, EventArgs e)
         {
 
-            ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text ,txtCMND.Text, txtCmnd_tv.Text, txtQuanHe.Text);
+            ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text ,txtCMND.Text, txtCmnd_tv.Text, cmbQuanHe.Text);
             if (shkDao.KiemTraTVSHK(txtCmnd_tv.Text))
             {
-                tvDao.ThietLapQuanHe(tv);
-                tvDao.ThemThanhVien(tv);
-                LayDanhSachThanhVien();
+                if (cmbQuanHe.Text == "Vợ")
+                    if (txtCmnd_tv.Text == ksdao.CMNDVoChong(txtCMND.Text))
+                    {
+                        tvDao.ThietLapQuanHe(tv);
+                        tvDao.ThemThanhVien(tv);
+                        LayDanhSachThanhVien();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có vợ rồi !!!");
+                    }
+                else
+                {
+                    tvDao.ThietLapQuanHe(tv);
+                    tvDao.ThemThanhVien(tv);
+                    LayDanhSachThanhVien();
+                }    
+
             }
             else
                 MessageBox.Show("Da co shk");
@@ -127,15 +157,17 @@ namespace DoAn_Nhom7
 
         private void btnXoaTv_Click(object sender, EventArgs e)
         {
-            ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text, txtCMND.Text, txtCmnd_tv.Text, txtQuanHe.Text);
+            ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text, txtCMND.Text, txtCmnd_tv.Text, cmbQuanHe.Text);
             tvDao.XoaThanhVien(tv);
             LayDanhSachThanhVien();
         }
 
         private void btnSuaTv_Click(object sender, EventArgs e)
         {
-            ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text, txtCMND.Text, txtCmnd_tv.Text, txtQuanHe.Text);
-            tvDao.SuaThanhVien(tv,txtQuanHe.Text);
+            ThanhVienShk tv = new ThanhVienShk(txtMaShk_tv.Text, txtCMND.Text, txtCmnd_tv.Text, cmbQuanHe.Text);
+            tvDao.XoaTamThanhVien(tv);
+            tvDao.ThietLapQuanHe(tv);
+            tvDao.ThemThanhVien(tv);
             LayDanhSachThanhVien();
         }
 
@@ -157,12 +189,12 @@ namespace DoAn_Nhom7
 
         private void dtgvThanhVienShk_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            tvDao.ThanhVienShk_CellClick(sender, e, dtgvThanhVienShk, txtCmnd_tv, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, txtQuanHe);
+            tvDao.ThanhVienShk_CellClick(sender, e, dtgvThanhVienShk, txtCmnd_tv, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);
         }
 
         private void txtCmnd_tv_KeyDown(object sender, KeyEventArgs e)
         {
-            hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, txtQuanHe);
+            hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);
 
             if (txtHoTen_tv.Text == "")
                 hkdao.LapThongTin(txtCmnd_tv, txtHoTen_tv, txtGioiTinh_tv);
@@ -182,7 +214,7 @@ namespace DoAn_Nhom7
                     txtMaSoHoKhau.Text = Convert.ToString(dta["maSoHoKhau"]);
                     txtCmnd_tv.Text = txtTraCuu.Text;
                     hkdao.LapSoHoKhau(txtMaSoHoKhau, txtCMND, txtMaKhuVuc, cmbXaPhuong, cmbQuanHuyen, cmbTinhThanhPho, txtDiaChi, dtpNgayLap);
-                    hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, txtQuanHe);
+                    hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);
                     if (txtHoTen_tv.Text == "")
                         txtCmnd_tv.Text = "";
                     foreach (DataGridViewRow row in dtgvSoHoKhau.Rows)

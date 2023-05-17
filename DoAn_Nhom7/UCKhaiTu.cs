@@ -36,8 +36,7 @@ namespace DoAn_Nhom7
             {
                 Thue thue = new Thue(txtCCCD.Text);
                 thueDao.XoaDoiTuong(thue);
-                string sqlStr = string.Format("Select * from SoHoKhau where CMNDChuHo = '"+txtCCCD.Text+"'");
-                string maSoHoKhau , CMND="", maKhuVuc, xaPhuong, quanHuyen,tinhThanhPho, diaChi, ngayLap;
+                string maSoHoKhau="" , CMND="", maKhuVuc="", xaPhuong="", quanHuyen="",tinhThanhPho="",diaChi = "", ngayLap = "";
                 if (cccdchuho == cmndbandau)
                 {
                     FChuyenChuHo chuho = new FChuyenChuHo();
@@ -46,36 +45,12 @@ namespace DoAn_Nhom7
                     string[] words = txtCCCD.Text.Split(' ');
                     CMND = words[words.Length - 1];
                 }
-                try
+                ktDao.CungCapKhaiTu( cmndbandau, ref maSoHoKhau, ref maKhuVuc, ref xaPhuong, ref quanHuyen, ref tinhThanhPho, ref diaChi, ref ngayLap);
+                if (CMND != "")
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                    SqlDataReader dta = cmd.ExecuteReader();
-                    while (dta.Read())
-                    {
-                        maSoHoKhau = Convert.ToString(dta["maSoHoKhau"]);
-                        maKhuVuc = Convert.ToString(dta["maKV"]);
-                        xaPhuong = Convert.ToString(dta["xaPhuong"]);
-                        quanHuyen = Convert.ToString(dta["quanHuyen"]); ;
-                        tinhThanhPho = Convert.ToString(dta["tinhTP"]);
-                        diaChi = Convert.ToString(dta["diaChi"]);
-                        ngayLap = Convert.ToString(dta["ngayLap"]);
-                        if (CMND != "")
-                        {
-                            SoHoKhau hk = new SoHoKhau(maSoHoKhau, CMND, maKhuVuc, xaPhuong, quanHuyen, tinhThanhPho, diaChi, ngayLap);
-                            hkdao.SuaSoHoKhau(hk);
-                        }
-                    }
+                    SoHoKhau hk = new SoHoKhau(maSoHoKhau, CMND, maKhuVuc, xaPhuong, quanHuyen, tinhThanhPho, diaChi, ngayLap);
+                    hkdao.SuaSoHoKhau(hk);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
                 CongDan cd = new CongDan(cmndbandau);
                 cdDao.Xoa(cd);
             }
