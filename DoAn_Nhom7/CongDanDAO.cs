@@ -103,12 +103,12 @@ namespace DoAn_Nhom7
         }
         public DataSet TimCongDanDaKetHon(DataGridView dtgv)
         {
-            string sqlStr = "SELECT * from CongDan WHERE tinhTrangHonNhan != 'Doc Than'";
+            string sqlStr = "SELECT * from CongDan WHERE tinhTrangHonNhan != N'Độc Thân'";
             return db.TimCongDanDaKetHon(sqlStr, dtgv);
         }
         public DataSet TimCongDanDocThan(DataGridView dtgv)
         {
-            string sqlStr = "SELECT * from CongDan WHERE tinhTrangHonNhan = 'Doc Than'";
+            string sqlStr = "SELECT * from CongDan WHERE tinhTrangHonNhan = N'Độc Thân'";
             return db.TimCongDanDaKetHon(sqlStr, dtgv);
         }
         public DataSet TimCongDanTheoCCCD(string cccd, DataGridView dtgv)
@@ -120,6 +120,11 @@ namespace DoAn_Nhom7
         {
             string sqlStr = "SELECT * from CongDan WHERE hoTen LIKE N'%" + name + "%'";
             return db.TimCongDanTheoTen(sqlStr, dtgv);
+        }
+        public void LapDayThongTinCD(TextBox cmnd, TextBox a, DateTimePicker dt, RadioButton b, RadioButton b1, ComboBox d, TextBox f, TextBox g, ComboBox j, TextBox k, ComboBox x, TextBox y, TextBox z, TextBox i, TextBox t, ComboBox n, DateTimePicker m, ComboBox p)
+        {
+            string sqlStr = "Select * from CongDan where cmnd = '" + cmnd.Text + "'";
+            db.LapDayThongTinCD(sqlStr, cmnd, a, dt, b, b1, d, f, g, j, k, x, y, z, i, t, n, m, p);
         }
     }
 }
