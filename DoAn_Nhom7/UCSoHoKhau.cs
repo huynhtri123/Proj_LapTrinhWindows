@@ -189,7 +189,14 @@ namespace DoAn_Nhom7
 
         private void dtgvThanhVienShk_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            tvDao.ThanhVienShk_CellClick(sender, e, dtgvThanhVienShk, txtCmnd_tv, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);
+            DataGridViewRow row = new DataGridViewRow();
+            row = this.dtgvThanhVienShk.Rows[e.RowIndex];
+            txtCmnd_tv.Text = row.Cells[1].Value.ToString();
+            hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);
+
+            if (txtHoTen_tv.Text == "")
+                hkdao.LapThongTin(txtCmnd_tv, txtHoTen_tv, txtGioiTinh_tv);
+            /*tvDao.ThanhVienShk_CellClick(sender, e, dtgvThanhVienShk, txtCmnd_tv, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);*/
         }
 
         private void txtCmnd_tv_KeyDown(object sender, KeyEventArgs e)
