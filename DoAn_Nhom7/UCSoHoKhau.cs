@@ -19,6 +19,7 @@ namespace DoAn_Nhom7
         ThanhVienShkDAO tvDao = new ThanhVienShkDAO();
         SoHoKhauDAO shkDao = new SoHoKhauDAO();
         KhaiSinhDAO ksdao = new KhaiSinhDAO();
+        CongDanDAO cddao = new CongDanDAO();
         public UCSoHoKhau()
         {
             InitializeComponent();
@@ -130,8 +131,19 @@ namespace DoAn_Nhom7
             if (shkDao.KiemTraTVSHK(txtCmnd_tv.Text))
             {
                 if (cmbQuanHe.Text == "Vợ")
-                    if (txtCmnd_tv.Text == ksdao.CMNDVoChong(txtCMND.Text))
+                    if  (ksdao.CMNDVoChong(txtCMND.Text) == "" )
                     {
+                        CongDan cdA = new CongDan(txtCMND.Text, "");
+                        CongDan cdB = new CongDan(txtCmnd_tv.Text, txtHoTen_tv.Text);
+                        cddao.CapNhatKetHon(cdA, cdB);
+                        tvDao.ThietLapQuanHe(tv);
+                        tvDao.ThemThanhVien(tv);
+                        LayDanhSachThanhVien();
+                    }
+                    else if ( ksdao.CMNDVoChong(txtCMND.Text) == txtCmnd_tv.Text)
+                    {
+                        CongDan cdA = new CongDan(txtCMND.Text, "");
+                        CongDan cdB = new CongDan(txtCmnd_tv.Text, txtHoTen_tv.Text);
                         tvDao.ThietLapQuanHe(tv);
                         tvDao.ThemThanhVien(tv);
                         LayDanhSachThanhVien();

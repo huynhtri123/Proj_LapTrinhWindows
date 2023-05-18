@@ -40,8 +40,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnSignUp = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -52,6 +50,8 @@
             this.txtPass_Dk = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnLogin.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,9 +84,9 @@
             this.lblTaiKhoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTaiKhoan.Location = new System.Drawing.Point(15, 25);
             this.lblTaiKhoan.Name = "lblTaiKhoan";
-            this.lblTaiKhoan.Size = new System.Drawing.Size(96, 20);
+            this.lblTaiKhoan.Size = new System.Drawing.Size(91, 20);
             this.lblTaiKhoan.TabIndex = 2;
-            this.lblTaiKhoan.Text = "User name:";
+            this.lblTaiKhoan.Text = "Tài khoản :";
             // 
             // lblMatKhau
             // 
@@ -95,9 +95,9 @@
             this.lblMatKhau.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblMatKhau.Location = new System.Drawing.Point(15, 87);
             this.lblMatKhau.Name = "lblMatKhau";
-            this.lblMatKhau.Size = new System.Drawing.Size(88, 20);
+            this.lblMatKhau.Size = new System.Drawing.Size(87, 20);
             this.lblMatKhau.TabIndex = 3;
-            this.lblMatKhau.Text = "Password:";
+            this.lblMatKhau.Text = "Mật khẩu :";
             // 
             // btnDangNhap
             // 
@@ -106,7 +106,7 @@
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(98, 28);
             this.btnDangNhap.TabIndex = 4;
-            this.btnDangNhap.Text = "Login";
+            this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -117,9 +117,9 @@
             this.lblKhongTaiKhoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblKhongTaiKhoan.Location = new System.Drawing.Point(4, 44);
             this.lblKhongTaiKhoan.Name = "lblKhongTaiKhoan";
-            this.lblKhongTaiKhoan.Size = new System.Drawing.Size(181, 20);
+            this.lblKhongTaiKhoan.Size = new System.Drawing.Size(189, 20);
             this.lblKhongTaiKhoan.TabIndex = 5;
-            this.lblKhongTaiKhoan.Text = "Dont have an account?";
+            this.lblKhongTaiKhoan.Text = "Bạn chưa có tài khoản ?";
             // 
             // btnDangKy
             // 
@@ -129,7 +129,7 @@
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(113, 30);
             this.btnDangKy.TabIndex = 6;
-            this.btnDangKy.Text = "Sign up";
+            this.btnDangKy.Text = "Đăng ký";
             this.btnDangKy.UseVisualStyleBackColor = false;
             this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
@@ -178,15 +178,14 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(3, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 16);
+            this.label1.Size = new System.Drawing.Size(244, 16);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Or countinue with ___________________";
+            this.label1.Text = "Tiếp tục với ___________________";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.pnSignUp);
             this.panel3.Controls.Add(this.txtMatKhau);
             this.panel3.Controls.Add(this.lblTaiKhoan);
             this.panel3.Controls.Add(this.txtTaiKhoan);
@@ -197,37 +196,13 @@
             this.panel3.Size = new System.Drawing.Size(369, 222);
             this.panel3.TabIndex = 8;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(34, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(261, 25);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Please login to your account.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(32, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 38);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Welcome!";
-            // 
             // pnSignUp
             // 
             this.pnSignUp.BackColor = System.Drawing.Color.Transparent;
             this.pnSignUp.Controls.Add(this.button3);
             this.pnSignUp.Controls.Add(this.panel6);
             this.pnSignUp.Controls.Add(this.button2);
-            this.pnSignUp.Location = new System.Drawing.Point(202, 185);
+            this.pnSignUp.Location = new System.Drawing.Point(186, 12);
             this.pnSignUp.Name = "pnSignUp";
             this.pnSignUp.Size = new System.Drawing.Size(545, 476);
             this.pnSignUp.TabIndex = 9;
@@ -242,7 +217,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(479, 40);
             this.button3.TabIndex = 13;
-            this.button3.Text = "Login";
+            this.button3.Text = "Đăng nhập";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -279,9 +254,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label6.Location = new System.Drawing.Point(39, 111);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 20);
+            this.label6.Size = new System.Drawing.Size(87, 20);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Password:";
+            this.label6.Text = "Mật khẩu :";
             // 
             // btnDangKi
             // 
@@ -293,7 +268,7 @@
             this.btnDangKi.Name = "btnDangKi";
             this.btnDangKi.Size = new System.Drawing.Size(115, 40);
             this.btnDangKi.TabIndex = 8;
-            this.btnDangKi.Text = "Create";
+            this.btnDangKi.Text = "Tạo ";
             this.btnDangKi.UseVisualStyleBackColor = false;
             this.btnDangKi.Click += new System.EventHandler(this.btnDangKi_Click);
             // 
@@ -319,9 +294,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.Location = new System.Drawing.Point(39, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(218, 20);
+            this.label7.Size = new System.Drawing.Size(91, 20);
             this.label7.TabIndex = 6;
-            this.label7.Text = "User name (CCCD/CMND):";
+            this.label7.Text = "Tài khoản :";
             // 
             // button2
             // 
@@ -337,6 +312,30 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(34, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(261, 25);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Please login to your account.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(32, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 38);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Welcome!";
+            // 
             // frmDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
@@ -345,6 +344,7 @@
             this.BackgroundImage = global::DoAn_Nhom7.Properties.Resources.bg1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(892, 476);
+            this.Controls.Add(this.pnSignUp);
             this.Controls.Add(this.pnLogin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

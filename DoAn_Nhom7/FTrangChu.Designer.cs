@@ -96,7 +96,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1502, 669);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Trang chu";
+            this.tabPage1.Text = "Trang chủ";
             // 
             // btnDangNhap
             // 
@@ -105,9 +105,9 @@
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDangNhap.Location = new System.Drawing.Point(1138, 21);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(112, 52);
+            this.btnDangNhap.Size = new System.Drawing.Size(173, 52);
             this.btnDangNhap.TabIndex = 9;
-            this.btnDangNhap.Text = "Login";
+            this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -196,7 +196,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1502, 669);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Tra cuu ho so";
+            this.tabPage2.Text = "Tra cứu hồ sơ";
             // 
             // btnTimKiemTen
             // 
@@ -330,7 +330,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1502, 669);
             this.tabPage5.TabIndex = 7;
-            this.tabPage5.Text = "Dich vu";
+            this.tabPage5.Text = "Dịch vụ";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // pnDichVu

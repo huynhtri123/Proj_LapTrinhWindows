@@ -1,5 +1,4 @@
-create database proj_nhom7
-use proj_nhom7
+use ahihi
 --CONG DAN--
 CREATE TABLE CongDan (
  hoTen nvarchar(100),
@@ -193,11 +192,3 @@ VALUES ('nva', '123');
 INSERT INTO TaiKhoan (TaiKhoan, MatKhau)
 VALUES ('nvb', '123');
 select * from TaiKhoan
---INSERT INTO SoHoKhau (maSoHoKhau, CMNDChuHo, maKV, xaPhuong, quanHuyen, tinhTP, diaChi, ngayLap) SELECT '5', '6', maKV, xaPhuong, quanHuyen, tinhTP, diaChi, ngayLap FROM SoHoKhau WHERE maSoHoKhau = '2'
---INSERT INTO ThanhVienSoHoKhau(maSoHoKhau, CMNDChuHo, CMNDThanhVien, quanHeVoiChuHo) SELECT '5', '6',CMNDThanhVien, quanHeVoiCMND1 FROM ThanhVienSoHoKhau INNER JOIN QuanHe ON QuanHe.CMND2 = ThanhVienSoHoKhau.CMNDThanhVien WHERE ThanhVienSoHoKhau.maSoHoKhau = '1' AND QuanHe.CMND1 = '6'
---DELETE FROM ThanhVienSoHoKhau WHERE maSoHoKhau ='1'
---DELETE FROM SoHoKhau WHERE maSoHoKhau ='1'
- SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien= 3
-SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo=1
-SELECT * FROM CongDan WHERE hoTen LIKE N'%Hải%'
-
