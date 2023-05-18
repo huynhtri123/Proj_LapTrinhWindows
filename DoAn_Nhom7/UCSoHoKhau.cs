@@ -18,9 +18,7 @@ namespace DoAn_Nhom7
         SoHoKhauDAO hkdao = new SoHoKhauDAO();
         ThanhVienShkDAO tvDao = new ThanhVienShkDAO();
         SoHoKhauDAO shkDao = new SoHoKhauDAO();
-        //DBConnection db = new DBConnection();
         KhaiSinhDAO ksdao = new KhaiSinhDAO();
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.conStr);
         public UCSoHoKhau()
         {
             InitializeComponent();
@@ -206,54 +204,9 @@ namespace DoAn_Nhom7
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
             LayDanhSach();
-            string sqlStr = string.Format("SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien = '" + txtTraCuu.Text + "' OR CMNDChuHo = '" + txtTraCuu.Text + "'");
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(sqlStr, conn);
-                SqlDataReader dta = cmd.ExecuteReader();
-                if (dta.Read())
-                {
-                    txtMaSoHoKhau.Text = Convert.ToString(dta["maSoHoKhau"]);
-                    txtCmnd_tv.Text = txtTraCuu.Text;
-                    hkdao.LapSoHoKhau(txtMaSoHoKhau, txtCMND, txtMaKhuVuc, cmbXaPhuong, cmbQuanHuyen, cmbTinhThanhPho, txtDiaChi, dtpNgayLap);
-                    hkdao.LapTVSoHoKhau(txtCMND, txtCmnd_tv, txtMaShk_tv, txtMaSoHoKhau, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);
-                    if (txtHoTen_tv.Text == "")
-                        txtCmnd_tv.Text = "";
-                    foreach (DataGridViewRow row in dtgvSoHoKhau.Rows)
-                    {
-                        object value = row.Cells[1].Value;
-                        if (value != null && value.ToString() == txtCMND.Text)
-                        {
-                            row.DefaultCellStyle.BackColor = Color.LightBlue;
-                        }
-                    }
-                    LayDanhSachThanhVien();
-                    foreach (DataGridViewRow row in dtgvThanhVienShk.Rows)
-                    {
-                        object value = row.Cells[1].Value;
-                        if (value != null && value.ToString() == txtCmnd_tv.Text)
-                        {
-                            row.DefaultCellStyle.BackColor = Color.LightBlue;
-                        }
-                    }
-                }
-                else
-                    MessageBox.Show("Khong thuoc shk nao");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            //LayDanhSach();
-            //shkDao.TraCuuSoHoKhau_Click(sender, e, dtgvSoHoKhau, dtgvThanhVienShk, txtMaSoHoKhau, txtCmnd_tv, txtTraCuu, txtCMND, txtMaKhuVuc,
-            //                    cmbXaPhuong, cmbQuanHuyen, cmbTinhThanhPho, txtDiaChi, dtpNgayLap, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);            
-            //LayDanhSachThanhVien();
+            txtCmnd_tv.Text = txtTraCuu.Text;
+            shkDao.TraCuuSoHoKhau_Click(sender, e, dtgvSoHoKhau, dtgvThanhVienShk, txtMaSoHoKhau, txtCmnd_tv, txtTraCuu, txtCMND, txtMaKhuVuc,
+                                cmbXaPhuong, cmbQuanHuyen, cmbTinhThanhPho, txtDiaChi, dtpNgayLap, txtMaShk_tv, txtHoTen_tv, txtGioiTinh_tv, cmbQuanHe);
 
         }
 

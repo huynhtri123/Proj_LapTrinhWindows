@@ -21,10 +21,10 @@ namespace DoAn_Nhom7
             string sqlStr = string.Format("INSERT INTO TaiKhoan( TaiKhoan,MatKhau)  VALUES ('{0}', '{1}')", tk.taiKhoan, tk.matKhau);
             dbC.DangKyTaiKhoan(sqlStr);
         }
-        public void DangNhap(TaiKhoan tk)
+        public int DangNhap(TaiKhoan tk)
         {
             string sqlStr = "Select * from TaiKhoan where TaiKhoan = '" + tk.taiKhoan + "' and MatKhau = '" + tk.matKhau + "'";
-            dbC.DangNhap(sqlStr);
+            return dbC.DangNhap(sqlStr);
         }
     }
 }

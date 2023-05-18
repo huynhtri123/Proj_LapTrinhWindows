@@ -111,6 +111,7 @@ namespace DoAn_Nhom7
                 cbDaDong.Checked = true;
                 txtSoTienCanDong.Text = "0";
                 LayDanhSach();
+                MessageBox.Show("Dong tien thanh cong");
             }
         }
         private void btnThemDoiTuong_Click(object sender, EventArgs e)

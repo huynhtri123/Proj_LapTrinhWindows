@@ -186,6 +186,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.pnSignUp);
             this.panel3.Controls.Add(this.txtMatKhau);
             this.panel3.Controls.Add(this.lblTaiKhoan);
             this.panel3.Controls.Add(this.txtTaiKhoan);
@@ -226,7 +227,7 @@
             this.pnSignUp.Controls.Add(this.button3);
             this.pnSignUp.Controls.Add(this.panel6);
             this.pnSignUp.Controls.Add(this.button2);
-            this.pnSignUp.Location = new System.Drawing.Point(85, 12);
+            this.pnSignUp.Location = new System.Drawing.Point(202, 185);
             this.pnSignUp.Name = "pnSignUp";
             this.pnSignUp.Size = new System.Drawing.Size(545, 476);
             this.pnSignUp.TabIndex = 9;
@@ -344,7 +345,6 @@
             this.BackgroundImage = global::DoAn_Nhom7.Properties.Resources.bg1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(892, 476);
-            this.Controls.Add(this.pnSignUp);
             this.Controls.Add(this.pnLogin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
