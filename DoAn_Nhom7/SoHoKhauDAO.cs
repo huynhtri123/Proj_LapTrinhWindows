@@ -25,7 +25,7 @@ namespace DoAn_Nhom7
         }
         public void ThemSoHoKhau(SoHoKhau hk)
         {
-            string sqlStr = string.Format("INSERT INTO SoHoKhau (maSoHoKhau, CMNDChuHo, maKV, xaPhuong, quanHuyen, tinhTP, diaChi,ngayLap)  VALUES ('{0}', '{1}','{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", hk.MaSoHoKhau, hk.CMND, hk.MaKV, hk.XaPhuong, hk.QuanHuyen, hk.TinhThanhPho
+            string sqlStr = string.Format("INSERT INTO SoHoKhau (maSoHoKhau, CMNDChuHo, maKV, xaPhuong, quanHuyen, tinhTP, diaChi,ngayLap)  VALUES ('{0}', '{1}',N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', '{7}')", hk.MaSoHoKhau, hk.CMND, hk.MaKV, hk.XaPhuong, hk.QuanHuyen, hk.TinhThanhPho
             , hk.DiaChi, hk.NgayLap);
             dbconnection.XuLy1(sqlStr);
         }
@@ -121,7 +121,9 @@ namespace DoAn_Nhom7
         }
         public string TimMaSHK(string cmnd)
         {
-            string sqlStr = "SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDChuHo = '" + cmnd + "' or CMNDThanhVien= '" + cmnd + "'";
+            string sqlStr1 = "SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDChuHo = '" + cmnd + "' or CMNDThanhVien= '" + cmnd + "'";
+            string sqlStr2 = "SELECT maSoHoKhau FROM SoHoKhau WHERE CMNDChuHo = '" + cmnd + "' ";
+            string sqlStr = sqlStr1 + " UNION " + sqlStr2;
             return dbconnection.TimMaSHK(sqlStr);
         }
         public bool KiemTraTVSHK(string cmnd)

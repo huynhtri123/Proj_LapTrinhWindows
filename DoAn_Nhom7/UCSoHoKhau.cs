@@ -88,6 +88,8 @@ namespace DoAn_Nhom7
                 SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, cmbXaPhuong.Text, cmbQuanHuyen.Text, cmbTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
                 hkdao.SuaSoHoKhau(hk);
                 LayDanhSach();
+                LayDanhSachThanhVien();
+
             }
             else
                 MessageBox.Show("Không cùng sổ hộ khẩu");
