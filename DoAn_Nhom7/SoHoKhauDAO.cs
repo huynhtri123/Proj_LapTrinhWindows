@@ -84,12 +84,34 @@ namespace DoAn_Nhom7
         public void TraCuuSoHoKhau_Click(object sender, EventArgs e, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
         {
             string sqlStr = string.Format("SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien = '" + traCuu.Text + "' OR CMNDChuHo = '" + traCuu.Text + "'");
-            string sqlStr_lapShk = string.Format("SELECT * FROM SoHoKhau WHERE maSoHoKhau = '" + maShk.Text + "'");
-            string sqlStr_lapTvShk = string.Format("SELECT CongDan.hoTen, CongDan.gioiTinh , QuanHe.quanHeVoiCMND1 FROM QuanHe JOIN CongDan ON CongDan.CMND = QuanHe.CMND2 WHERE QuanHe.CMND1 = '" + cmnd.Text + "' AND QuanHe.CMND2 = '" + cmndTv.Text + "' ");          
             
-            dbconnection.TraCuuSoHoKhau_Click(sender, e, sqlStr, sqlStr_lapShk, sqlStr_lapTvShk,
-                dtgvSoHoKhau, dtgvThanhVienShk, maShk, cmndTv, traCuu, cmnd,
-                maKv, xaPhuong, quanHuyen, tinhTp, diaChi, ngayLap, maShkTv, hoTenTv, gioiTinhTv, quanHe);
+            string timShk = dbconnection.TimTheoThanhTraCuu(sqlStr);
+            if (timShk != "")
+            {
+                maShk.Text = timShk;
+                LapSoHoKhau(maShk, cmnd, maKv, xaPhuong, quanHuyen, tinhTp, diaChi, ngayLap);
+                LapTVSoHoKhau(cmnd, cmndTv, maShkTv, maShk, hoTenTv, gioiTinhTv, quanHe);
+
+                foreach (DataGridViewRow row in dtgvSoHoKhau.Rows)
+                {
+                    object value = row.Cells[1].Value;
+                    if (value != null && value.ToString() == cmnd.Text)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightBlue;
+                    }
+                }
+                string dsTv = string.Format("SELECT maSoHoKhau,CMNDThanhVien,quanHeVoiChuHo FROM ThanhVienSoHoKhau WHERE maSoHoKhau = '" + timShk + "'");
+                dtgvThanhVienShk.DataSource = dbconnection.DanhSach(dsTv);
+                foreach (DataGridViewRow row in dtgvThanhVienShk.Rows)
+                {
+                    object value = row.Cells[1].Value;
+                    if (value != null && value.ToString() == cmndTv.Text)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightBlue;
+                    }
+                }
+            }
+            else MessageBox.Show("Không tìm thấy sổ hộ khẩu!");
         }
         public void LapThongTin(TextBox txtCmnd_tv, TextBox txtHoTen_tv, TextBox txtGioiTinh_tv)
         {

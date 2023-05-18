@@ -521,7 +521,7 @@ namespace DoAn_Nhom7
                 conn.Close();
             }
         }
-        public void DangNhap(string sqlStr)
+        public int DangNhap(string sqlStr)
         {
             try
             {
@@ -530,11 +530,10 @@ namespace DoAn_Nhom7
                 SqlDataReader dta = cmd.ExecuteReader();
                 if (dta.Read() == true)
                 {
-
+                    return 1;
                 }
                 else
                     MessageBox.Show("Tai khoan ban dang nhap sai");
-
             }
             catch (Exception ex)
             {
@@ -544,9 +543,11 @@ namespace DoAn_Nhom7
             {
                 conn.Close();
             }
+            return 0;
         }
-        public void TraCuuSoHoKhau_Click(object sender, EventArgs e, string sqlStr, string sqlStr_lapShk, string sqlStr_lapTvShk, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
+        public string TimTheoThanhTraCuu(string sqlStr)
         {
+            string x = "";
             try
             {
                 conn.Open();
@@ -554,41 +555,19 @@ namespace DoAn_Nhom7
                 SqlDataReader dta = cmd.ExecuteReader();
                 if (dta.Read())
                 {
-                    maShk.Text = Convert.ToString(dta["maSoHoKhau"]);
-                    cmndTv.Text = traCuu.Text;
-                    LapSoHoKhau(sqlStr_lapShk, maShk, cmnd, maKv, xaPhuong, quanHuyen, tinhTp, diaChi, ngayLap);
-                    LapTVSoHoKhau(sqlStr_lapTvShk, cmnd, cmndTv, maShkTv, maShk, hoTenTv, gioiTinhTv, quanHe);
-                    if (hoTenTv.Text == "")
-                        cmndTv.Text = "";
-                    foreach (DataGridViewRow row in dtgvSoHoKhau.Rows)
-                    {
-                        object value = row.Cells[1].Value;
-                        if (value != null && value.ToString() == cmnd.Text)
-                        {
-                            row.DefaultCellStyle.BackColor = Color.LightBlue;
-                        }
-                    }
-                    foreach (DataGridViewRow row in dtgvThanhVienShk.Rows)
-                    {
-                        object value = row.Cells[1].Value;
-                        if (value != null && value.ToString() == cmndTv.Text)
-                        {
-                            row.DefaultCellStyle.BackColor = Color.LightBlue;
-                        }
-                    }
+                    x = Convert.ToString(dta["maSoHoKhau"]);
                 }
-                else
-                    MessageBox.Show("Không thuộc sổ hộ khẩu nào!");
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("That bai");
             }
             finally
             {
                 conn.Close();
             }
-        }
+            return x;
+        }       
         public void LapDayThongTinKhaiSinh(string sqlStr, Label a, Label b, Label a1, Label s, Label a2, Label a3, Label a4, Label a5)
         {
             conn.Open();

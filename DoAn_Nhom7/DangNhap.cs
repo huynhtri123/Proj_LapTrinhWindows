@@ -32,12 +32,14 @@ namespace DoAn_Nhom7
             else
             {
                 TaiKhoan tk = new TaiKhoan(txtTaiKhoan.Text, txtMatKhau.Text);
-                tkdao.DangNhap(tk);
-                tclChucNang.TabPages[1].Enabled = true;
-                tclChucNang.TabPages[2].Enabled = true;
-                cmbTimKiem.Enabled = true;
-                dangNhap.Text = txtTaiKhoan.Text;
-                this.Close();
+                if (tkdao.DangNhap(tk) == 1)
+                {
+                    tclChucNang.TabPages[1].Enabled = true;
+                    tclChucNang.TabPages[2].Enabled = true;
+                    cmbTimKiem.Enabled = true;
+                    dangNhap.Text = txtTaiKhoan.Text;
+                    this.Close();
+                }
             }
         }
 
