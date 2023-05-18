@@ -83,8 +83,9 @@ namespace DoAn_Nhom7
         }
         public void TraCuuSoHoKhau_Click(object sender, EventArgs e, DataGridView dtgvSoHoKhau, DataGridView dtgvThanhVienShk, TextBox maShk, TextBox cmndTv, TextBox traCuu, TextBox cmnd, TextBox maKv, ComboBox xaPhuong, ComboBox quanHuyen, ComboBox tinhTp, TextBox diaChi, DateTimePicker ngayLap, TextBox maShkTv, TextBox hoTenTv, TextBox gioiTinhTv, ComboBox quanHe)
         {
-            string sqlStr = string.Format("SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien = '" + traCuu.Text + "' OR CMNDChuHo = '" + traCuu.Text + "'");
-            
+            string sqlStr1 = string.Format("SELECT maSoHoKhau FROM ThanhVienSoHoKhau WHERE CMNDThanhVien = '" + traCuu.Text + "' OR CMNDChuHo = '" + traCuu.Text + "'");
+            string sqlStr2 = string.Format("SELECT maSoHoKhau FROM SoHoKhau where CMNDChuHo = '" + traCuu.Text + "'");
+            string sqlStr = sqlStr1 +" UNION "+ sqlStr2;
             string timShk = dbconnection.TimTheoThanhTraCuu(sqlStr);
             if (timShk != "")
             {

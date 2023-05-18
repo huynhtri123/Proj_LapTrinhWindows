@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Policy;
 using System.Globalization;
+using System.IO;
 
 namespace DoAn_Nhom7
 {
@@ -20,6 +21,7 @@ namespace DoAn_Nhom7
         SoHoKhauDAO shkDao = new SoHoKhauDAO();
         KhaiSinhDAO ksdao = new KhaiSinhDAO();
         CongDanDAO cddao = new CongDanDAO();
+        public static int stt;
         public UCSoHoKhau()
         {
             InitializeComponent();
@@ -60,7 +62,11 @@ namespace DoAn_Nhom7
         {
             if (shkDao.KiemTraSHK(txtCMND.Text))
             {
-                SoHoKhau hk = new SoHoKhau(txtMaSoHoKhau.Text, txtCMND.Text, txtMaKhuVuc.Text, cmbXaPhuong.Text, cmbQuanHuyen.Text, cmbTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
+                stt = Convert.ToInt32(File.ReadAllText("E:/Sualancuoi/Proj_LapTrinhWindows/cmndcon.txt"));
+                string mashk = stt.ToString();
+                stt++;
+                File.WriteAllText("E:/Sualancuoi/Proj_LapTrinhWindows/cmndcon.txt", stt.ToString());
+                SoHoKhau hk = new SoHoKhau(mashk, txtCMND.Text, txtMaKhuVuc.Text, cmbXaPhuong.Text, cmbQuanHuyen.Text, cmbTinhThanhPho.Text, txtDiaChi.Text, dtpNgayLap.Text);
                 hkdao.ThemSoHoKhau(hk);
                 LayDanhSach();
             }

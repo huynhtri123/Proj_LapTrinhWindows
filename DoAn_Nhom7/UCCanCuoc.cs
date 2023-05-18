@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
 
 namespace DoAn_Nhom7
 {
     public partial class UCCanCuoc : UserControl
     {
         CongDanDAO cddao = new CongDanDAO();
+        public static int stt;
         public UCCanCuoc()
         {
             InitializeComponent();
@@ -51,6 +53,10 @@ namespace DoAn_Nhom7
         private void btnThem_Click(object sender, EventArgs e)
         {
             string GioiTinh;
+            stt = Convert.ToInt32(File.ReadAllText("E:/Sualancuoi/Proj_LapTrinhWindows/cmndcon.txt"));
+            string cmnd = stt.ToString();
+            stt++;
+            File.WriteAllText("E:/Sualancuoi/Proj_LapTrinhWindows/cmndcon.txt", stt.ToString());
             if (rDNam.Checked)
             {
                 GioiTinh = "Nam"; 
@@ -59,7 +65,7 @@ namespace DoAn_Nhom7
             {
                 GioiTinh = "Nữ"; 
             }
-            CongDan cd = new CongDan(txtHoTen.Text, dTPNgaySinh.Text, GioiTinh, txtCMND.Text, cmbDanToc.Text, txtHonNhan.Text, txtKhaiSinh.Text, cmbTinh.Text, txtThuongTru.Text, cmbHocVan.Text, txtNgheNghiep.Text, txtLuong.Text, txtSoLanKetHon.Text, txtTamTru.Text, cmbNoiCap.Text, dTPNgayCap.Text,cmbQuocTich.Text);
+            CongDan cd = new CongDan(txtHoTen.Text, dTPNgaySinh.Text, GioiTinh, cmnd, cmbDanToc.Text, txtHonNhan.Text, txtKhaiSinh.Text, cmbTinh.Text, txtThuongTru.Text, cmbHocVan.Text, txtNgheNghiep.Text, txtLuong.Text, txtSoLanKetHon.Text, txtTamTru.Text, cmbNoiCap.Text, dTPNgayCap.Text,cmbQuocTich.Text);
             cddao.Them(cd);
         }
 
